@@ -28,7 +28,7 @@ body:
     attributes:
       label: Incident date
       description: When it happened (YYYY-MM-DD), not when it was written up.
-      placeholder: 2026-08-21
+      placeholder: '2026-08-21'
     validations:
       required: false
   - type: dropdown
