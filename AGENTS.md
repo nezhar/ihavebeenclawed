@@ -39,6 +39,7 @@ Apply these field rules by hand; the validator cannot check them:
 - `date`: the documented event's date (incident, or the ruling when that is the record), never the access or publication date.
 - `agent`: product name only, spelled one way dataset-wide — each distinct string becomes a filter chip and inflates the "agents implicated" counter. Tool version goes in `agentVersion`; a model name is not a version.
 - `displayId`: use the upstream identifier (`COD-35707`, `REDDIT-1PGXCKK`, `BCCRT-149`); do not invent sequence numbers.
+- `preventable`: scored from the victim's side — `true` only when the tool's operator could realistically have prevented the outcome with known precautions; vendor bugs and supply-chain compromises invisible to the user are `false`; `null` when it depends on whose prevention counts. Hindsight lessons alone do not make an incident `true`.
 
 Keep at least one `verified` record among the `featured` incidents, and do not let the carousel collapse into a single product or damage category.
 

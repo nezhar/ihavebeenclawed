@@ -80,7 +80,7 @@
           "accessedAt": "2026-08-08"
         }
       ],
-      "featured": true,
+      "featured": false,
       "hallOfClaws": true,
       "image": "assets/images/scratched-keyboard-hand.png",
       "imageCaption": "Illustrative artwork; not incident evidence."
@@ -540,7 +540,7 @@
           "accessedAt": "2026-08-08"
         }
       ],
-      "featured": true,
+      "featured": false,
       "hallOfClaws": false,
       "image": "assets/images/cat-power-button.png",
       "imageCaption": "Illustrative artwork; not incident evidence."
@@ -575,7 +575,7 @@
           "accessedAt": "2026-08-08"
         }
       ],
-      "featured": true,
+      "featured": false,
       "hallOfClaws": false,
       "image": "assets/images/clawed-headset.png",
       "imageCaption": "Illustrative artwork; not incident evidence."
@@ -1024,7 +1024,7 @@
           "accessedAt": "2026-08-21"
         }
       ],
-      "featured": true,
+      "featured": false,
       "hallOfClaws": false,
       "image": "assets/images/clawed-access-card.png",
       "imageCaption": "Illustrative artwork; not incident evidence."
