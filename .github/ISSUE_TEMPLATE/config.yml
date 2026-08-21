@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the archive first
+    url: https://github.com/nezhar/ihavebeenclawed
+    about: Check whether the incident is already recorded before submitting.

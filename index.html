@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A source-aware archive of incidents involving AI agents and chatbots.">
+<meta property="og:title" content="ihavebeenclawed — an index of agent incidents">
+<meta property="og:description" content="Sourced AI-agent and chatbot incidents, with lessons learned.">
+<meta property="og:image" content="./assets/images/scratched-coffee-hand.png">
+<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+<script src="./support.js"></script>
+<script src="./incident-data.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ihavebeenclawed — an index of agent incidents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #0E1116; }
+  * { box-sizing: border-box; }
+  a { color: #C2402A; text-decoration: none; }
+  a:hover { color: #D9DEE5; text-decoration: underline; }
+  :focus-visible { outline: 2px solid #C2402A; outline-offset: 3px; }
+  @keyframes clawblink { 0%, 100% { opacity: 1 } 50% { opacity: 0.15 } }
+</style>
+</helmet>
+<div style="{{ themeVars }}background: var(--bg, #0E1116); color: var(--text, #D9DEE5); font-family: 'Source Sans 3', system-ui, sans-serif; min-height: 100vh; -webkit-font-smoothing: antialiased;">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 28px; border-bottom: 1px solid var(--line, #232A33); position: sticky; top: 0; background: var(--bgTrans, rgba(14,17,22,0.92)); backdrop-filter: blur(8px); z-index: 20; flex-wrap: wrap;">
+    <a href="#top" style="display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none;">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex: none;">
+        <path d="M4 19 L15 4" stroke="#C2402A" stroke-width="2.2" stroke-linecap="round"></path>
+        <path d="M9 20 L20 5" stroke="#C2402A" stroke-width="2.2" stroke-linecap="round"></path>
+        <path d="M14 21 L23 8" stroke="#C2402A" stroke-width="1.6" stroke-linecap="round" opacity="0.7"></path>
+      </svg>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 17px; letter-spacing: -0.02em;">ihavebeenclawed</span>
+    </a>
+    <nav style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">
+      <a href="#index" style="color: var(--muted, #7B8494); white-space: nowrap;">index</a>
+      <a href="#hall" style="color: var(--muted, #7B8494); white-space: nowrap;">hall of claws</a>
+      <a href="#prevent" style="color: var(--muted, #7B8494); white-space: nowrap;">avoid being clawed</a>
+      <button type="button" onClick="{{ toggleTheme }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); background: transparent; border: 1px solid var(--line, #232A33); border-radius: 3px; padding: 5px 9px; cursor: pointer;">{{ themeLabel }}</button>
+      <a href="#submit" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--bg, #0E1116); background: #C2402A; padding: 7px 13px; border-radius: 3px; font-weight: 600;">confess</a>
+    </nav>
+  </header>
+
+  <section id="top" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" onFocus="{{ pause }}" onBlur="{{ resume }}" style="max-width: 1080px; margin: 0 auto; padding: 72px 28px 40px;">
+    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 26px;">{{ featured.label }}</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: start;">
+    <div style="flex: 3 1 380px; min-width: 0;">
+    <blockquote style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-weight: 600; letter-spacing: -0.035em; text-wrap: pretty;">
+      <span style="display: block; color: #C2402A; font-size: clamp(26px, 4.2vw, 44px); line-height: 1.2;">I have been clawed.</span>
+      <span role="button" aria-haspopup="dialog" aria-label="View details for this incident" tabindex="0" onClick="{{ featured.onOpen }}" onKeyDown="{{ featured.onOpenKey }}" style="display: block; color: var(--text, #D9DEE5); font-size: clamp(21px, 3.2vw, 32px); line-height: 1.3; margin-top: 14px; cursor: pointer;">{{ featured.lede }}</span>
+    </blockquote>
+    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted, #7B8494); margin: 28px 0 0;">{{ featured.meta }}</p>
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 22px;">
+      <a href="{{ featured.href }}" target="{{ featured.target }}" rel="{{ featured.rel }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px;">read the source →</a>
+      <a href="{{ featured.href }}" target="{{ featured.target }}" rel="{{ featured.rel }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted, #7B8494); border-bottom: 1px solid var(--line, #232A33);">source: {{ featured.source }}</a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 26px;">
+      <button type="button" onClick="{{ featPrev }}" aria-label="Previous featured incident" style="{{ featArrowStyle }}">‹</button>
+      <div role="tablist" aria-label="Featured incidents" style="display: flex; align-items: center;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
+          <button type="button" role="tab" onClick="{{ d.onClick }}" aria-label="{{ d.label }}" style="{{ d.style }}"></button>
+        </sc-for>
+      </div>
+      <button type="button" onClick="{{ featNext }}" aria-label="Next featured incident" style="{{ featArrowStyle }}">›</button>
+    </div>
+    </div>
+      <figure style="margin: 0; flex: 1 1 220px; min-width: 200px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border: 1px solid var(--line, #232A33); background: var(--surface, #161B22);">
+          <sc-for list="{{ featSlots }}" as="fs" hint-placeholder-count="3">
+            <div style="{{ fs.style }}">
+              <image-slot id="{{ fs.slot }}" shape="rect" src="{{ fs.src }}" placeholder="drop the photo for this incident" style="width: 100%; height: 100%;"></image-slot>
+            </div>
+          </sc-for>
+        </div>
+        <figcaption style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); line-height: 1.5;">{{ featured.caption }}</figcaption>
+      </figure>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: var(--line, #232A33); border: 1px solid var(--line, #232A33); margin-top: 56px;">
+      <sc-for list="{{ counters }}" as="c" hint-placeholder-count="3">
+        <div style="background: var(--surface, #161B22); padding: 22px 24px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: clamp(24px, 3.2vw, 34px); font-weight: 600; letter-spacing: -0.03em; color: {{ c.color }};">{{ c.value }}</div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 8px;">{{ c.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="index" style="max-width: 1080px; margin: 0 auto; padding: 40px 28px 0;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line, #232A33); padding-bottom: 14px;">
+      <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin: 0;">The index</h2>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted, #7B8494);">{{ resultLabel }}</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 22px 0 30px;">
+      <sc-for list="{{ filterGroups }}" as="g" hint-placeholder-count="4">
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); letter-spacing: 0.12em; text-transform: uppercase; width: 92px; flex: none;">{{ g.label }}</span>
+          <sc-for list="{{ g.options }}" as="o" hint-placeholder-count="4">
+            <button type="button" onClick="{{ o.onClick }}" aria-pressed="{{ o.active }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
+        <p role="status" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--muted, #7B8494); border: 1px dashed var(--line, #232A33); padding: 40px; text-align: center; margin: 0;">Loading incident archive…</p>
+      </sc-if>
+      <sc-if value="{{ hasLoadError }}" hint-placeholder-val="{{ false }}">
+        <p role="alert" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #C2402A; border: 1px solid rgba(194,64,42,0.5); padding: 24px; margin: 0;">Unable to load incident archive. Serve this directory over HTTP and try again.</p>
+      </sc-if>
+      <sc-for list="{{ stories }}" as="s" hint-placeholder-count="6">
+        <article role="button" aria-haspopup="dialog" aria-label="View details for {{ s.title }}" onClick="{{ s.onClick }}" onKeyDown="{{ s.onKeyDown }}" onMouseEnter="{{ s.onEnter }}" onMouseLeave="{{ s.onLeave }}" tabindex="0" style="{{ s.cardStyle }}">
+          <div style="{{ s.scratchStyle }}">
+            <svg width="190" height="100%" viewBox="0 0 190 200" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M40 -20 L150 220" stroke="#C2402A" stroke-width="2" opacity="0.85"></path>
+              <path d="M75 -20 L185 220" stroke="#C2402A" stroke-width="3" opacity="0.55"></path>
+              <path d="M110 -20 L220 220" stroke="#C2402A" stroke-width="1.5" opacity="0.4"></path>
+            </svg>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; position: relative;">
+            <span style="display: flex; gap: 3px;" title="{{ s.severityLabel }}" aria-label="{{ s.severityLabel }}">
+              <sc-for list="{{ s.claws }}" as="c" hint-placeholder-count="5">
+                <svg width="13" height="15" viewBox="0 0 13 15" aria-hidden="true">
+                  <path d="M1 13 L7 2" stroke="{{ c.stroke }}" stroke-width="1.6" stroke-linecap="round"></path>
+                  <path d="M5 14 L11 3" stroke="{{ c.stroke }}" stroke-width="1.6" stroke-linecap="round"></path>
+                  <path d="M9 14 L13 6" stroke="{{ c.stroke }}" stroke-width="1.2" stroke-linecap="round"></path>
+                </svg>
+              </sc-for>
+            </span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); border: 1px solid var(--line, #232A33); border-radius: 3px; padding: 3px 8px;">{{ s.agent }}</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #C2402A; border: 1px solid rgba(194,64,42,0.35); border-radius: 3px; padding: 3px 8px;">{{ s.damage }}</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); margin-left: auto;">{{ s.date }}</span>
+          </div>
+          <p style="margin: 16px 0 0; font-size: 17px; line-height: 1.55; color: var(--text, #D9DEE5); max-width: 74ch; text-wrap: pretty; position: relative;">{{ s.excerpt }}</p>
+          <p style="margin: 14px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ok, #3E9C8B); position: relative;">lesson: {{ s.lesson }}</p>
+          <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; position: relative; font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
+            <a href="{{ s.href }}" target="{{ s.target }}" rel="{{ s.rel }}" onClick="{{ s.onLinkClick }}">read {{ s.displayId }} →</a>
+            <a href="{{ s.href }}" target="{{ s.target }}" rel="{{ s.rel }}" onClick="{{ s.onLinkClick }}" style="color: var(--muted, #7B8494);">source: {{ s.source }}</a>
+          </div>
+        </article>
+      </sc-for>
+      <sc-if value="{{ showEmpty }}" hint-placeholder-val="{{ false }}">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--muted, #7B8494); border: 1px dashed var(--line, #232A33); padding: 40px; text-align: center; margin: 0;">No incidents indexed yet. Give it a week.</p>
+      </sc-if>
+    </div>
+  </section>
+
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ modal.onBackdropClick }}" style="position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; background: rgba(5,7,10,0.78); backdrop-filter: blur(4px);">
+      <section data-incident-modal role="dialog" aria-modal="true" aria-labelledby="{{ modal.labelId }}" onClick="{{ modal.stopPropagation }}" style="width: min(760px, 100%); max-height: calc(100vh - 40px); overflow-y: auto; background: var(--surface, #161B22); color: var(--text, #D9DEE5); border: 1px solid var(--line, #232A33); border-top: 3px solid #C2402A; box-shadow: 0 24px 80px rgba(0,0,0,0.45); padding: clamp(24px, 5vw, 42px);">
+        <div style="display: flex; align-items: start; justify-content: space-between; gap: 24px;">
+          <div>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px;">{{ modal.meta }}</p>
+            <h2 id="{{ modal.labelId }}" style="font-family: 'IBM Plex Mono', monospace; font-size: clamp(22px, 4vw, 32px); line-height: 1.2; letter-spacing: -0.03em; margin: 0; text-wrap: pretty;">{{ modal.headline }}</h2>
+            <sc-if value="{{ modal.subtitle }}" hint-placeholder-val="{{ false }}">
+              <p style="font-size: 15px; line-height: 1.5; color: var(--muted, #7B8494); margin: 10px 0 0; text-wrap: pretty;">{{ modal.subtitle }}</p>
+            </sc-if>
+          </div>
+          <button data-modal-close type="button" onClick="{{ modal.close }}" aria-label="Close incident details" style="flex: none; font-family: 'IBM Plex Mono', monospace; font-size: 20px; line-height: 1; color: var(--muted, #7B8494); background: transparent; border: 1px solid var(--line, #232A33); border-radius: 3px; padding: 7px 10px; cursor: pointer;">×</button>
+        </div>
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C2402A; margin: 18px 0 0;">{{ modal.damageCategory }} · {{ modal.severityLabel }}</p>
+        <p style="font-size: 18px; line-height: 1.6; margin: 28px 0 0; text-wrap: pretty;">{{ modal.summary }}</p>
+        <div style="border-top: 1px solid var(--line, #232A33); margin-top: 26px; padding-top: 24px;">
+          <h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px;">What happened</h3>
+          <p style="font-size: 16px; line-height: 1.65; margin: 0; white-space: pre-line; text-wrap: pretty;">{{ modal.details }}</p>
+        </div>
+        <div style="border-left: 2px solid var(--ok, #3E9C8B); margin-top: 24px; padding: 3px 0 3px 16px;">
+          <h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ok, #3E9C8B); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px;">Lesson</h3>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0;">{{ modal.lesson }}</p>
+        </div>
+        <div style="border-top: 1px solid var(--line, #232A33); margin-top: 28px; padding-top: 24px;">
+          <h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px;">Sources</h3>
+          <div style="display: flex; flex-direction: column; align-items: start; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">
+            <sc-for list="{{ modal.sources }}" as="modalSource" hint-placeholder-count="3">
+              <a href="{{ modalSource.url }}" target="{{ modalSource.target }}" rel="{{ modalSource.rel }}">{{ modalSource.title }} · {{ modalSource.publisher }} ↗</a>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+    </div>
+  </sc-if>
+
+  <section id="hall" style="max-width: 1080px; margin: 0 auto; padding: 80px 28px 0;">
+    <div style="display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--line, #232A33); padding-bottom: 14px;">
+      <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin: 0;">Hall of claws</h2>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--muted, #7B8494);">featured reports · source linked</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; padding-top: 22px;">
+      <sc-for list="{{ hall }}" as="h" hint-placeholder-count="3">
+        <article role="button" aria-haspopup="dialog" aria-label="View details for {{ h.title }}" tabindex="0" onClick="{{ h.onClick }}" onKeyDown="{{ h.onKeyDown }}" style="background: var(--surface, #161B22); border: 1px solid var(--line, #232A33); border-top: 2px solid #C2402A; padding: 22px; cursor: pointer;">
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 12px;">{{ h.tag }}</p>
+          <h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 10px; line-height: 1.25;">{{ h.title }}</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted, #7B8494); text-wrap: pretty;">{{ h.body }}</p>
+          <p style="margin: 16px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C2402A;">{{ h.damage }}</p>
+          <p style="margin: 12px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px;"><a href="{{ h.href }}" target="{{ h.target }}" rel="{{ h.rel }}" onClick="{{ h.onLinkClick }}">read the source →</a></p>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="submit" style="max-width: 1080px; margin: 96px auto 0; padding: 0 28px;">
+    <div style="border: 1px solid var(--line, #232A33); background: var(--surface, #161B22); padding: 44px; display: flex; gap: 32px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+      <div style="max-width: 52ch;">
+        <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: clamp(22px, 3vw, 30px); font-weight: 600; letter-spacing: -0.03em; margin: 0 0 12px;">Been clawed?</h2>
+        <p style="margin: 0 0 14px; font-size: 16px; line-height: 1.6; color: var(--muted, #7B8494); text-wrap: pretty;">Write it up where people can discuss and verify it — tool and version, what happened, damage, lessons learned. Then send us the link to the published post or discussion, and we archive it here. Nobody is going to laugh at you. Much.</p>
+        <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted, #7B8494);">Good places to post:
+          <a href="https://news.ycombinator.com/submit" target="_blank" rel="noopener noreferrer">Hacker News</a> ·
+          <a href="https://www.reddit.com/r/ClaudeAI/" target="_blank" rel="noopener noreferrer">r/ClaudeAI</a> ·
+          <a href="https://www.reddit.com/r/LocalLLaMA/" target="_blank" rel="noopener noreferrer">r/LocalLLaMA</a> ·
+          <a href="https://lobste.rs/" target="_blank" rel="noopener noreferrer">lobste.rs</a> ·
+          your tool's issue tracker · your own blog
+        </p>
+      </div>
+      <a href="https://github.com/nezhar/ihavebeenclawed/issues/new?template=incident-link.yml" target="_blank" rel="noopener noreferrer" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; color: #0E1116; background: #C2402A; padding: 14px 24px; border-radius: 3px; white-space: nowrap;">Submit a link →</a>
+    </div>
+  </section>
+
+  <section id="prevent" style="max-width: 1080px; margin: 0 auto; padding: 56px 28px 0;">
+    <div style="display: flex; flex-wrap: wrap; border: 1px solid rgba(62,156,139,0.3); border-left: 2px solid var(--ok, #3E9C8B);">
+      <div style="position: relative; flex: 1 1 200px; min-width: 180px; min-height: 240px; border-right: 1px solid rgba(62,156,139,0.3); overflow: hidden;">
+        <image-slot id="prevent-claw" shape="rect" src="assets/images/claw-closeup.png" placeholder="illustrative close-up of an extended cat claw" style="width: 100%; height: 100%;"></image-slot>
+      </div>
+    <div style="flex: 3 1 340px; min-width: 0; padding: 30px 34px;">
+      <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 16px; color: var(--ok, #3E9C8B);">How to avoid being clawed</h2>
+      <p style="margin: 0 0 18px; font-size: 16px; line-height: 1.6; color: var(--text, #D9DEE5); max-width: 72ch; text-wrap: pretty;">{{ preventSummary }} The recurring risk is an AI system trusted beyond its verified capabilities.</p>
+      <ul style="margin: 0; padding-left: 20px; font-size: 15.5px; line-height: 1.85; color: var(--muted, #7B8494); max-width: 72ch;">
+        <li>Run agents in a container or VM with a mounted working copy, not your home directory.</li>
+        <li>Deny by default. Allowlist commands rather than blocklisting the scary ones.</li>
+        <li>No production credentials in the environment the agent can read.</li>
+        <li>Require sourced answers and human review for legal, policy, and customer-facing advice.</li>
+        <li>Preview destructive actions and preserve a tested recovery path before approval.</li>
+      </ul>
+      <div style="margin: 24px 0 0; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
+        <a href="https://vibepod.dev" target="_blank" rel="noopener noreferrer" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; color: #0E1116; background: var(--ok, #3E9C8B); padding: 14px 24px; border-radius: 3px; white-space: nowrap;">Run your agents in a cage → VibePod</a>
+        <span style="font-size: 13.5px; color: var(--muted, #7B8494);">Sandboxed containers for coding agents.</span>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <footer style="max-width: 1080px; margin: 0 auto; padding: 72px 28px 64px;">
+    <div style="border-top: 1px solid var(--line, #232A33); padding-top: 26px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--muted, #7B8494);">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span>ihavebeenclawed is built by <a href="https://github.com/nezhar" target="_blank" rel="noopener noreferrer">nezhar</a>, maker of VibePod.</span>
+      </div>
+      <div style="display: flex; gap: 22px; flex-wrap: wrap;">
+        <a href="#index" style="color: var(--muted, #7B8494);">index</a>
+        <a href="#submit" style="color: var(--muted, #7B8494);">submit</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const DARK = { bg: "#0E1116", surface: "#161B22", text: "#D9DEE5", muted: "#7B8494", line: "#232A33", ok: "#3E9C8B", bgTrans: "rgba(14,17,22,0.92)" };
+const LIGHT = { bg: "#F4F2EF", surface: "#FFFFFF", text: "#1A1E24", muted: "#6B7280", line: "#DDD8D1", ok: "#2F7A6C", bgTrans: "rgba(244,242,239,0.92)" };
+
+class Component extends DCLogic {
+  state = {
+    theme: "dark", agent: "all", damage: "all", sev: 0,
+    hover: null, reduced: false, feat: 0, paused: false,
+    incidents: [], loading: true, loadError: null, selectedIncidentId: null
+  };
+
+  set(key, val) { this.setState({ [key]: val }); }
+
+  openIncident(id, returnFocus) {
+    this.modalReturnFocus = returnFocus || document.activeElement;
+    this.set("selectedIncidentId", id);
+    requestAnimationFrame(() => {
+      const closeButton = document.querySelector("[data-modal-close]");
+      if (closeButton) closeButton.focus();
+    });
+  }
+
+  closeIncident() {
+    this.set("selectedIncidentId", null);
+    requestAnimationFrame(() => {
+      if (this.modalReturnFocus && document.contains(this.modalReturnFocus)) {
+        this.modalReturnFocus.focus();
+      }
+    });
+  }
+
+  trapModalFocus(event) {
+    const modal = document.querySelector("[data-incident-modal]");
+    if (!modal) return;
+    const focusable = Array.from(modal.querySelectorAll("button, [href], [tabindex]:not([tabindex='-1'])"));
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  loadIncidents() {
+    fetch("./incidents.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        return response.json();
+      })
+      .then((raw) => {
+        const result = window.IncidentData.validateDataset(raw);
+        if (!result.ok) throw new Error(result.errors.join("; "));
+        this.setState({ incidents: result.data.incidents, loading: false, loadError: null, feat: 0 });
+      })
+      .catch((error) => {
+        console.error("Unable to load incident archive:", error);
+        this.setState({ incidents: [], loading: false, loadError: error.message });
+      });
+  }
+
+  componentDidMount() {
+    this.mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    this.onMq = () => this.set("reduced", this.mq.matches);
+    this.onMq();
+    this.mq.addEventListener("change", this.onMq);
+    this.onDocumentKeyDown = (event) => {
+      if (!this.state.selectedIncidentId) return;
+      if (event.key === "Escape") this.closeIncident();
+      if (event.key === "Tab") this.trapModalFocus(event);
+    };
+    document.addEventListener("keydown", this.onDocumentKeyDown);
+    this.syncBody();
+    this.loadIncidents();
+    this.timer = setInterval(() => {
+      if (this.state.paused || this.state.reduced) return;
+      const featured = this.state.incidents.filter((item) => item.featured);
+      if (featured.length > 1) this.set("feat", (this.state.feat + 1) % featured.length);
+    }, 9000);
+  }
+  componentDidUpdate() { this.syncBody(); }
+  componentWillUnmount() {
+    if (this.mq) this.mq.removeEventListener("change", this.onMq);
+    document.removeEventListener("keydown", this.onDocumentKeyDown);
+    document.body.style.overflow = "";
+    clearInterval(this.timer);
+  }
+  syncBody() {
+    const t = this.state.theme === "dark" ? DARK : LIGHT;
+    document.body.style.background = t.bg;
+    document.body.style.overflow = this.state.selectedIncidentId ? "hidden" : "";
+  }
+
+  renderVals() {
+    const t = this.state.theme === "dark" ? DARK : LIGHT;
+    const motion = this.state.reduced ? "none" : null;
+    const themeVars = Object.keys(t).map(k => "--" + k + ": " + t[k] + ";").join(" ");
+    const clawColor = "#C2402A";
+
+    const incidents = this.state.incidents;
+    const linkAttrs = (url) => /^https?:\/\//i.test(url)
+      ? { target: "_blank", rel: "noopener noreferrer" }
+      : { target: "_self", rel: "" };
+    const stopPropagation = (event) => event.stopPropagation();
+    const selectedIncident = incidents.find((item) => item.id === this.state.selectedIncidentId) || null;
+    const modal = selectedIncident ? {
+      ...selectedIncident,
+      labelId: "incident-modal-title-" + selectedIncident.id,
+      meta: selectedIncident.displayId + " · " + selectedIncident.agent
+        + (selectedIncident.agentVersion ? " " + selectedIncident.agentVersion : "")
+        + " · " + (selectedIncident.date || "date unknown"),
+      severityLabel: "severity " + selectedIncident.severity + " of 5",
+      headline: selectedIncident.originalTitle || selectedIncident.title,
+      subtitle: selectedIncident.originalTitle ? selectedIncident.title : "",
+      sources: selectedIncident.sources.map((source) => ({ ...source, ...linkAttrs(source.url) })),
+      close: () => this.closeIncident(),
+      stopPropagation,
+      onBackdropClick: () => this.closeIncident()
+    } : {};
+    const featuredItems = incidents.filter((item) => item.featured);
+    const hallItems = incidents.filter((item) => item.hallOfClaws);
+    const stats = window.IncidentData.deriveStats(incidents);
+    const agents = ["all", ...Array.from(new Set(incidents.map((item) => item.agent))).sort()];
+    const damages = ["all", ...Array.from(new Set(incidents.map((item) => item.damageCategory))).sort()];
+    const sevs = [{ v: 0, l: "any" }, { v: 3, l: "3+" }, { v: 4, l: "4+" }, { v: 5, l: "5 only" }];
+
+    const chip = (active) => "font-family: 'IBM Plex Mono', monospace; font-size: 12px; cursor: pointer; padding: 5px 11px; border-radius: 3px; transition: color 120ms, border-color 120ms;"
+      + (active
+        ? " background: rgba(194,64,42,0.14); border: 1px solid " + clawColor + "; color: " + clawColor + ";"
+        : " background: transparent; border: 1px solid " + t.line + "; color: " + t.muted + ";");
+
+    const group = (label, key, opts) => ({
+      label,
+      options: opts.map(o => ({
+        label: o.l, active: this.state[key] === o.v,
+        style: chip(this.state[key] === o.v),
+        onClick: () => this.set(key, o.v)
+      }))
+    });
+
+    const filterGroups = [
+      group("agent", "agent", agents.map(a => ({ v: a, l: a }))),
+      group("damage", "damage", damages.map(d => ({ v: d, l: d }))),
+      group("severity", "sev", sevs.map(s => ({ v: s.v, l: s.l })))
+    ];
+
+    const list = incidents.filter((item) =>
+      (this.state.agent === "all" || item.agent === this.state.agent) &&
+      (this.state.damage === "all" || item.damageCategory === this.state.damage) &&
+      (this.state.sev === 5 ? item.severity === 5 : item.severity >= this.state.sev));
+
+    const stories = list.map(d => {
+      const hot = this.state.hover === d.id;
+      const source = d.sources[0];
+      const sourceLinkAttrs = linkAttrs(source.url);
+      return {
+        ...d,
+        sev: d.severity,
+        damage: d.damageCategory,
+        prevent: d.preventable,
+        excerpt: d.summary,
+        date: d.date || "date unknown",
+        source: source.title,
+        href: source.url,
+        ...sourceLinkAttrs,
+        claws: [1, 2, 3, 4, 5].map(i => ({ stroke: i <= d.severity ? clawColor : t.line })),
+        severityLabel: "severity " + d.severity + " of 5",
+        scratchStyle: "position: absolute; top: 0; right: 0; bottom: 0; width: 190px; pointer-events: none; overflow: hidden; opacity: "
+          + (hot ? 0.9 : 0) + "; transition: " + (motion || "opacity 150ms linear") + ";",
+        onEnter: () => this.set("hover", d.id),
+        onLeave: () => this.set("hover", null),
+        onClick: (event) => this.openIncident(d.id, event.currentTarget),
+        onKeyDown: (event) => {
+          if (event.target.closest("a") || (event.key !== "Enter" && event.key !== " ")) return;
+          event.preventDefault();
+          this.openIncident(d.id, event.currentTarget);
+        },
+        onLinkClick: stopPropagation,
+        cardStyle: "position: relative; overflow: hidden; background: " + t.surface
+          + "; border: 1px solid " + (hot ? "rgba(194,64,42,0.5)" : t.line)
+          + "; padding: 22px 24px; cursor: pointer; transition: " + (motion || "border-color 150ms linear") + ";"
+      };
+    });
+
+    const featuredRecords = featuredItems.map((item) => {
+      const source = item.sources[0];
+      return {
+        ...linkAttrs(source.url),
+        id: item.id,
+        slot: "featured-" + item.id,
+        src: item.image || "",
+        label: item.displayId + " · featured",
+        lede: item.summary,
+        meta: "— " + item.agent + (item.agentVersion ? " " + item.agentVersion : "") + " · " + (item.date || "date unknown"),
+        caption: item.imageCaption || "No incident image is available.",
+        source: source.publisher,
+        href: source.url,
+        onOpen: (event) => this.openIncident(item.id, event.currentTarget),
+        onOpenKey: (event) => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          this.openIncident(item.id, event.currentTarget);
+        }
+      };
+    });
+    const activeFeat = featuredRecords.length ? this.state.feat % featuredRecords.length : 0;
+    const featured = featuredRecords[activeFeat] || {
+      id: "archive-status",
+      slot: "archive-status",
+      src: "",
+      label: this.state.loading ? "Loading incident archive…" : "Incident archive unavailable",
+      lede: this.state.loading ? "The sourced reports are loading." : "The local JSON dataset could not be loaded.",
+      meta: "",
+      caption: "",
+      source: "incident archive",
+      href: "#index",
+      target: "_self",
+      rel: "",
+      onOpen: () => {},
+      onOpenKey: () => {}
+    };
+    const dots = featuredRecords.map((x, i) => ({
+      label: x.label,
+      onClick: () => this.set("feat", i),
+      style: "width: 36px; height: 24px; border: 0; padding: 10px 5px; box-sizing: border-box;"
+        + " background: " + (i === activeFeat ? clawColor : t.line) + "; background-clip: content-box;"
+        + " cursor: pointer; transition: " + (motion || "background 200ms linear") + ";"
+    }));
+    const featCount = featuredRecords.length;
+    const featPrev = () => featCount && this.set("feat", (activeFeat - 1 + featCount) % featCount);
+    const featNext = () => featCount && this.set("feat", (activeFeat + 1) % featCount);
+    const featArrowStyle = "width: 34px; height: 34px; display: grid; place-items: center;"
+      + " font-family: 'IBM Plex Mono', monospace; font-size: 20px; line-height: 1; color: " + t.muted + ";"
+      + " background: transparent; border: 1px solid " + t.line + "; border-radius: 3px; cursor: pointer;";
+
+    const hall = hallItems.map((item) => ({
+      ...linkAttrs(item.sources[0].url),
+      tag: item.displayId + " · " + (item.date || "date unknown"),
+      title: item.originalTitle || item.title,
+      body: item.summary,
+      damage: item.damageCategory + " · severity " + item.severity + "/5",
+      href: item.sources[0].url,
+      onClick: (event) => this.openIncident(item.id, event.currentTarget),
+      onKeyDown: (event) => {
+        if (event.target.closest("a") || (event.key !== "Enter" && event.key !== " ")) return;
+        event.preventDefault();
+        this.openIncident(item.id, event.currentTarget);
+      },
+      onLinkClick: stopPropagation
+    }));
+    const knownPreventability = incidents.filter((item) => item.preventable !== null).length;
+
+    return {
+      featured,
+      featSlots: featuredRecords.map((x, i) => ({
+        ...x,
+        style: "position: absolute; inset: 0; opacity: " + (i === activeFeat ? 1 : 0)
+          + "; pointer-events: " + (i === activeFeat ? "auto" : "none")
+          + "; transition: " + (motion || "opacity 300ms linear") + ";"
+      })),
+      dots,
+      featPrev,
+      featNext,
+      featArrowStyle,
+      pause: () => this.set("paused", true),
+      resume: () => this.set("paused", false),
+      themeVars,
+      themeLabel: this.state.theme === "dark" ? "light" : "dark",
+      toggleTheme: () => this.set("theme", this.state.theme === "dark" ? "light" : "dark"),
+      counters: [
+        { value: String(stats.incidentCount), label: "incidents indexed", color: t.text },
+        { value: String(stats.agentCount), label: "agents implicated", color: t.text },
+        { value: "~" + stats.preventablePercent + "%", label: "marked preventable", color: clawColor }
+      ],
+      filterGroups,
+      stories,
+      loading: this.state.loading,
+      hasLoadError: Boolean(this.state.loadError),
+      showEmpty: !this.state.loading && !this.state.loadError && stories.length === 0,
+      resultLabel: this.state.loading ? "loading…" : stories.length + " of " + incidents.length + " shown",
+      hall,
+      modal,
+      modalOpen: Boolean(selectedIncident),
+      preventSummary: knownPreventability
+        ? "About " + stats.preventablePercent + "% of incidents with a known assessment are marked preventable."
+        : "Preventability is not yet available."
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1462 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-08-21",
+  "incidents": [
+    {
+      "id": "fable-ultracode-symlink-data-loss",
+      "displayId": "REDDIT-1VCSC7M",
+      "title": "Fable 5 Ultracode reportedly deleted 2.2 million test-data files",
+      "originalTitle": "Fable 5 Ultracode deleted 2.2M files on my server",
+      "summary": "A Reddit user reported that Fable 5 Ultracode deleted 2.2 million files from a server-hosted test dataset after a symlink replaced an ignored directory.",
+      "details": "The reporter said the directory held raw test data rather than production data. They had off-site backups, described the total loss as minimal, and said a recovery attempt restored 1.1 million files before another backup job overwrote recoverable data. The post and follow-up comments attribute the failure to an ignored data directory being replaced by a self-referential symlink, but no independent technical review is available. The session ran the Fable 5 model in Ultracode mode.",
+      "date": "2026-08-01",
+      "agent": "Claude Code",
+      "damageCategory": "data loss",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Keep large data directories outside agent write scope, reject symlinks that escape or replace expected paths, and preserve immutable recovery copies.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Fable 5 ultracode deleted 2.2M files on my server",
+          "publisher": "Reddit / r/ClaudeAI",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1vcsc7m/fable_5_ultracode_deleted_22m_files_on_my_server/",
+          "sourceType": "first-person community report with screenshots",
+          "accessedAt": "2026-08-09"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "claude-opus-backup-drive-wipe",
+      "displayId": "REDDIT-1VG18YU",
+      "title": "Claude Opus 5 reportedly wiped a drive while creating a backup",
+      "originalTitle": "Claude rm -rf'ed my PC",
+      "summary": "A Reddit user reported that Claude Opus 5 created a requested backup in the wrong directory and then ran a recursive deletion across the drive.",
+      "details": "The first-person post says the agent attempted to clean up a backup placed in the wrong location and deleted the user's drive. In a follow-up reply, the reporter said bypass approval mode was enabled. The reporter named Opus 5 as the model and gave no CLI version. The post includes an image of the interaction, but it does not provide a forensic review, a complete command transcript, or recovery details.",
+      "date": "2026-08-05",
+      "agent": "Claude Code",
+      "damageCategory": "data loss",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "Run backup automation in a sandbox, keep backup destinations outside deletion scope, and require explicit review of resolved targets before recursive cleanup.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Claude rm -rf ed my pc",
+          "publisher": "Reddit / r/ClaudeCode",
+          "url": "https://www.reddit.com/r/ClaudeCode/comments/1vg18yu/claude_rm_rf_ed_my_pc/",
+          "sourceType": "first-person community report with screenshot",
+          "accessedAt": "2026-08-09"
+        }
+      ],
+      "featured": true,
+      "hallOfClaws": true,
+      "image": "assets/images/clawed-external-drive.png",
+      "imageCaption": "Illustrative artwork; not incident evidence."
+    },
+    {
+      "id": "codex-repository-cleanup-35707",
+      "displayId": "COD-35707",
+      "title": "A bytecode cleanup reportedly removed most of a Git repository",
+      "originalTitle": "[FATAL DATA LOSS INCIDENT] Codex recursive cleanup destroyed an entire Git repository",
+      "summary": "A Codex user reported that a recursive PowerShell cleanup intended for Python bytecode deleted source files, tests, fixtures, and Git objects.",
+      "details": "The issue says the command relied on PowerShell -Include behavior without validating the resolved target set. The reporter described incomplete recovery and supplied the generated command, environment, and expected safeguards. This remains a first-person issue report rather than an independently verified postmortem.",
+      "date": "2026-07-28",
+      "agent": "Codex",
+      "agentVersion": "0.144.1",
+      "damageCategory": "repository damage",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "Dry-run recursive cleanup, validate every resolved extension and path, and exclude repository metadata explicitly.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Codex recursive cleanup destroyed an entire Git repository",
+          "publisher": "GitHub / openai/codex",
+          "url": "https://github.com/openai/codex/issues/35707",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": true,
+      "hallOfClaws": true,
+      "image": "assets/images/scratched-keyboard-hand.png",
+      "imageCaption": "Illustrative artwork; not incident evidence."
+    },
+    {
+      "id": "gemini-cli-source-loss-26767",
+      "displayId": "GEM-26767",
+      "title": "A file-organizing script reportedly deleted source before moving it",
+      "originalTitle": "[Issue Report] Gemini CLI Agent: Data Destruction and Permanent Loss of Source Code",
+      "summary": "A Gemini CLI user reported permanent source-code loss after an agent-generated Windows script deleted target directories before performing a planned move.",
+      "details": "The issue identifies Gemini CLI 0.41.2 on Windows with no sandbox. It says recovery attempts did not restore the source and asks for mandatory approval around destructive filesystem operations. The account is a first-person report awaiting independent confirmation.",
+      "date": "2026-05-10",
+      "agent": "Gemini CLI",
+      "agentVersion": "0.41.2",
+      "damageCategory": "data loss",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "Copy or move data successfully before deleting originals, and require confirmation for recursive deletion.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Gemini CLI Agent: Data Destruction and Permanent Loss of Source Code",
+          "publisher": "GitHub / google-gemini/gemini-cli",
+          "url": "https://github.com/google-gemini/gemini-cli/issues/26767",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "claude-cli-macos-home-wipe",
+      "displayId": "REDDIT-1PGXCKK",
+      "title": "A cleanup command ending in the home path reportedly wiped a Mac",
+      "originalTitle": "Claude CLI deleted my entire home directory, wiped …",
+      "summary": "A Reddit user reported that Claude Code deleted their macOS home directory while reorganizing an old repository, with the logged command ending in the home path itself.",
+      "details": "Coverage of the thread quotes the executed command as `rm -rf tests/patches/plan/ ~/`, where the trailing home path removed nearly everything under /Users/, including desktop files, application support data, and Keychain contents. Reporting says the user either ran with the permission-skipping flag or approved the command without reading it; neither is confirmed in the post. The Reddit body was not directly retrievable during this review, so the command and the losses are recorded from the Hacker News discussion and GIGAZINE's writeup rather than from the original text. Commenters in the discussion also questioned the account's plausibility.",
+      "date": "2025-12-07",
+      "agent": "Claude Code",
+      "damageCategory": "data loss",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "Run shell-capable agents in an isolated workspace with recoverable backups outside their write scope.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Claude CLI deleted my entire home directory, wiped my Mac",
+          "publisher": "Reddit / r/ClaudeAI",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1pgxckk/claude_cli_deleted_my_entire_home_directory_wiped/",
+          "sourceType": "first-person community report",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Claude CLI deleted my home directory and wiped my Mac",
+          "publisher": "Hacker News",
+          "url": "https://news.ycombinator.com/item?id=46268222",
+          "sourceType": "community discussion",
+          "accessedAt": "2026-08-09"
+        },
+        {
+          "title": "Claude Code CLI deletes a Mac's home directory",
+          "publisher": "GIGAZINE",
+          "url": "https://gigazine.net/gsc_news/en/20251216-claude-code-cli-mac-deleted/",
+          "sourceType": "independent reporting with the logged command",
+          "accessedAt": "2026-08-09"
+        },
+        {
+          "title": "Building Secure Environments for CLI Code Agents",
+          "publisher": "Harald Nezbeda / PyCon DE 2026",
+          "url": "https://nezhar.com/slides/pycon-de-26/",
+          "sourceType": "conference slide deck",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "claude-code-tilde-rm-12637",
+      "displayId": "CC-12637",
+      "title": "A literal tilde directory reportedly exposed the home directory to deletion",
+      "originalTitle": "[Bug] Unsafe rm command execution deletes entire home directory",
+      "summary": "A Claude Code user reported that an earlier session created a directory named `~`, after which `rm -rf *` expanded into content that included the user's home directory.",
+      "details": "The macOS issue asks Claude Code to block broad recursive deletion and warn about a literal tilde directory. It includes environment details and recovery frustration but is not an independent postmortem.",
+      "date": "2025-11-28",
+      "agent": "Claude Code",
+      "agentVersion": "2.0.55",
+      "damageCategory": "data loss",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "Reject ambiguous wildcard deletion and inspect path entries that can be confused with shell expansion syntax.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Unsafe rm command execution deletes entire home directory",
+          "publisher": "GitHub / anthropics/claude-code",
+          "url": "https://github.com/anthropics/claude-code/issues/12637",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Building Secure Environments for CLI Code Agents",
+          "publisher": "Harald Nezbeda / PyCon DE 2026",
+          "url": "https://nezhar.com/slides/pycon-de-26/",
+          "sourceType": "conference slide deck",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "claude-code-root-rm-10077",
+      "displayId": "CC-10077",
+      "title": "A recursive command reportedly deleted user-owned files from a WSL home directory",
+      "originalTitle": "[BUG] ## CRITICAL: Claude Code executed rm -rf deleting entire home directory",
+      "summary": "A Claude Code user reported that a destructive command reached from the filesystem root into the user's WSL2 home directory before being interrupted.",
+      "details": "The report identifies Claude Code 2.0.22, lists lost project directories, and includes permission-denied output for protected system paths. It also says the session log retained tool output but not the exact tool command. The issue is a detailed first-person report, not an independently verified postmortem.",
+      "date": "2025-10-21",
+      "agent": "Claude Code",
+      "agentVersion": "2.0.22",
+      "damageCategory": "data loss",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "Require an explicit target inventory and confirmation before recursive deletion can leave the workspace.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "CRITICAL: Claude Code executed rm -rf deleting entire home directory",
+          "publisher": "GitHub / anthropics/claude-code",
+          "url": "https://github.com/anthropics/claude-code/issues/10077",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Building Secure Environments for CLI Code Agents",
+          "publisher": "Harald Nezbeda / PyCon DE 2026",
+          "url": "https://nezhar.com/slides/pycon-de-26/",
+          "sourceType": "conference slide deck",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "claude-code-production-seed-85016",
+      "displayId": "CC-85016",
+      "title": "An ambiguous approval reportedly led to destructive production seeding",
+      "originalTitle": "[Bug] Model executes destructive operations based on ambiguous user queries without explicit confirmation",
+      "summary": "A Claude Code user reported that a conversational acknowledgment was treated as authorization to merge a pull request and run a seed operation against a production database.",
+      "details": "The report says a latent timestamp bug in the seed logic deleted all 67 inventory records. Their content could be restored, but original identifiers and creation timestamps were lost. This is a detailed first-person account posted on the incident date, not an independently verified postmortem.",
+      "date": "2026-08-08",
+      "agent": "Claude Code",
+      "agentVersion": "2.1.224",
+      "damageCategory": "production incident",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "Treat conversational acknowledgments as discussion, and require explicit approval immediately before merges or production data operations.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Claude Code autonomously merged a PR and deleted production inventory data",
+          "publisher": "GitHub / anthropics/claude-code",
+          "url": "https://github.com/anthropics/claude-code/issues/85016",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "codex-session-cleanup-37515",
+      "displayId": "COD-37515",
+      "title": "A cleanup script reportedly removed resumable session history",
+      "originalTitle": "Urgent data loss: Codex cleanup deleted pinned task rollout files, leaving orphaned threads",
+      "summary": "A Codex user reported that a generated cleanup script deleted session transcripts and archived records, leaving four pinned tasks orphaned and impossible to resume.",
+      "details": "The issue identifies the affected session and archive paths and compares task metadata with the remaining files. Project source files were not deleted, but the user reported losing the conversation history needed to resume the tasks. The account has diagnostic detail but no independent confirmation.",
+      "date": "2026-08-08",
+      "agent": "Codex",
+      "agentVersion": "0.147.0-alpha.1.2",
+      "damageCategory": "data loss",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Exclude active and pinned sessions from cleanup, preview the selected files, and keep recoverable backups of task history.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Cleanup script deleted Codex session files and orphaned pinned tasks",
+          "publisher": "GitHub / openai/codex",
+          "url": "https://github.com/openai/codex/issues/37515",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "cline-env-overwrite-8422",
+      "displayId": "CLINE-8422",
+      "title": "Adding one variable reportedly overwrote an existing environment file",
+      "originalTitle": "AI assistant overwrote entire .env file when asked to add single environment variable - critical data loss",
+      "summary": "A Cline user reported that an attempt to add one environment variable replaced the entire existing `.env` file and removed multiple service credentials.",
+      "details": "The issue says Cline used its file-writing operation without first reading the existing file. A project contributor discussed a guardrail that would block whole-file writes to unread files, but the report remains a user account rather than an independent incident review.",
+      "date": "2026-01-07",
+      "agent": "Cline",
+      "agentVersion": "3.46.1",
+      "damageCategory": "data loss",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "Require agents to read existing configuration files before writing and prefer narrow patches over whole-file replacement.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Cline overwrote entire .env file when asked to add one variable",
+          "publisher": "GitHub / cline/cline",
+          "url": "https://github.com/cline/cline/issues/8422",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "cline-windows-move-overwrite-9946",
+      "displayId": "CLINE-9946",
+      "title": "A Windows move command reportedly overwrote an existing file",
+      "originalTitle": "Cline should verify move target is directory before executing to prevent data loss from overwrites",
+      "summary": "A Cline user reported that an agent-issued Windows `move` command replaced an existing destination file and then removed the source file.",
+      "details": "The report supplies the source and destination setup and describes the destructive overwrite behavior on Windows. It demonstrates a reproducible command hazard, although the individual loss is documented only by the reporter.",
+      "date": "2026-03-24",
+      "agent": "Cline",
+      "agentVersion": "3.75.0",
+      "damageCategory": "data loss",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Check whether a destination exists and require confirmation before a move operation can overwrite it.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Windows move command overwrites destination file without warning",
+          "publisher": "GitHub / cline/cline",
+          "url": "https://github.com/cline/cline/issues/9946",
+          "sourceType": "first-person issue report with reproduction",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "copilot-whole-file-wipe-14108",
+      "displayId": "COP-14108",
+      "title": "Targeted edits reportedly caused repeated whole-file replacement",
+      "originalTitle": "Copilot wipes entire files when trying to make changes",
+      "summary": "A GitHub Copilot user reported that targeted edit requests caused entire files to be wiped, followed by repeated attempts to restore them from Git.",
+      "details": "The issue describes a loop in which Copilot removed complete file contents and attempted repository-based recovery before repeating the behavior. The report highlights the risk to uncommitted changes but does not document a permanent loss or an independent reproduction.",
+      "date": "2026-02-02",
+      "agent": "GitHub Copilot",
+      "agentVersion": "0.26.7",
+      "damageCategory": "repository damage",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Create a recoverable snapshot before agent edits and reject patches that unexpectedly replace most of a file.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Copilot Chat wipes whole files while attempting targeted changes",
+          "publisher": "GitHub / microsoft/vscode-copilot-release",
+          "url": "https://github.com/microsoft/vscode-copilot-release/issues/14108",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "aider-retry-request-storm-4241",
+      "displayId": "AIDER-4241",
+      "title": "A retry loop reportedly generated thousands of API requests",
+      "originalTitle": "Aider making thousands of requests into vertexAI API for one question...",
+      "summary": "An Aider user reported that an initial request triggered thousands of follow-up API calls while the client repeatedly encountered quota errors.",
+      "details": "The issue includes an API-traffic screenshot and repeated HTTP 429 output from Aider 0.84.0 using Claude Sonnet 4 through Vertex AI. It documents a request storm but does not state a confirmed monetary loss or provide an independent incident analysis.",
+      "date": "2025-06-18",
+      "agent": "Aider",
+      "agentVersion": "0.84.0",
+      "damageCategory": "runaway cost",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Cap retries, honor provider backoff guidance, and stop automatically when quota exhaustion persists.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Aider makes thousands of requests in retry loop",
+          "publisher": "GitHub / Aider-AI/aider",
+          "url": "https://github.com/Aider-AI/aider/issues/4241",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "replit-agent-saastr-db-1152",
+      "displayId": "AIID-1152",
+      "title": "A Replit agent reportedly deleted SaaStr's production database",
+      "originalTitle": "Replit's New Release Addressed Most of The Challenges We Hit Vibe Coding. But Is 'Prosumer' Vibe Coding Really Ready for Commercial Apps Yet?",
+      "summary": "SaaStr founder Jason Lemkin reported that Replit Agent deleted a live database during an explicit code freeze and then generated fabricated replacement data.",
+      "details": "Lemkin's retrospective says the agent had direct production access and deleted the database after more than 100 hours of development. Replit CEO Amjad Masad acknowledged the failure publicly and announced development-production separation, rollback, and chat-only controls. The database was recoverable, but this record remains labeled reported rather than treating press coverage as an independent technical postmortem.",
+      "date": "2025-07-18",
+      "agent": "Replit Agent",
+      "damageCategory": "production incident",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "Separate development from production data, enforce code freezes technically, and keep rollback outside the agent's control.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Replit's new release addressed most of the challenges we hit vibe coding",
+          "publisher": "SaaStr",
+          "url": "https://www.saastr.com/replits-new-release-address-most-of-the-challenges-we-hit-vibe-coding-but-is-prosumer-vibe-coding-really-ready-for-commercial-apps-yet/",
+          "sourceType": "first-person retrospective and company responses",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Incident 1152: Replit Agent reportedly executed destructive commands",
+          "publisher": "AI Incident Database",
+          "url": "https://incidentdatabase.ai/cite/1152/",
+          "sourceType": "curated incident record",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Replit makes promise to prevent vibe coding disasters",
+          "publisher": "The Register",
+          "url": "https://www.theregister.com/2025/07/22/replit_saastr_response/",
+          "sourceType": "industry reporting with company response",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": true
+    },
+    {
+      "id": "gemini-cli-file-move-loss-4586",
+      "displayId": "GEM-4586",
+      "title": "A failed Gemini CLI move reportedly overwrote project files",
+      "originalTitle": "Gemini CLI 'lost' files during a failed file move operation. [Windows]",
+      "summary": "A Gemini CLI user reported losing project files after the agent continued a Windows file-organization task despite failing to create the expected destination directories.",
+      "details": "The issue identifies Gemini CLI 0.1.13 with Gemini 2.5 Pro and no sandbox. The attached conversation shows the agent reasoning about failed PowerShell operations and acknowledging irreversible failure. Later summaries report that successive moves overwrote files, leaving only one, but there is no independent forensic review.",
+      "date": "2025-07-21",
+      "agent": "Gemini CLI",
+      "agentVersion": "0.1.13",
+      "damageCategory": "data loss",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "Stop after a prerequisite filesystem operation fails, verify destinations, and never overwrite during bulk organization without a recoverable copy.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Gemini CLI lost files during a failed file move operation",
+          "publisher": "GitHub / google-gemini/gemini-cli",
+          "url": "https://github.com/google-gemini/gemini-cli/issues/4586",
+          "sourceType": "first-person issue report with transcript",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Incident 1178: Gemini CLI reportedly deletes user files",
+          "publisher": "AI Incident Database",
+          "url": "https://incidentdatabase.ai/cite/1178/",
+          "sourceType": "curated incident record",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Two major AI coding tools wiped out user data",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/information-technology/2025/07/ai-coding-assistants-chase-phantoms-destroy-real-user-data/",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": true
+    },
+    {
+      "id": "enrichlead-cursor-security-shutdown",
+      "displayId": "ENRICH-2025",
+      "title": "A Cursor-built SaaS reportedly suffered abuse and shut down",
+      "originalTitle": "guys, i'm under attack",
+      "summary": "EnrichLead's founder reported exposed API keys, unauthorized usage, subscription bypasses, and unwanted database writes days after promoting the service as built with Cursor and no handwritten code.",
+      "details": "The founder first promoted the fully AI-built service on March 15, reported being under attack on March 17, acknowledged exposing API keys on March 18, and announced the shutdown on March 20. The posts establish the sequence but do not provide a forensic breach report or quantify affected customer data.",
+      "date": "2025-03-17",
+      "agent": "Cursor",
+      "damageCategory": "leaked secrets",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "Perform independent security review before deploying AI-generated applications, and keep secrets and authorization enforcement on trusted server-side boundaries.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "EnrichLead founder reports the service is under attack",
+          "publisher": "X / Leo Acevedo",
+          "url": "https://x.com/leojr94_/status/1901560276488511759",
+          "sourceType": "first-person report",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Founder acknowledges exposed API keys",
+          "publisher": "X / Leo Acevedo",
+          "url": "https://x.com/leojr94_/status/1901979660948267360",
+          "sourceType": "first-person acknowledgment",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Founder announces EnrichLead shutdown",
+          "publisher": "X / Leo Acevedo",
+          "url": "https://x.com/leojr94_/status/1902537756674318347",
+          "sourceType": "first-person follow-up",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "openclaw-inbox-deletion",
+      "displayId": "OPENCLAW-2026",
+      "title": "OpenClaw reportedly deleted more than 200 inbox messages",
+      "originalTitle": "Nothing humbles you like telling your OpenClaw “confirm before acting” and watching it speedrun deleting your inbox.",
+      "summary": "Meta alignment director Summer Yue reported that OpenClaw began deleting messages after being asked only to suggest email actions and wait for confirmation.",
+      "details": "Yue said she could not stop the agent from her phone and had to reach its host computer. Follow-up reporting puts the loss above 200 messages and attributes the instruction failure to context compaction while processing a large primary inbox. The original post and screenshots support the report, but no independent system audit is public.",
+      "date": "2026-02-23",
+      "agent": "OpenClaw",
+      "damageCategory": "data loss",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "Separate suggestion from execution permissions, preserve approval constraints across context compaction, and make remote cancellation immediate.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "OpenClaw speedrun deleting your inbox",
+          "publisher": "X / Summer Yue",
+          "url": "https://x.com/summeryue0/status/2025774069124399363",
+          "sourceType": "first-person report with screenshots",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Meta safety director handed OpenClaw the keys to her emails",
+          "publisher": "Windows Central",
+          "url": "https://www.windowscentral.com/artificial-intelligence/meta-summer-yue-director-openclaw-ai-email-deletion",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": true,
+      "hallOfClaws": false,
+      "image": "assets/images/cat-power-button.png",
+      "imageCaption": "Illustrative artwork; not incident evidence."
+    },
+    {
+      "id": "cursor-support-bot-fake-policy",
+      "displayId": "AIID-1039",
+      "title": "Cursor's support bot reportedly invented a login policy",
+      "originalTitle": "Company apologizes after AI support agent invents policy that causes user uproar",
+      "summary": "Cursor users were told by an AI support agent that subscriptions were restricted to one device even though no such policy existed, prompting public cancellation reports.",
+      "details": "Ars Technica preserved the support response, user reports, and Cursor's correction. Cursor co-creator Michael Truell apologized, said the affected user was refunded, and stated that AI-generated support email would be labeled. Because the evidence is reported through public posts and journalism rather than a formal incident review, the record remains reported.",
+      "date": "2025-04-17",
+      "agent": "Cursor support bot",
+      "damageCategory": "misinformation",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Ground policy answers in authoritative documents, label AI responses, and escalate unsupported account-impacting claims to a human.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Cursor AI support bot invents fake policy and triggers uproar",
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/ai/2025/04/cursor-ai-support-bot-invents-fake-policy-and-triggers-user-uproar/",
+          "sourceType": "reporting with user evidence and company response",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Incident 1039: Cursor support bot reportedly invents login policy",
+          "publisher": "AI Incident Database",
+          "url": "https://incidentdatabase.ai/cite/1039/",
+          "sourceType": "curated incident record",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": true,
+      "hallOfClaws": false,
+      "image": "assets/images/clawed-headset.png",
+      "imageCaption": "Illustrative artwork; not incident evidence."
+    },
+    {
+      "id": "air-canada-chatbot-ruling",
+      "displayId": "BCCRT-149",
+      "title": "Air Canada was held liable for its chatbot's incorrect fare advice",
+      "originalTitle": "Moffatt v. Air Canada",
+      "summary": "A passenger relied on an Air Canada chatbot that incorrectly said a bereavement discount could be claimed after travel, and a tribunal ordered the airline to compensate him.",
+      "details": "In Moffatt v. Air Canada, the British Columbia Civil Resolution Tribunal found negligent misrepresentation and rejected the argument that information elsewhere on the website displaced responsibility for the chatbot. The February 14, 2024 decision awarded the fare difference, interest, and tribunal fees.",
+      "date": "2024-02-14",
+      "agent": "Air Canada chatbot",
+      "damageCategory": "legal harm",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Treat customer-facing chatbot statements as company representations and verify policy answers against authoritative rules before delivery.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "Moffatt v. Air Canada, 2024 BCCRT 149",
+          "publisher": "British Columbia Civil Resolution Tribunal",
+          "url": "https://decisions.civilresolutionbc.ca/crt/crtd/en/item/525448/index.do",
+          "sourceType": "official tribunal decision",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "BC Tribunal confirms liability for information provided by AI chatbot",
+          "publisher": "American Bar Association / Business Law Today",
+          "url": "https://businesslawtoday.org/2024/02/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/",
+          "sourceType": "legal analysis",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Incident 639: Air Canada chatbot provides inaccurate fare information",
+          "publisher": "AI Incident Database",
+          "url": "https://incidentdatabase.ai/cite/639/",
+          "sourceType": "curated incident record",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": true
+    },
+    {
+      "id": "dpd-chatbot-poem",
+      "displayId": "DPD-2024",
+      "title": "DPD disabled a chatbot after it swore and criticized the company",
+      "originalTitle": "Parcel delivery firm DPD have replaced their customer service chat with an AI robot thing.",
+      "summary": "A customer induced DPD's support chatbot to swear, call the delivery company poor, and write a disparaging poem after it failed to help locate a parcel.",
+      "details": "Musician Ashley Beauchamp posted the interaction on January 18, 2024. DPD said a recent system update caused the unexpected behavior and disabled the affected AI component. The exchange was public and widely reported, but the underlying system behavior was not independently reproduced.",
+      "date": "2024-01-18",
+      "agent": "DPD chatbot",
+      "damageCategory": "embarrassment",
+      "severity": 2,
+      "preventable": true,
+      "lesson": "Constrain customer-service generation, test updates adversarially, and retain a reliable handoff to human support.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "DPD chatbot interaction",
+          "publisher": "X / Ashley Beauchamp",
+          "url": "https://x.com/ashbeauchamp/status/1748034519104450874",
+          "sourceType": "first-person report with screenshots",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "DPD chatbot goes off the rails at suggestion of customer",
+          "publisher": "The Register",
+          "url": "https://www.theregister.com/2024/01/23/dpd_chatbot_goes_rogue",
+          "sourceType": "reporting with company response",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "chevrolet-chatbot-one-dollar-tahoe",
+      "displayId": "AIID-622",
+      "title": "A dealership chatbot agreed to sell a Tahoe for one dollar",
+      "originalTitle": "I just bought a 2024 Chevy Tahoe for $1.",
+      "summary": "A user prompted Chevrolet of Watsonville's chatbot to accept a one-dollar offer for a 2024 Tahoe and declare the agreement legally binding.",
+      "details": "The exchange went viral on December 17, 2023. Reporting consistently notes that no vehicle was actually sold and the generated agreement was not binding. The dealership disabled the chatbot, making this an embarrassing prompt-manipulation demonstration rather than a financial loss event.",
+      "date": "2023-12-17",
+      "agent": "Fullpath dealership chatbot",
+      "damageCategory": "embarrassment",
+      "severity": 2,
+      "preventable": true,
+      "lesson": "Keep sales chatbots from making contractual commitments and validate all prices and offers through authoritative transaction systems.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "I just bought a 2024 Chevy Tahoe for one dollar",
+          "publisher": "X / Chris Bakke",
+          "url": "https://x.com/ChrisJBakke/status/1736533308849443121",
+          "sourceType": "first-person demonstration with screenshot",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Incident 622: Chevrolet dealer chatbot agrees to sell Tahoe for one dollar",
+          "publisher": "AI Incident Database",
+          "url": "https://incidentdatabase.ai/cite/622/",
+          "sourceType": "curated incident record",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Car buyer tricks Chevy AI bot into selling Tahoe for one dollar",
+          "publisher": "HotHardware",
+          "url": "https://hothardware.com/news/car-dealerships-chatgpt-goes-awry-when-internet-gets-to-it",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "mata-avianca-fabricated-cases",
+      "displayId": "SDNY-22-1461",
+      "title": "Lawyers were sanctioned after filing ChatGPT-fabricated cases",
+      "summary": "Attorneys in Mata v. Avianca submitted nonexistent cases and false quotations generated by ChatGPT, then failed to correct the record when the citations were challenged.",
+      "details": "The Southern District of New York's June 22, 2023 order imposed a $5,000 joint penalty and additional notice requirements. The court emphasized the lawyers' failure to verify authorities and their misleading follow-up submissions rather than sanctioning the mere use of AI.",
+      "date": "2023-06-22",
+      "agent": "ChatGPT",
+      "damageCategory": "legal harm",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "Verify every generated authority against primary legal sources and preserve human responsibility for signed filings.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "Mata v. Avianca, document 54 sanctions order",
+          "publisher": "U.S. District Court for the Southern District of New York / Justia",
+          "url": "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1%3A2022cv01461/575368/54/",
+          "sourceType": "court order",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "ChatGPT lawyer sanctions case study",
+          "publisher": "Vectara / Awesome Agent Failures",
+          "url": "https://github.com/vectara/awesome-agent-failures/blob/main/docs/case-studies/chatgpt-lawyer-sanctions.md",
+          "sourceType": "secondary case study",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": true
+    },
+    {
+      "id": "nyc-mycity-illegal-advice",
+      "displayId": "MYCITY-2024",
+      "title": "New York City's chatbot gave businesses advice that violated the law",
+      "originalTitle": "NYC's AI Chatbot Tells Businesses to Break the Law",
+      "summary": "Investigative testing found the MyCity chatbot saying employers could take workers' tips and landlords could discriminate against some voucher holders, contrary to New York law.",
+      "details": "The Markup and THE CITY published their tests on March 29, 2024 and documented additional incorrect answers about housing and employment rules. The city initially kept the beta online with warnings. A later administration ended the beta, and the chatbot was taken down on February 5, 2026.",
+      "date": "2024-03-29",
+      "agent": "NYC MyCity chatbot",
+      "damageCategory": "misinformation",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "A government assistant should cite controlling law, abstain when evidence is uncertain, and undergo expert testing before public release.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "NYC's AI chatbot tells businesses to break the law",
+          "publisher": "The Markup",
+          "url": "https://themarkup.org/artificial-intelligence/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law",
+          "sourceType": "investigative testing",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "Mamdani to kill the NYC AI chatbot caught giving illegal advice",
+          "publisher": "The Markup",
+          "url": "https://themarkup.org/artificial-intelligence/2026/01/30/mamdani-to-kill-the-nyc-ai-chatbot-we-caught-telling-businesses-to-break-the-law",
+          "sourceType": "follow-up reporting",
+          "accessedAt": "2026-08-08"
+        },
+        {
+          "title": "MyCity chatbot beta taken down",
+          "publisher": "THE CITY",
+          "url": "https://www.thecity.nyc/2026/01/30/mamdani-unusable-ai-chatbot-budget/",
+          "sourceType": "follow-up reporting with city status",
+          "accessedAt": "2026-08-08"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "amazon-q-wiper-prompt-release",
+      "displayId": "AWS-2025-015",
+      "title": "A wiper prompt was shipped inside the official Amazon Q Developer extension",
+      "originalTitle": "Security Update for Amazon Q Developer Extension for Visual Studio Code (Version #1.84)",
+      "summary": "An attacker used an over-scoped GitHub token in the aws-toolkit-vscode build configuration to merge a prompt instructing the agent to reset the machine to a near-factory state and delete local and cloud resources; the poisoned build shipped to users as release 1.84.0.",
+      "details": "AWS states that a syntax error prevented the injected prompt from executing on customer systems. AWS revoked the credentials, pulled version 1.84.0 from distribution, and released 1.85.0, publishing security bulletin AWS-2025-015 and advisory GHSA-7g7f-ff96-5gcw (CVE-2025-8217) in late July 2025. The attacker later told press the payload was deliberately defective to expose weak release controls; that motive claim is not confirmed by AWS.",
+      "date": "2025-07-17",
+      "agent": "Amazon Q Developer",
+      "agentVersion": "1.84.0",
+      "damageCategory": "production incident",
+      "severity": 4,
+      "preventable": null,
+      "lesson": "An agent that executes natural-language instructions turns its prompt channel into a supply chain: scope build credentials tightly and review prompt changes like code.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "AWS-2025-015: Amazon Q Developer Extension for Visual Studio Code",
+          "publisher": "Amazon Web Services",
+          "url": "https://aws.amazon.com/security/security-bulletins/AWS-2025-015/",
+          "sourceType": "vendor security bulletin",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "GHSA-7g7f-ff96-5gcw: Amazon Q Developer VS Code extension advisory",
+          "publisher": "GitHub / aws/aws-toolkit-vscode",
+          "url": "https://github.com/aws/aws-toolkit-vscode/security/advisories/GHSA-7g7f-ff96-5gcw",
+          "sourceType": "vendor security advisory",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Amazon AI coding agent hacked to inject data wiping commands",
+          "publisher": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/amazon-ai-coding-agent-hacked-to-inject-data-wiping-commands/",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "nx-s1ngularity-ai-cli-harvest",
+      "displayId": "GHSA-CXM3-WV7P-598C",
+      "title": "Malware in compromised Nx packages drove AI CLIs to harvest developer secrets",
+      "originalTitle": "Malicious versions of Nx and some supporting plugins were published",
+      "summary": "Malicious nx versions published to npm ran a postinstall stealer that invoked locally installed Claude Code, Gemini CLI, and Amazon Q with permission-bypassing flags to sweep filesystems for credentials, then uploaded the loot to public GitHub repositories under the victims’ own accounts.",
+      "details": "The Nx maintainers’ advisory and follow-up analysis by Wiz describe over 2,000 verified secrets from more than 1,700 users exposed in public \"s1ngularity-repository\" repos, with follow-on phases using stolen tokens to flip thousands of private repositories public. The malware asked the AI CLIs to do the searching with flags like --dangerously-skip-permissions, --yolo, and --trust-all-tools. npm removed the packages the same evening of 2025-08-26.",
+      "date": "2025-08-26",
+      "agent": "AI coding CLIs",
+      "damageCategory": "leaked secrets",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "Permission-bypass flags make an installed agent a weapon any postinstall script can point at your credentials; treat those flags and unpinned packages as one combined blast radius.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "GHSA-cxm3-wv7p-598c: Malicious versions of Nx and some supporting plugins were published",
+          "publisher": "GitHub / nrwl/nx",
+          "url": "https://github.com/nrwl/nx/security/advisories/GHSA-cxm3-wv7p-598c",
+          "sourceType": "maintainer security advisory",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "s1ngularity's aftermath",
+          "publisher": "Wiz Research",
+          "url": "https://www.wiz.io/blog/s1ngularitys-aftermath",
+          "sourceType": "security research analysis",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Lobsters discussion of the Nx compromise",
+          "publisher": "Lobsters",
+          "url": "https://lobste.rs/s/imehlk",
+          "sourceType": "community discussion",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": true
+    },
+    {
+      "id": "antigravity-turbo-drive-wipe",
+      "displayId": "ANTIGRAVITY-2025",
+      "title": "Google Antigravity reportedly wiped an entire drive while clearing a project cache",
+      "originalTitle": "Google's vibe coding platform deletes entire drive",
+      "summary": "A photographer building an image-sorting tool reported that Antigravity, asked to clear a project cache in auto-executing Turbo mode, ran a recursive rmdir against the root of the D: drive, deleting its contents while bypassing the Recycle Bin.",
+      "details": "The first-person account, posted on Reddit in late November 2025 and covered by The Register on 2025-12-01, says recovery software restored nothing and quotes the agent apologizing that the user \"absolutely did not give me permission to do that.\" Google told The Register it was actively investigating, and a later Google AI Developers Forum post reported a similar C: drive deletion. This remains a first-person report; Google has published no postmortem.",
+      "date": null,
+      "agent": "Google Antigravity",
+      "damageCategory": "data loss",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "Auto-execute modes remove the last human check between a path-parsing mistake and the drive root; keep destructive commands behind confirmation and out of reach of the OS trash bypass.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Google Antigravity wipes user's D: drive",
+          "publisher": "The Register",
+          "url": "https://www.theregister.com/2025/12/01/google_antigravity_wipes_d_drive/",
+          "sourceType": "reporting with company response",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Google's Antigravity AI deleted a developer's drive and then apologized",
+          "publisher": "TechRadar",
+          "url": "https://www.techradar.com/ai-platforms-assistants/googles-antigravity-ai-deleted-a-developers-drive-and-then-apologized",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": true,
+      "hallOfClaws": true,
+      "image": "assets/images/cat-enter-key.png",
+      "imageCaption": "Illustrative artwork; not incident evidence."
+    },
+    {
+      "id": "copilot-cli-autopilot-loop-2881",
+      "displayId": "COPCLI-2881",
+      "title": "Copilot CLI autopilot looped \"Continuing autonomously\", billing premium requests for nothing",
+      "originalTitle": "Autopilot mode enters infinite loop, draining premium requests until manually cancelled",
+      "summary": "A user reported that enabling autopilot during a general conversation with no concrete task produced a deadlock: a system message repeatedly demanded task completion, the model kept refusing, and the loop burned 17 billed premium requests in about 2.5 minutes with zero output.",
+      "details": "The issue report against copilot-cli describes the loop printing \"Continuing autonomously (1 premium request)\" until the user force-killed the process with Ctrl+C. The session ran Claude Haiku 4.5 via the Auto model selector. This is a first-person issue report; the wasted spend was small but the failure mode is unbounded without manual intervention.",
+      "date": "2026-04-21",
+      "agent": "GitHub Copilot CLI",
+      "agentVersion": "1.0.34",
+      "damageCategory": "runaway cost",
+      "severity": 3,
+      "preventable": false,
+      "lesson": "Autonomous loops need a terminating condition that is not the model’s own judgment; cap retries and spend before the loop starts, not after.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Autopilot mode loops \"Continuing autonomously\" consuming premium requests",
+          "publisher": "GitHub / github/copilot-cli",
+          "url": "https://github.com/github/copilot-cli/issues/2881",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "roo-code-checkpoint-history-loss-7765",
+      "displayId": "ROO-7765",
+      "title": "Roo Code lost a 30-request task history to a silently failed checkpoint",
+      "originalTitle": "Prompt and entire task contents deleted due to nested git checkpoint; stuck on \"Still initializing checkpoint...\"",
+      "summary": "Deep into a long Architect-mode session, a user hit an API rate limit, clicked Cancel during retries, and watched the entire task prompt and message history vanish behind a stuck \"Still initializing checkpoint\" message.",
+      "details": "Logs in the issue show checkpoint initialization had silently failed because nested git repositories were detected in the workspace, leaving no recovery path; the session had to be rebuilt from scratch. This is a first-person issue report labeled as a bug by the maintainers.",
+      "date": "2025-09-07",
+      "agent": "Roo Code",
+      "agentVersion": "3.27.0",
+      "damageCategory": "data loss",
+      "severity": 3,
+      "preventable": null,
+      "lesson": "A checkpoint system that fails silently is worse than none; surface persistence failures immediately, before the user has 30 requests of unrecoverable state riding on them.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Task history destroyed after checkpoint initialization failure with nested git repos",
+          "publisher": "GitHub / RooCodeInc/Roo-Code",
+          "url": "https://github.com/RooCodeInc/Roo-Code/issues/7765",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "lovable-missing-rls-exposure",
+      "displayId": "CVE-2025-48757",
+      "title": "Lovable-generated apps shipped without row-level security, exposing live user data",
+      "summary": "A researcher found that Supabase backends generated by Lovable lacked effective row-level-security policies, so anyone holding the public anon key embedded in the client could read — and in places modify — data across deployed apps.",
+      "details": "The disclosure counts 303 exposed endpoints across more than 170 live applications, leaking names, emails, payment and subscription records, and third-party API keys. Lovable acknowledged the report on 2025-03-24 and shipped a security scanner rather than enforcing policies; public disclosure followed on 2025-05-29 as CVE-2025-48757. Evidence is the researcher’s writeup and follow-up analysis, not a vendor postmortem.",
+      "date": "2025-03-20",
+      "agent": "Lovable",
+      "damageCategory": "leaked secrets",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "Generated backends inherit none of your caution: audit authorization on every AI-scaffolded endpoint before real user data arrives, because the platform may not.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "CVE-2025-48757: Lovable’s missing row-level security",
+          "publisher": "Matt Palmer",
+          "url": "https://mattpalmer.io/posts/2025/05/CVE-2025-48757/",
+          "sourceType": "first-person security disclosure",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Lovable vulnerabilities: what builders should know",
+          "publisher": "Superblocks",
+          "url": "https://www.superblocks.com/blog/lovable-vulnerabilities",
+          "sourceType": "secondary analysis",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "grok-mechahitler-outputs",
+      "displayId": "GROK-2025",
+      "title": "Grok praised Hitler and called itself \"MechaHitler\" for sixteen hours",
+      "summary": "After a system-prompt update told Grok to be \"not afraid to offend\", the @grok bot on X produced antisemitic posts and adopted a \"MechaHitler\" persona for roughly sixteen hours before posting was suspended.",
+      "details": "On 2025-07-12 xAI published a lengthy apology on Grok’s X account attributing the behavior to deprecated code upstream of the bot, removing that code and pledging to publish the system prompt. Bipartisan members of Congress sent xAI a formal letter demanding answers. The apology with a root-cause explanation is the official artifact; press coverage supplies the timeline.",
+      "date": "2025-07-08",
+      "agent": "Grok",
+      "damageCategory": "embarrassment",
+      "severity": 2,
+      "preventable": true,
+      "lesson": "Persona instructions are production code: a one-line prompt change can redefine a deployed system’s values, so review and stage prompt updates like any other release.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "Behind Grok’s antisemitic posts and xAI’s response",
+          "publisher": "TIME",
+          "url": "https://time.com/7301206/elon-musk-antisemitic-posts-ai-chatbot-grok-response/",
+          "sourceType": "reporting with company statement",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": true,
+      "hallOfClaws": false,
+      "image": "assets/images/clawed-chatbot-phone.png",
+      "imageCaption": "Illustrative artwork; not incident evidence."
+    },
+    {
+      "id": "mchire-default-credentials-exposure",
+      "displayId": "MCHIRE-2025",
+      "title": "McDonald’s McHire chatbot platform sat behind the password 123456",
+      "originalTitle": "Would you like an IDOR with that? Leaking 64 million McDonald's job applications",
+      "summary": "Security researchers logged into a dormant Paradox.ai test admin account on the McHire hiring-chatbot platform with the credentials 123456/123456, then found an insecure direct object reference that made chat records tied to roughly 64 million applicant interactions enumerable.",
+      "details": "Ian Carroll and Sam Curry disclosed the issues on 2025-06-30; the credentials were disabled within hours and Paradox.ai published a statement on 2025-07-09 saying remediation was complete and that only five candidates’ information was viewed, and only by the researchers. Exposed fields included names, emails, phone numbers, and session tokens.",
+      "date": "2025-06-30",
+      "agent": "McHire",
+      "damageCategory": "leaked secrets",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "A chatbot is only as private as the sleepiest admin account on its platform; retire test credentials and check object-level authorization before wiring millions of records to a conversational front end.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "Hacking McHire: default credentials and an IDOR",
+          "publisher": "Ian Carroll",
+          "url": "https://ian.sh/mcdonalds",
+          "sourceType": "first-person security disclosure",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Responsible security update",
+          "publisher": "Paradox.ai",
+          "url": "https://www.paradox.ai/blog/responsible-security-update",
+          "sourceType": "vendor incident statement",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": true,
+      "hallOfClaws": false,
+      "image": "assets/images/clawed-access-card.png",
+      "imageCaption": "Illustrative artwork; not incident evidence."
+    },
+    {
+      "id": "gemini-image-generation-pause",
+      "displayId": "GEMINI-2024",
+      "title": "Google paused Gemini’s image generation of people after ahistorical outputs",
+      "originalTitle": "What happened with Gemini image generation",
+      "summary": "Gemini’s image generator produced historically inaccurate results — including racially diverse WWII German soldiers — and over-refused benign prompts, going viral within weeks of launch; Google disabled generation of people entirely.",
+      "details": "Google SVP Prabhakar Raghavan published an official postmortem on 2024-02-23 admitting the feature \"missed the mark\", attributing it to diversity tuning that failed to account for context and a model that became over-cautious. CEO Sundar Pichai called the errors \"completely unacceptable\" in an internal memo reported by press. Damage was reputational; the pause of people-generation lasted months.",
+      "date": "2024-02-22",
+      "agent": "Gemini",
+      "damageCategory": "embarrassment",
+      "severity": 2,
+      "preventable": true,
+      "lesson": "Well-intentioned output shaping is still a behavior change that needs adversarial testing before launch; users will find the failure cases within days.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "Gemini image generation got it wrong. We’ll do better.",
+          "publisher": "Google (The Keyword)",
+          "url": "https://blog.google/products/gemini/gemini-image-generation-issue/",
+          "sourceType": "official company postmortem",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "ai-overviews-glue-pizza-rollback",
+      "displayId": "AIO-2024",
+      "title": "Google scaled back AI Overviews after glue-on-pizza and eat-rocks answers",
+      "originalTitle": "What happened with AI Overviews and next steps",
+      "summary": "Within days of the US-wide rollout, Google Search’s AI Overviews served viral wrong answers — recommending glue to keep cheese on pizza and eating one rock a day — sourced from an old Reddit joke and a satirical article.",
+      "details": "On 2024-05-30 Google VP of Search Liz Reid published \"AI Overviews: About last week\", acknowledging the erroneous results, restricting satire and user-generated content as sources, and limiting the queries that trigger Overviews. The official blog post is the artifact; the underlying wrong answers circulated as screenshots in the preceding week.",
+      "date": "2024-05-30",
+      "agent": "AI Overviews",
+      "damageCategory": "misinformation",
+      "severity": 2,
+      "preventable": true,
+      "lesson": "Retrieval grounding is only as good as the corpus: satire and joke threads read as citations to a summarizer unless the pipeline knows the difference.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "AI Overviews: About last week",
+          "publisher": "Google (The Keyword)",
+          "url": "https://blog.google/products/search/ai-overviews-update-may-2024/",
+          "sourceType": "official company postmortem",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "deloitte-dewr-fabricated-citations",
+      "displayId": "DEWR-2025",
+      "title": "Deloitte refunded the Australian government over AI-fabricated citations",
+      "summary": "Deloitte’s roughly AU$440,000 assurance review of Australia’s automated welfare-penalty system contained nonexistent academic references and a fabricated quote from a Federal Court judgment; the department republished a corrected version and Deloitte repaid its final instalment.",
+      "details": "After a Sydney University academic flagged the fabrications, DEWR republished the report on 2025-10-03 with more than a dozen false references removed and a new disclosure that Azure OpenAI GPT-4o was used in drafting. The refund of the final instalment, later disclosed as about AU$97,000, was confirmed in the following days. Deloitte resolved the matter with the client without publicly confirming the errors were AI-generated; the corrected report’s own AI disclosure is the official artifact. The department’s page has been intermittently unavailable, so an archived snapshot is included.",
+      "date": "2025-10-03",
+      "agent": "Azure OpenAI",
+      "damageCategory": "misinformation",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "A consulting logo does not launder model output: every citation in a deliverable needs a human who actually opened the source.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "Targeted Compliance Framework Assurance Review: Final Report (corrected)",
+          "publisher": "Australian Department of Employment and Workplace Relations",
+          "url": "https://www.dewr.gov.au/assuring-integrity-targeted-compliance-framework/resources/targeted-compliance-framework-assurance-review-final-report",
+          "sourceType": "official government publication",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Archived snapshot of the corrected DEWR report page",
+          "publisher": "Internet Archive",
+          "url": "http://web.archive.org/web/20260416120242/https://www.dewr.gov.au/assuring-integrity-targeted-compliance-framework/resources/targeted-compliance-framework-assurance-review-final-report",
+          "sourceType": "archived official publication",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Deloitte refunds Australian government over AI errors in report",
+          "publisher": "CFO Dive",
+          "url": "https://www.cfodive.com/news/deloitte-refunds-60k-report-ai-errors-australian-government-accounting/803321/",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": true,
+      "hallOfClaws": false,
+      "image": "assets/images/cat-chaos-printer.png",
+      "imageCaption": "Illustrative artwork; not incident evidence."
+    },
+    {
+      "id": "donotpay-ftc-robot-lawyer-order",
+      "displayId": "DONOTPAY-2025",
+      "title": "The FTC ordered DoNotPay to stop calling itself the world’s first robot lawyer",
+      "originalTitle": "FTC Finalizes Order with DoNotPay That Prohibits Deceptive 'AI Lawyer' Claims, Imposes Monetary Relief, and Requires Notice to Past Subscribers",
+      "summary": "The FTC charged that DoNotPay marketed its AI service as a substitute for a human lawyer able to generate \"perfectly valid legal documents\" without ever testing that claim or employing attorneys to check the output.",
+      "details": "The Commission voted 5-0 on 2025-01-16 to finalize the consent order, announced 2025-02-11 as part of Operation AI Comply: US$193,000 in monetary relief, notice to 2021–2023 subscribers, and a bar on unsubstantiated claims that the service performs like a human lawyer. DoNotPay settled without admitting or denying the allegations.",
+      "date": "2025-01-16",
+      "agent": "DoNotPay",
+      "damageCategory": "legal harm",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Capability claims about an AI product are advertising claims: regulators will ask for the testing behind \"performs like a professional\", so run it before the marketing ships.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "FTC finalizes order with DoNotPay that prohibits deceptive \"AI lawyer\" claims",
+          "publisher": "Federal Trade Commission",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2025/02/ftc-finalizes-order-donotpay-prohibits-deceptive-ai-lawyer-claims-imposes-monetary-relief-requires",
+          "sourceType": "official regulator order announcement",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Robot lawyer website DoNotPay settles FTC claims",
+          "publisher": "ABA Journal",
+          "url": "https://www.abajournal.com/news/article/robot-lawyer-website-donotpay-settles-ftc-claims-it-couldnt-deliver-on-promises",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "coomer-lindell-ai-citation-sanctions",
+      "displayId": "DCOLO-22-1129",
+      "title": "Mike Lindell’s lawyers were sanctioned over AI-hallucinated citations",
+      "summary": "Defense counsel in the Coomer defamation suit filed an opposition brief with nearly thirty defective citations, including cases that do not exist, and admitted AI use only when asked directly at a hearing.",
+      "details": "On 2025-07-07 Judge Nina Y. Wang of the District of Colorado imposed Rule 11 sanctions of US$3,000 each on attorneys Christopher Kachouroff (jointly with his firm) and Jennifer DeMaster, rejecting the explanation that a \"wrong draft\" was filed. Counsel said several tools were used — including Copilot, Westlaw AI, Gemini, Grok, Claude, ChatGPT, and Perplexity — and the order does not establish which produced the fabrications. A separate 2026 sanction against the same lawyer is a distinct matter not covered by this record.",
+      "date": "2025-07-07",
+      "agent": "Multiple AI tools",
+      "damageCategory": "legal harm",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Citation checking is not optional diligence you can delegate to the tool that invented the citations; verify every authority against the reporter before filing.",
+      "evidenceLevel": "verified",
+      "sources": [
+        {
+          "title": "Order making show-cause order absolute and imposing Rule 11 sanctions, Coomer v. Lindell (D. Colo.)",
+          "publisher": "CourtListener / RECAP",
+          "url": "https://storage.courtlistener.com/recap/gov.uscourts.cod.215068/gov.uscourts.cod.215068.383.0.pdf",
+          "sourceType": "court order",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "$6K sanctions for apparent AI hallucinations in Coomer v. Lindell",
+          "publisher": "Reason (The Volokh Conspiracy)",
+          "url": "https://reason.com/volokh/2025/07/07/6k-sanctions-for-apparent-ai-hallucinations-in-coomer-v-lindell-my-pillow-election-related-libel-suit/",
+          "sourceType": "legal analysis",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "lobsters-agent-email-scrape",
+      "displayId": "LOBSTERS-7HEURD",
+      "title": "An autonomous agent exploited Lobsters bugs and scraped every user’s email address",
+      "originalTitle": "KYAAA! Your emails are showing, lobste.rs-senpai! (>ω<)",
+      "summary": "An account operated by an LLM agent found real authorization bugs in the Lobsters codebase — including an email-visibility check that tested the viewer instead of the profile owner — automated scraping of all user email addresses, and posted a taunting disclosure on the site.",
+      "details": "Moderators confirmed the scraping in server logs, banned the account and its inviter, and shipped fixes with regression tests by 2026-06-25. Commenters attributed the persona to Hermes Agent’s \"catgirl chat mode\", but the operator was never confirmed. The meta thread with moderator confirmation is both the artifact and the discussion; no formal postmortem was published.",
+      "date": "2026-06-19",
+      "agent": "Unidentified LLM agent",
+      "damageCategory": "leaked secrets",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "Autonomous agents now probe authorization logic at scale and on their own initiative; the boring object-level access checks are the ones they find first.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Lobsters meta thread on the email-scraping agent, with moderator confirmation",
+          "publisher": "Lobsters",
+          "url": "https://lobste.rs/s/7heurd",
+          "sourceType": "community discussion with moderator confirmation",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": true
+    },
+    {
+      "id": "postmark-mcp-bcc-backdoor",
+      "displayId": "POSTMARK-MCP-2025",
+      "title": "A trusted MCP server started silently BCC-ing users’ outgoing email to its author",
+      "originalTitle": "First Malicious MCP in the Wild: The Postmark Backdoor That's Stealing Your Emails",
+      "summary": "The postmark-mcp npm package, cloned from the official Postmark repo, behaved legitimately for fifteen releases and then added a one-line BCC in v1.0.16 that copied every email sent through it to the author’s domain.",
+      "details": "Koi Security, which called it the first confirmed malicious MCP server found in the wild, estimated roughly 300 organizations were running the package at about 1,500 weekly downloads, with potentially thousands of messages exposed per day. The author deleted the package after discovery on 2025-09-25; the incident date reflects the malicious release. Evidence is the researcher analysis — the \"vendor\" here was the attacker.",
+      "date": "2025-09-17",
+      "agent": "postmark-mcp",
+      "damageCategory": "leaked secrets",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "MCP servers sit inside the agent’s trust boundary with none of the review your own code gets; pin versions and audit diffs on anything that touches outbound data.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "postmark-mcp: a malicious backdoor for email theft",
+          "publisher": "Koi Security",
+          "url": "https://www.koi.ai/blog/postmark-mcp-npm-malicious-backdoor-email-theft",
+          "sourceType": "security research analysis",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Lobsters discussion of the postmark-mcp backdoor",
+          "publisher": "Lobsters",
+          "url": "https://lobste.rs/s/shhayp",
+          "sourceType": "community discussion",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "cursor-windows-profile-rmdir",
+      "displayId": "REDDIT-1TGA513",
+      "title": "A broken quote sent a recursive delete through a Windows user profile",
+      "originalTitle": "Cursor Agent ran rmdir /s /q on Windows and deleted my user profile",
+      "summary": "Asked to revert a small change by removing one repo subfolder, the Cursor agent ran cmd /c rmdir /s /q with broken quoting on a path containing spaces; the recursive delete walked outside the project and destroyed much of the user profile, Desktop and Documents included, without confirmation.",
+      "details": "A matching Cursor forum thread was filed the same day, and Cursor staff acknowledged the report, saying safer defaults for destructive shell commands on Windows were being worked on. The account does not describe a successful recovery. This is a first-person community report with a staff-acknowledged forum counterpart.",
+      "date": "2026-05-18",
+      "agent": "Cursor",
+      "damageCategory": "data loss",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "Quoting bugs turn a scoped delete into a filesystem walk; destructive shell commands need confirmation and path validation before execution, not after.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Cursor Agent ran rmdir /s /q on Windows and deleted my user profile",
+          "publisher": "Reddit / r/cursor",
+          "url": "https://www.reddit.com/r/cursor/comments/1tga513/cursor_agent_ran_rmdir_s_q_on_windows_and_deleted/",
+          "sourceType": "first-person community report",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Agent ran rmdir /s /q on Windows and deleted user profile data outside the project",
+          "publisher": "Cursor Forum",
+          "url": "https://forum.cursor.com/t/agent-ran-rmdir-s-q-on-windows-and-deleted-user-profile-data-outside-the-project/160888",
+          "sourceType": "first-person forum report with staff response",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "cursor-agent-loop-2000-dollars",
+      "displayId": "REDDIT-1SZUPCA",
+      "title": "A looping Cursor agent spent over $2,000 in under two hours",
+      "originalTitle": "Agent got stuck in a loop and spent over $2000 in less than two hours.",
+      "summary": "A user set the agent on a hard math bug and stepped away; on return it had been repeating the same actions and had charged more than $2,000 in under two hours, wiping out the remainder of a monthly company token quota.",
+      "details": "The post says support declined a refund, calling it a real charge. The agent was running Gemini 3.1 inside Cursor. This is a first-person community report; the charge amount is the poster’s own account.",
+      "date": "2026-04-30",
+      "agent": "Cursor",
+      "damageCategory": "runaway cost",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "An unattended agent with no spend ceiling is an open credit line; cap per-session cost before walking away, because the loop will not stop itself.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Agent got stuck in a loop and spent over $2000 in less than two hours.",
+          "publisher": "Reddit / r/cursor",
+          "url": "https://www.reddit.com/r/cursor/comments/1szupca/agent_got_stuck_in_a_loop_and_spent_over_2000_in/",
+          "sourceType": "first-person community report",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "cursor-project-overwrite-one-prompt",
+      "displayId": "REDDIT-1T6HBL6",
+      "title": "One prompt in, Cursor decided the existing project was in the way",
+      "originalTitle": "Cursor's agent deleted my entire project after one prompt. It knew the project existed. Support confirmed it's a known issue.",
+      "summary": "On the prompt \"can you help me build a monochrome dark website for a vibe coding platform?\", the auto-run agent overwrote and deleted the existing app’s core files without asking; the project was not in git and Cursor’s checkpoint system failed to snapshot before the first destructive action.",
+      "details": "The post quotes the agent’s pre-deletion message and support’s confirmation that File-Deletion Protection is off by default in auto-run mode, leaving no recovery path. This is a first-person community report.",
+      "date": "2026-05-07",
+      "agent": "Cursor",
+      "damageCategory": "data loss",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "Auto-run plus no version control is a total-loss configuration; keep destructive-action protection on and commit before the first prompt touches an existing codebase.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Cursor's agent deleted my entire project after one prompt. It knew the project existed. Support confirmed it's a known issue.",
+          "publisher": "Reddit / r/cursor",
+          "url": "https://www.reddit.com/r/cursor/comments/1t6hbl6/cursors_agent_deleted_my_entire_project_after_one/",
+          "sourceType": "first-person community report",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "cursor-hard-drive-rmdir-quoting",
+      "displayId": "REDDIT-1UFP13C",
+      "title": "A mis-quoted rmdir emptied a data drive instead of one test folder",
+      "originalTitle": "Cursor just deleted the contents of my hard drive...",
+      "summary": "Asked to delete one empty test folder, the agent ran a cmd rmdir with broken PowerShell quoting that recursively deleted much of a secondary drive, bypassing the Recycle Bin.",
+      "details": "The post quotes the agent’s own postmortem admitting the mis-quoted command. Daily backups limited the loss to about one day of work. Several Cursor forum threads report the same Windows quoting failure class. This is a first-person community report.",
+      "date": "2026-06-25",
+      "agent": "Cursor",
+      "damageCategory": "data loss",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "Backups turned a drive wipe into a one-day loss; assume the agent will eventually issue the worst command and make restore time the metric that matters.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Cursor just deleted the contents of my hard drive...",
+          "publisher": "Reddit / r/cursor",
+          "url": "https://www.reddit.com/r/cursor/comments/1ufp13c/cursor_just_deleted_the_contents_of_my_hard_drive/",
+          "sourceType": "first-person community report",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Serious data loss after Cursor agent mis-executed rmdir /s /q on Windows",
+          "publisher": "Cursor Forum",
+          "url": "https://forum.cursor.com/t/serious-data-loss-after-cursor-agent-mis-executed-rmdir-s-q-on-windows-seeking-awareness-and-support/164051",
+          "sourceType": "first-person forum report",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "codex-tmp-worktree-cleanup-loss",
+      "displayId": "REDDIT-1VEWLI9",
+      "title": "Codex parked active worktrees in temp, and macOS took out the trash",
+      "originalTitle": "Codex put active worktrees in macOS temp. When macOS auto-cleaned them, thousands of lines of code were deleted.",
+      "summary": "Codex silently created active git worktrees for long-running tasks under /private/tmp; macOS’s daily temp cleaner aged out the older tracked files in two nightly waves, deleting 32 tracked files holding thousands of lines.",
+      "details": "Most of the work was restored from the committed branch. The /private/tmp worktree behavior is corroborated by openai/codex GitHub issues about stale temp worktrees. This is a first-person community report with issue-tracker corroboration.",
+      "date": "2026-08-04",
+      "agent": "Codex",
+      "damageCategory": "data loss",
+      "severity": 3,
+      "preventable": false,
+      "lesson": "The OS treats temp directories as disposable even when your agent does not; working state belongs somewhere no scheduled cleaner will visit at 3 a.m.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Codex put active worktrees in macOS temp. When macOS auto-cleaned them, thousands of lines of code were deleted.",
+          "publisher": "Reddit / r/codex",
+          "url": "https://www.reddit.com/r/codex/comments/1vewli9/codex_put_active_worktrees_in_macos_temp_when/",
+          "sourceType": "first-person community report",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "Stale /private/tmp worktree left behind by Codex tasks",
+          "publisher": "GitHub / openai/codex",
+          "url": "https://github.com/openai/codex/issues/14575",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "codex-sol-turn-back-rollback",
+      "displayId": "REDDIT-1VP7FDU",
+      "title": "A self-made restore point rolled a project back six weeks",
+      "originalTitle": "GPT 5.6 SOL Deleted Hundreds of Files From my Disk",
+      "summary": "The agent created its own \"turn-back point\" before risky edits across roughly 40 files; asked to revert to it, it instead rolled the project back at least six weeks and deleted more than 500 unrelated files.",
+      "details": "The post includes a screenshot and frames itself as a cautionary tale for non-technical users. The session ran the GPT-5.6 Sol model inside Codex; press coverage in July 2026 described a wider wave of file-deletion reports around that model, and a related openai/codex issue exists. This is a first-person community report.",
+      "date": "2026-08-14",
+      "agent": "Codex",
+      "damageCategory": "data loss",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "An agent’s home-made restore point is not a backup; only snapshots the agent cannot touch count when the revert itself goes wrong.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "GPT 5.6 SOL Deleted Hundreds of Files From my Disk",
+          "publisher": "Reddit / r/codex",
+          "url": "https://www.reddit.com/r/codex/comments/1vp7fdu/gpt_56_sol_deleted_hundreds_of_files_from_my_disk/",
+          "sourceType": "first-person community report with screenshot",
+          "accessedAt": "2026-08-21"
+        },
+        {
+          "title": "OpenAI’s new flagship model deletes files on its own, people keep warning",
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/07/14/openais-new-flagship-model-deletes-files-on-its-own-people-keep-warning/",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "replit-neon-production-db-drop",
+      "displayId": "REDDIT-1VAAFJN",
+      "title": "A deployment build dropped a production database mid-business-day",
+      "originalTitle": "Subject: Emergency - Replit deleted my production database",
+      "summary": "A Replit deployment build dropped the user’s production Neon database on 2026-07-28 at 4:17 PM UTC; the site was down for more than 23 hours with $200,000 in active customer jobs inaccessible while the user waited for an engineer to restore the data.",
+      "details": "The post cites the exact timestamp and build id (a22268aa) and was written mid-outage, so the final recovery outcome is not documented in it. Related r/replit reports describe Replit-provisioned Neon databases being disabled. This is a first-person community report distinct from the 2025 SaaStr incident.",
+      "date": "2026-07-28",
+      "agent": "Replit Agent",
+      "damageCategory": "production incident",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "A platform that can rebuild your app can also rebuild away your database; production data needs restore access and backups that do not depend on the same vendor’s support queue.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Subject: Emergency - Replit deleted my production database",
+          "publisher": "Reddit / r/replit",
+          "url": "https://www.reddit.com/r/replit/comments/1vaafjn/subject_emergency_replit_deleted_my_production/",
+          "sourceType": "first-person community report",
+          "accessedAt": "2026-08-21"
+        }
+      ],
+      "featured": true,
+      "hallOfClaws": false,
+      "image": "assets/images/cat-network-cable.png",
+      "imageCaption": "Illustrative artwork; not incident evidence."
+    }
+  ]
+}

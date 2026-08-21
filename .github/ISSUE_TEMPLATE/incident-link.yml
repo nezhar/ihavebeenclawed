@@ -1,0 +1,71 @@
+name: Submit an incident link
+description: Link a published incident report or discussion so it can be archived.
+title: '[incident]: '
+labels: ['incident-submission']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the claw report. We only archive incidents that are already published somewhere public — a blog post, GitHub issue, Hacker News or Reddit thread, court document, or vendor advisory. Paste the link below; everything else is optional but speeds up review.
+  - type: input
+    id: link
+    attributes:
+      label: Link to the published incident or discussion
+      description: The primary artifact — first-person report, issue, postmortem, ruling.
+      placeholder: https://github.com/vendor/tool/issues/12345
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Tool or product
+      description: Product name, plus version if known.
+      placeholder: Claude Code 2.1.0
+    validations:
+      required: false
+  - type: input
+    id: date
+    attributes:
+      label: Incident date
+      description: When it happened (YYYY-MM-DD), not when it was written up.
+      placeholder: 2026-08-21
+    validations:
+      required: false
+  - type: dropdown
+    id: damage
+    attributes:
+      label: Damage category
+      options:
+        - data loss
+        - leaked secrets
+        - runaway cost
+        - production incident
+        - repository damage
+        - service disruption
+        - embarrassment
+        - misinformation
+        - legal harm
+        - not sure
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Two or three sentences. What was the agent asked to do, what did it do instead, what was lost?
+    validations:
+      required: false
+  - type: textarea
+    id: extra-sources
+    attributes:
+      label: Additional sources
+      description: Discussion threads, press coverage, official statements — one URL per line.
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: The link is publicly accessible without a login.
+        - label: I am not sharing anyone's private data beyond what the linked source already publishes.
