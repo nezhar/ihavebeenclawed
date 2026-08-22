@@ -32,6 +32,8 @@ Tests use Node's built-in `node:test` runner and files end in `.test.js`. Run va
 
 Use stable lowercase slug IDs, ISO `YYYY-MM-DD` dates, and schema-supported categories. Summarize sources; do not copy long passages. Prefer primary artifacts and include access dates. Never imply that illustrative artwork is incident evidence.
 
+Sources may carry an optional `archiveUrl` (an http(s) Wayback/archive snapshot of `url`, shown as "archived copy" in the incident modal). `scripts/archive-sources.js` fills them in from the Wayback Machine — idempotent and resumable, re-run until no source is unresolved (`--dry-run`, `--limit N` supported). Run it after adding incidents.
+
 Apply these field rules by hand; the validator cannot check them:
 
 - `evidenceLevel`: `verified` requires an official document (court or tribunal decision, regulator finding, or the responsible organization's own postmortem). Journalism and independent firsthand testing stay `reported`, along with issue reports and community posts. `anecdotal` means no traceable evidence.

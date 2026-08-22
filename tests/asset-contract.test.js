@@ -14,17 +14,20 @@ const htmlImages = Array.from(
 const dataImages = dataset.incidents.map((incident) => incident.image).filter(Boolean);
 const images = [...new Set([...htmlImages, ...dataImages])];
 
-test('all eleven semantic image assets are referenced and exist', () => {
+test('all fourteen semantic image assets are referenced and exist', () => {
   assert.deepEqual(images.sort(), [
     'assets/images/cat-chaos-printer.png',
     'assets/images/cat-enter-key.png',
     'assets/images/cat-network-cable.png',
     'assets/images/cat-power-button.png',
+    'assets/images/cat-usb-drive.png',
     'assets/images/claw-closeup.png',
     'assets/images/clawed-access-card.png',
     'assets/images/clawed-chatbot-phone.png',
     'assets/images/clawed-external-drive.png',
     'assets/images/clawed-headset.png',
+    'assets/images/clawed-laptop-reflection.png',
+    'assets/images/clawed-router.png',
     'assets/images/scratched-coffee-hand.png',
     'assets/images/scratched-keyboard-hand.png'
   ]);

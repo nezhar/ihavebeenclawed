@@ -164,6 +164,28 @@ test('indexes the ten Linkup-researched incidents with traceable sources', () =>
   }
 });
 
+test('accepts an http(s) archiveUrl and rejects non-http archive URLs', () => {
+  const archived = {
+    ...incident,
+    sources: [{
+      ...incident.sources[0],
+      archiveUrl: 'https://web.archive.org/web/20260101000000/https://github.com/anthropics/claude-code/issues/10077'
+    }]
+  };
+  const ok = validateDataset({ schemaVersion: 1, updatedAt: '2026-08-22', incidents: [archived] });
+  assert.equal(ok.ok, true, ok.errors.join('\n'));
+
+  for (const bad of ['javascript:alert(1)', './snapshot.html', 42]) {
+    const invalid = {
+      ...incident,
+      sources: [{ ...incident.sources[0], archiveUrl: bad }]
+    };
+    const result = validateDataset({ schemaVersion: 1, updatedAt: '2026-08-22', incidents: [invalid] });
+    assert.equal(result.ok, false, `archiveUrl ${String(bad)} should be rejected`);
+    assert.match(result.errors.join('\n'), /archiveUrl/);
+  }
+});
+
 test('requires at least one external HTTP source per incident', () => {
   const localOnly = {
     ...incident,
@@ -183,7 +205,7 @@ test('requires at least one external HTTP source per incident', () => {
   assert.match(result.errors.join('\n'), /at least one external HTTP\(S\) URL/);
 });
 
-test('publishes 45 externally sourced incidents including both Reddit reports', () => {
+test('publishes 58 externally sourced incidents including both Reddit reports', () => {
   const dataset = require('../incidents.json');
   const expected = new Map([
     [
@@ -196,8 +218,8 @@ test('publishes 45 externally sourced incidents including both Reddit reports', 
     ]
   ]);
 
-  assert.equal(dataset.updatedAt, '2026-08-21');
-  assert.equal(dataset.incidents.length, 45);
+  assert.equal(dataset.updatedAt, '2026-08-22');
+  assert.equal(dataset.incidents.length, 58);
   assert.equal(dataset.incidents.some((item) => item.evidenceLevel === 'anecdotal'), false);
 
   for (const item of dataset.incidents) {

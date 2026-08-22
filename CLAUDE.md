@@ -57,6 +57,8 @@ Lowercase slug `id`, ISO `YYYY-MM-DD` dates (`date` may be `null`), severity 1�
 
 Summarize sources rather than copying long passages, prefer primary artifacts, include access dates. Never imply that illustrative artwork is incident evidence.
 
+Sources may carry an optional `archiveUrl` (an http(s) Wayback/archive snapshot of `url`, shown as "archived copy" in the incident modal). `scripts/archive-sources.js` fills them in from the Wayback Machine — idempotent and resumable, re-run until no source is unresolved (`--dry-run`, `--limit N` supported). Run it after adding incidents.
+
 Field semantics the validator cannot enforce — apply them by hand:
 
 - **`evidenceLevel`** — `verified` requires an official document: court or tribunal decision, regulator finding, or a published postmortem/incident report from the responsible organization. Journalism and independent firsthand testing are *not* enough on their own; those are `reported`, however good the reporting is. `reported` covers first-person issue reports, community posts, and press coverage with traceable artifacts. `anecdotal` is for stories with no traceable evidence at all.

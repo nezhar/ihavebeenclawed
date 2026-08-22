@@ -124,6 +124,12 @@
         if (!validDate(source.accessedAt)) {
           errors.push(`${at}.sources[${sourceIndex}].accessedAt must be a real YYYY-MM-DD date`);
         }
+        if (source.archiveUrl !== undefined &&
+            (typeof source.archiveUrl !== 'string' ||
+              !/^https?:\/\//i.test(source.archiveUrl) ||
+              !validUrl(source.archiveUrl))) {
+          errors.push(`${at}.sources[${sourceIndex}].archiveUrl must be an http(s) URL when present`);
+        }
       }
     }
 

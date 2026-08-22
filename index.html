@@ -50,6 +50,7 @@
   </header>
 
   <section id="top" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" onFocus="{{ pause }}" onBlur="{{ resume }}" style="max-width: 1080px; margin: 0 auto; padding: 72px 28px 40px;">
+    <p style="font-size: 16px; line-height: 1.6; color: var(--muted, #7B8494); max-width: 66ch; margin: 0 0 30px; text-wrap: pretty;">ihavebeenclawed is a public archive of documented incidents where AI coding agents and chatbots deleted data, leaked secrets, burned money, or made promises their operators had to keep — every entry source-linked, with the lesson it taught.</p>
     <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 26px;">{{ featured.label }}</p>
     <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: start;">
     <div style="flex: 3 1 380px; min-width: 0;">
@@ -76,7 +77,7 @@
         <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border: 1px solid var(--line, #232A33); background: var(--surface, #161B22);">
           <sc-for list="{{ featSlots }}" as="fs" hint-placeholder-count="3">
             <div style="{{ fs.style }}">
-              <image-slot id="{{ fs.slot }}" shape="rect" src="{{ fs.src }}" placeholder="drop the photo for this incident" style="width: 100%; height: 100%;"></image-slot>
+              <image-slot id="{{ fs.slot }}" shape="rect" src="{{ fs.src }}" placeholder=" " style="width: 100%; height: 100%;"></image-slot>
             </div>
           </sc-for>
         </div>
@@ -182,7 +183,12 @@
           <h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px;">Sources</h3>
           <div style="display: flex; flex-direction: column; align-items: start; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">
             <sc-for list="{{ modal.sources }}" as="modalSource" hint-placeholder-count="3">
-              <a href="{{ modalSource.url }}" target="{{ modalSource.target }}" rel="{{ modalSource.rel }}">{{ modalSource.title }} · {{ modalSource.publisher }} ↗</a>
+              <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;">
+                <a href="{{ modalSource.url }}" target="{{ modalSource.target }}" rel="{{ modalSource.rel }}">{{ modalSource.title }} · {{ modalSource.publisher }} ↗</a>
+                <sc-if value="{{ modalSource.archiveHref }}" hint-placeholder-val="{{ false }}">
+                  <a href="{{ modalSource.archiveHref }}" target="_blank" rel="noopener noreferrer" style="color: var(--muted, #7B8494); font-size: 12px;">archived copy</a>
+                </sc-if>
+              </div>
             </sc-for>
           </div>
         </div>
@@ -220,6 +226,7 @@
           <a href="https://lobste.rs/" target="_blank" rel="noopener noreferrer">lobste.rs</a> ·
           your tool's issue tracker · your own blog
         </p>
+        <p style="margin: 14px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--muted, #7B8494); max-width: 60ch; text-wrap: pretty;">Scope: we archive incidents about systems, data, and money. Incidents involving human tragedy are out of scope here — those belong in the <a href="https://incidentdatabase.ai/" target="_blank" rel="noopener noreferrer">AI Incident Database</a>.</p>
       </div>
       <a href="https://github.com/nezhar/ihavebeenclawed/issues/new?template=incident-link.yml" target="_blank" rel="noopener noreferrer" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; color: #0E1116; background: #C2402A; padding: 14px 24px; border-radius: 3px; white-space: nowrap;">Submit a link →</a>
     </div>
@@ -248,13 +255,24 @@
     </div>
   </section>
 
+  <section id="data" style="max-width: 1080px; margin: 0 auto; padding: 56px 28px 0;">
+    <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 14px; color: var(--muted, #7B8494);">About this data</h2>
+    <div style="font-size: 14.5px; line-height: 1.7; color: var(--muted, #7B8494); max-width: 78ch;">
+      <p style="margin: 0 0 10px; text-wrap: pretty;">This is a curated sample, not a census. Entries are self-selected and virality-weighted: quiet failures and NDA-bound corporate incidents never reach us. There are no usage denominators, so counts per tool measure popularity and reporting culture, not safety — never read the filters as a ranking. Where researchers disagree on a figure, each count is attributed to its source inside the incident record.</p>
+      <p style="margin: 0; text-wrap: pretty;">The whole dataset is one JSON file — <a href="./incidents.json">incidents.json</a> — licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Reuse it with attribution.</p>
+    </div>
+  </section>
+
   <footer style="max-width: 1080px; margin: 0 auto; padding: 72px 28px 64px;">
     <div style="border-top: 1px solid var(--line, #232A33); padding-top: 26px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--muted, #7B8494);">
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <span>ihavebeenclawed is built by <a href="https://github.com/nezhar" target="_blank" rel="noopener noreferrer">nezhar</a>, maker of VibePod.</span>
+        <span>Not to be confused with <a href="https://haveibeenclawned.com" target="_blank" rel="noopener noreferrer">haveibeenclawned.com</a> — different claws.</span>
+        <span>Incident data licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.</span>
       </div>
       <div style="display: flex; gap: 22px; flex-wrap: wrap;">
         <a href="#index" style="color: var(--muted, #7B8494);">index</a>
+        <a href="#data" style="color: var(--muted, #7B8494);">data</a>
         <a href="#submit" style="color: var(--muted, #7B8494);">submit</a>
       </div>
     </div>
@@ -378,7 +396,11 @@ class Component extends DCLogic {
       severityLabel: "severity " + selectedIncident.severity + " of 5",
       headline: selectedIncident.originalTitle || selectedIncident.title,
       subtitle: selectedIncident.originalTitle ? selectedIncident.title : "",
-      sources: selectedIncident.sources.map((source) => ({ ...source, ...linkAttrs(source.url) })),
+      sources: selectedIncident.sources.map((source) => ({
+        ...source,
+        ...linkAttrs(source.url),
+        archiveHref: source.archiveUrl || ""
+      })),
       close: () => this.closeIncident(),
       stopPropagation,
       onBackdropClick: () => this.closeIncident()
