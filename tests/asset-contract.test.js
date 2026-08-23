@@ -8,8 +8,8 @@ const path = require('node:path');
 const html = fs.readFileSync('index.html', 'utf8');
 const dataset = JSON.parse(fs.readFileSync('incidents.json', 'utf8'));
 const htmlImages = Array.from(
-  html.matchAll(/(?:src|content)="(\.\/)?(assets\/images\/[^"}]+\.png)"/g),
-  (match) => match[2]
+  html.matchAll(/(?:src|content)="(?:\.\/|https:\/\/ihavebeenclawed\.com\/)?(assets\/images\/[^"}]+\.png)"/g),
+  (match) => match[1]
 );
 const dataImages = dataset.incidents.map((incident) => incident.image).filter(Boolean);
 const images = [...new Set([...htmlImages, ...dataImages])];
@@ -28,7 +28,7 @@ test('all fourteen semantic image assets are referenced and exist', () => {
     'assets/images/clawed-headset.png',
     'assets/images/clawed-laptop-reflection.png',
     'assets/images/clawed-router.png',
-    'assets/images/scratched-coffee-hand.png',
+    'assets/images/og-card.png',
     'assets/images/scratched-keyboard-hand.png'
   ]);
   for (const image of images) {

@@ -287,7 +287,8 @@
           "publisher": "GitHub / openai/codex",
           "url": "https://github.com/openai/codex/issues/37515",
           "sourceType": "first-person issue report",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260822104553/https://github.com/openai/codex/issues/37515"
         }
       ],
       "featured": false,
@@ -314,7 +315,8 @@
           "publisher": "GitHub / cline/cline",
           "url": "https://github.com/cline/cline/issues/8422",
           "sourceType": "first-person issue report",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260822105116/https://github.com/cline/cline/issues/8422"
         }
       ],
       "featured": false,
@@ -341,7 +343,8 @@
           "publisher": "GitHub / cline/cline",
           "url": "https://github.com/cline/cline/issues/9946",
           "sourceType": "first-person issue report with reproduction",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260521194909/https://github.com/cline/cline/issues/9946"
         }
       ],
       "featured": false,
@@ -368,7 +371,8 @@
           "publisher": "GitHub / microsoft/vscode-copilot-release",
           "url": "https://github.com/microsoft/vscode-copilot-release/issues/14108",
           "sourceType": "first-person issue report",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260822105524/https://github.com/microsoft/vscode-copilot-release/issues/14108"
         }
       ],
       "featured": false,
@@ -395,7 +399,8 @@
           "publisher": "GitHub / Aider-AI/aider",
           "url": "https://github.com/Aider-AI/aider/issues/4241",
           "sourceType": "first-person issue report",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20250627043126/https://github.com/Aider-AI/aider/issues/4241"
         }
       ],
       "featured": false,
@@ -421,21 +426,24 @@
           "publisher": "SaaStr",
           "url": "https://www.saastr.com/replits-new-release-address-most-of-the-challenges-we-hit-vibe-coding-but-is-prosumer-vibe-coding-really-ready-for-commercial-apps-yet/",
           "sourceType": "first-person retrospective and company responses",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260822110126/https://www.saastr.com/replits-new-release-address-most-of-the-challenges-we-hit-vibe-coding-but-is-prosumer-vibe-coding-really-ready-for-commercial-apps-yet/"
         },
         {
           "title": "Incident 1152: Replit Agent reportedly executed destructive commands",
           "publisher": "AI Incident Database",
           "url": "https://incidentdatabase.ai/cite/1152/",
           "sourceType": "curated incident record",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260630061057/https://incidentdatabase.ai/cite/1152/"
         },
         {
           "title": "Replit makes promise to prevent vibe coding disasters",
           "publisher": "The Register",
           "url": "https://www.theregister.com/2025/07/22/replit_saastr_response/",
           "sourceType": "industry reporting with company response",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260412120110/https://www.theregister.com/2025/07/22/replit_saastr_response/"
         }
       ],
       "featured": false,
@@ -462,21 +470,24 @@
           "publisher": "GitHub / google-gemini/gemini-cli",
           "url": "https://github.com/google-gemini/gemini-cli/issues/4586",
           "sourceType": "first-person issue report with transcript",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260820104506/https://github.com/google-gemini/gemini-cli/issues/4586"
         },
         {
           "title": "Incident 1178: Gemini CLI reportedly deletes user files",
           "publisher": "AI Incident Database",
           "url": "https://incidentdatabase.ai/cite/1178/",
           "sourceType": "curated incident record",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260724160136/https://incidentdatabase.ai/cite/1178/"
         },
         {
           "title": "Two major AI coding tools wiped out user data",
           "publisher": "Ars Technica",
           "url": "https://arstechnica.com/information-technology/2025/07/ai-coding-assistants-chase-phantoms-destroy-real-user-data/",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260819023910/https://arstechnica.com/information-technology/2025/07/ai-coding-assistants-chase-phantoms-destroy-real-user-data/"
         }
       ],
       "featured": true,
@@ -504,21 +515,24 @@
           "publisher": "X / Leo Acevedo",
           "url": "https://x.com/leojr94_/status/1901560276488511759",
           "sourceType": "first-person report",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260515013828/https://x.com/leojr94_/status/1901560276488511759"
         },
         {
           "title": "Founder acknowledges exposed API keys",
           "publisher": "X / Leo Acevedo",
           "url": "https://x.com/leojr94_/status/1901979660948267360",
           "sourceType": "first-person acknowledgment",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260515013836/https://x.com/leojr94_/status/1901979660948267360"
         },
         {
           "title": "Founder announces EnrichLead shutdown",
           "publisher": "X / Leo Acevedo",
           "url": "https://x.com/leojr94_/status/1902537756674318347",
           "sourceType": "first-person follow-up",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260515013829/https://x.com/leojr94_/status/1902537756674318347"
         }
       ],
       "featured": false,
@@ -544,14 +558,16 @@
           "publisher": "X / Summer Yue",
           "url": "https://x.com/summeryue0/status/2025774069124399363",
           "sourceType": "first-person report with screenshots",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260812234530/https://x.com/summeryue0/status/2025774069124399363"
         },
         {
           "title": "Meta safety director handed OpenClaw the keys to her emails",
           "publisher": "Windows Central",
           "url": "https://www.windowscentral.com/artificial-intelligence/meta-summer-yue-director-openclaw-ai-email-deletion",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260814183329/https://www.windowscentral.com/artificial-intelligence/meta-summer-yue-director-openclaw-ai-email-deletion"
         }
       ],
       "featured": false,
@@ -579,14 +595,16 @@
           "publisher": "Ars Technica",
           "url": "https://arstechnica.com/ai/2025/04/cursor-ai-support-bot-invents-fake-policy-and-triggers-user-uproar/",
           "sourceType": "reporting with user evidence and company response",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260811164344/https://arstechnica.com/ai/2025/04/cursor-ai-support-bot-invents-fake-policy-and-triggers-user-uproar/"
         },
         {
           "title": "Incident 1039: Cursor support bot reportedly invents login policy",
           "publisher": "AI Incident Database",
           "url": "https://incidentdatabase.ai/cite/1039/",
           "sourceType": "curated incident record",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260718083614/https://incidentdatabase.ai/cite/1039/"
         }
       ],
       "featured": false,
@@ -614,7 +632,8 @@
           "publisher": "British Columbia Civil Resolution Tribunal",
           "url": "https://decisions.civilresolutionbc.ca/crt/crtd/en/item/525448/index.do",
           "sourceType": "official tribunal decision",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260812172344/https://decisions.civilresolutionbc.ca/crt/crtd/en/item/525448/index.do"
         },
         {
           "title": "BC Tribunal confirms liability for information provided by AI chatbot",
@@ -628,7 +647,8 @@
           "publisher": "AI Incident Database",
           "url": "https://incidentdatabase.ai/cite/639/",
           "sourceType": "curated incident record",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260822111709/https://incidentdatabase.ai/cite/639/"
         }
       ],
       "featured": false,
@@ -654,14 +674,16 @@
           "publisher": "X / Ashley Beauchamp",
           "url": "https://x.com/ashbeauchamp/status/1748034519104450874",
           "sourceType": "first-person report with screenshots",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20251226230012/https://x.com/ashbeauchamp/status/1748034519104450874"
         },
         {
           "title": "DPD chatbot goes off the rails at suggestion of customer",
           "publisher": "The Register",
           "url": "https://www.theregister.com/2024/01/23/dpd_chatbot_goes_rogue",
           "sourceType": "reporting with company response",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260216152116/https://www.theregister.com/2024/01/23/dpd_chatbot_goes_rogue/"
         }
       ],
       "featured": false,
@@ -687,21 +709,24 @@
           "publisher": "X / Chris Bakke",
           "url": "https://x.com/ChrisJBakke/status/1736533308849443121",
           "sourceType": "first-person demonstration with screenshot",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20251125174236/https://x.com/ChrisJBakke/status/1736533308849443121"
         },
         {
           "title": "Incident 622: Chevrolet dealer chatbot agrees to sell Tahoe for one dollar",
           "publisher": "AI Incident Database",
           "url": "https://incidentdatabase.ai/cite/622/",
           "sourceType": "curated incident record",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260729042720/https://incidentdatabase.ai/cite/622/"
         },
         {
           "title": "Car buyer tricks Chevy AI bot into selling Tahoe for one dollar",
           "publisher": "HotHardware",
           "url": "https://hothardware.com/news/car-dealerships-chatgpt-goes-awry-when-internet-gets-to-it",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260311164757/https://hothardware.com/news/car-dealerships-chatgpt-goes-awry-when-internet-gets-to-it"
         }
       ],
       "featured": false,
@@ -726,14 +751,16 @@
           "publisher": "U.S. District Court for the Southern District of New York / Justia",
           "url": "https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1%3A2022cv01461/575368/54/",
           "sourceType": "court order",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260815233732/https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54/"
         },
         {
           "title": "ChatGPT lawyer sanctions case study",
           "publisher": "Vectara / Awesome Agent Failures",
           "url": "https://github.com/vectara/awesome-agent-failures/blob/main/docs/case-studies/chatgpt-lawyer-sanctions.md",
           "sourceType": "secondary case study",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260822112606/https://github.com/vectara/awesome-agent-failures/blob/main/docs/case-studies/chatgpt-lawyer-sanctions.md"
         }
       ],
       "featured": false,
@@ -759,21 +786,24 @@
           "publisher": "The Markup",
           "url": "https://themarkup.org/artificial-intelligence/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law",
           "sourceType": "investigative testing",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260728190626/https://themarkup.org/artificial-intelligence/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law"
         },
         {
           "title": "Mamdani to kill the NYC AI chatbot caught giving illegal advice",
           "publisher": "The Markup",
           "url": "https://themarkup.org/artificial-intelligence/2026/01/30/mamdani-to-kill-the-nyc-ai-chatbot-we-caught-telling-businesses-to-break-the-law",
           "sourceType": "follow-up reporting",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260520015114/https://themarkup.org/artificial-intelligence/2026/01/30/mamdani-to-kill-the-nyc-ai-chatbot-we-caught-telling-businesses-to-break-the-law"
         },
         {
           "title": "MyCity chatbot beta taken down",
           "publisher": "THE CITY",
           "url": "https://www.thecity.nyc/2026/01/30/mamdani-unusable-ai-chatbot-budget/",
           "sourceType": "follow-up reporting with city status",
-          "accessedAt": "2026-08-08"
+          "accessedAt": "2026-08-08",
+          "archiveUrl": "https://web.archive.org/web/20260305012608/https://www.thecity.nyc/2026/01/30/mamdani-unusable-ai-chatbot-budget/"
         }
       ],
       "featured": false,
@@ -800,21 +830,24 @@
           "publisher": "Amazon Web Services",
           "url": "https://aws.amazon.com/security/security-bulletins/AWS-2025-015/",
           "sourceType": "vendor security bulletin",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260813094325/https://aws.amazon.com/security/security-bulletins/AWS-2025-015/"
         },
         {
           "title": "GHSA-7g7f-ff96-5gcw: Amazon Q Developer VS Code extension advisory",
           "publisher": "GitHub / aws/aws-toolkit-vscode",
           "url": "https://github.com/aws/aws-toolkit-vscode/security/advisories/GHSA-7g7f-ff96-5gcw",
           "sourceType": "vendor security advisory",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260813103554/https://github.com/aws/aws-toolkit-vscode/security/advisories/GHSA-7g7f-ff96-5gcw"
         },
         {
           "title": "Amazon AI coding agent hacked to inject data wiping commands",
           "publisher": "BleepingComputer",
           "url": "https://www.bleepingcomputer.com/news/security/amazon-ai-coding-agent-hacked-to-inject-data-wiping-commands/",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822113314/https://www.bleepingcomputer.com/news/security/amazon-ai-coding-agent-hacked-to-inject-data-wiping-commands/"
         }
       ],
       "featured": true,
@@ -842,21 +875,24 @@
           "publisher": "GitHub / nrwl/nx",
           "url": "https://github.com/nrwl/nx/security/advisories/GHSA-cxm3-wv7p-598c",
           "sourceType": "maintainer security advisory",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822113916/https://github.com/nrwl/nx/security/advisories/GHSA-cxm3-wv7p-598c"
         },
         {
           "title": "s1ngularity's aftermath",
           "publisher": "Wiz Research",
           "url": "https://www.wiz.io/blog/s1ngularitys-aftermath",
           "sourceType": "security research analysis",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260820131657/https://www.wiz.io/blog/s1ngularitys-aftermath"
         },
         {
           "title": "Lobsters discussion of the Nx compromise",
           "publisher": "Lobsters",
           "url": "https://lobste.rs/s/imehlk",
           "sourceType": "community discussion",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822114346/https://lobste.rs/s/imehlk"
         }
       ],
       "featured": true,
@@ -884,14 +920,16 @@
           "publisher": "The Register",
           "url": "https://www.theregister.com/2025/12/01/google_antigravity_wipes_d_drive/",
           "sourceType": "reporting with company response",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260427223013/https://www.theregister.com/2025/12/01/google_antigravity_wipes_d_drive/"
         },
         {
           "title": "Google's Antigravity AI deleted a developer's drive and then apologized",
           "publisher": "TechRadar",
           "url": "https://www.techradar.com/ai-platforms-assistants/googles-antigravity-ai-deleted-a-developers-drive-and-then-apologized",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260221131519/https://www.techradar.com/ai-platforms-assistants/googles-antigravity-ai-deleted-a-developers-drive-and-then-apologized"
         }
       ],
       "featured": true,
@@ -920,7 +958,8 @@
           "publisher": "GitHub / github/copilot-cli",
           "url": "https://github.com/github/copilot-cli/issues/2881",
           "sourceType": "first-person issue report",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822114509/https://github.com/github/copilot-cli/issues/2881"
         }
       ],
       "featured": false,
@@ -947,7 +986,8 @@
           "publisher": "GitHub / RooCodeInc/Roo-Code",
           "url": "https://github.com/RooCodeInc/Roo-Code/issues/7765",
           "sourceType": "first-person issue report",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20250918201507/https://github.com/RooCodeInc/Roo-Code/issues/7765"
         }
       ],
       "featured": false,
@@ -972,14 +1012,16 @@
           "publisher": "Matt Palmer",
           "url": "https://mattpalmer.io/posts/2025/05/CVE-2025-48757/",
           "sourceType": "first-person security disclosure",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260812003833/https://mattpalmer.io/posts/2025/05/CVE-2025-48757/"
         },
         {
           "title": "Lovable vulnerabilities: what builders should know",
           "publisher": "Superblocks",
           "url": "https://www.superblocks.com/blog/lovable-vulnerabilities",
           "sourceType": "secondary analysis",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260515143135/https://www.superblocks.com/blog/lovable-vulnerabilities"
         }
       ],
       "featured": false,
@@ -1004,7 +1046,8 @@
           "publisher": "TIME",
           "url": "https://time.com/7301206/elon-musk-antisemitic-posts-ai-chatbot-grok-response/",
           "sourceType": "reporting with company statement",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260811113424/https://time.com/7301206/elon-musk-antisemitic-posts-ai-chatbot-grok-response/"
         }
       ],
       "featured": false,
@@ -1032,14 +1075,16 @@
           "publisher": "Ian Carroll",
           "url": "https://ian.sh/mcdonalds",
           "sourceType": "first-person security disclosure",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822115337/https://ian.sh/mcdonalds"
         },
         {
           "title": "Responsible security update",
           "publisher": "Paradox.ai",
           "url": "https://www.paradox.ai/blog/responsible-security-update",
           "sourceType": "vendor incident statement",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260608182312/https://www.paradox.ai/blog/responsible-security-update"
         }
       ],
       "featured": false,
@@ -1067,7 +1112,8 @@
           "publisher": "Google (The Keyword)",
           "url": "https://blog.google/products/gemini/gemini-image-generation-issue/",
           "sourceType": "official company postmortem",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260107004225/https://blog.google/products/gemini/gemini-image-generation-issue/"
         }
       ],
       "featured": false,
@@ -1093,7 +1139,8 @@
           "publisher": "Google (The Keyword)",
           "url": "https://blog.google/products/search/ai-overviews-update-may-2024/",
           "sourceType": "official company postmortem",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260106185804/https://blog.google/products/search/ai-overviews-update-may-2024/"
         }
       ],
       "featured": false,
@@ -1118,21 +1165,24 @@
           "publisher": "Australian Department of Employment and Workplace Relations",
           "url": "https://www.dewr.gov.au/assuring-integrity-targeted-compliance-framework/resources/targeted-compliance-framework-assurance-review-final-report",
           "sourceType": "official government publication",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260416120242/https://www.dewr.gov.au/assuring-integrity-targeted-compliance-framework/resources/targeted-compliance-framework-assurance-review-final-report"
         },
         {
           "title": "Archived snapshot of the corrected DEWR report page",
           "publisher": "Internet Archive",
           "url": "http://web.archive.org/web/20260416120242/https://www.dewr.gov.au/assuring-integrity-targeted-compliance-framework/resources/targeted-compliance-framework-assurance-review-final-report",
           "sourceType": "archived official publication",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822115846/https://www.dewr.gov.au/assuring-integrity-targeted-compliance-framework/resources/targeted-compliance-framework-assurance-review-final-report"
         },
         {
           "title": "Deloitte refunds Australian government over AI errors in report",
           "publisher": "CFO Dive",
           "url": "https://www.cfodive.com/news/deloitte-refunds-60k-report-ai-errors-australian-government-accounting/803321/",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822120417/https://www.cfodive.com/news/deloitte-refunds-60k-report-ai-errors-australian-government-accounting/803321/"
         }
       ],
       "featured": false,
@@ -1160,14 +1210,16 @@
           "publisher": "Federal Trade Commission",
           "url": "https://www.ftc.gov/news-events/news/press-releases/2025/02/ftc-finalizes-order-donotpay-prohibits-deceptive-ai-lawyer-claims-imposes-monetary-relief-requires",
           "sourceType": "official regulator order announcement",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822120948/https://www.ftc.gov/news-events/news/press-releases/2025/02/ftc-finalizes-order-donotpay-prohibits-deceptive-ai-lawyer-claims-imposes-monetary-relief-requires"
         },
         {
           "title": "Robot lawyer website DoNotPay settles FTC claims",
           "publisher": "ABA Journal",
           "url": "https://www.abajournal.com/news/article/robot-lawyer-website-donotpay-settles-ftc-claims-it-couldnt-deliver-on-promises",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260608025159/https://www.abajournal.com/news/article/robot-lawyer-website-donotpay-settles-ftc-claims-it-couldnt-deliver-on-promises"
         }
       ],
       "featured": false,
@@ -1192,14 +1244,16 @@
           "publisher": "CourtListener / RECAP",
           "url": "https://storage.courtlistener.com/recap/gov.uscourts.cod.215068/gov.uscourts.cod.215068.383.0.pdf",
           "sourceType": "court order",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20251005165015/https://storage.courtlistener.com/recap/gov.uscourts.cod.215068/gov.uscourts.cod.215068.383.0.pdf"
         },
         {
           "title": "$6K sanctions for apparent AI hallucinations in Coomer v. Lindell",
           "publisher": "Reason (The Volokh Conspiracy)",
           "url": "https://reason.com/volokh/2025/07/07/6k-sanctions-for-apparent-ai-hallucinations-in-coomer-v-lindell-my-pillow-election-related-libel-suit/",
           "sourceType": "legal analysis",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260209115607/https://reason.com/volokh/2025/07/07/6k-sanctions-for-apparent-ai-hallucinations-in-coomer-v-lindell-my-pillow-election-related-libel-suit/"
         }
       ],
       "featured": false,
@@ -1225,7 +1279,8 @@
           "publisher": "Lobsters",
           "url": "https://lobste.rs/s/7heurd",
           "sourceType": "community discussion with moderator confirmation",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260705003249/https://lobste.rs/s/7heurd"
         }
       ],
       "featured": false,
@@ -1251,14 +1306,16 @@
           "publisher": "Koi Security",
           "url": "https://www.koi.ai/blog/postmark-mcp-npm-malicious-backdoor-email-theft",
           "sourceType": "security research analysis",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260804073852/https://www.koi.ai/blog/postmark-mcp-npm-malicious-backdoor-email-theft"
         },
         {
           "title": "Lobsters discussion of the postmark-mcp backdoor",
           "publisher": "Lobsters",
           "url": "https://lobste.rs/s/shhayp",
           "sourceType": "community discussion",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822121159/https://lobste.rs/s/shhayp/first_malicious_mcp_wild_postmark"
         }
       ],
       "featured": false,
@@ -1284,14 +1341,16 @@
           "publisher": "Reddit / r/cursor",
           "url": "https://www.reddit.com/r/cursor/comments/1tga513/cursor_agent_ran_rmdir_s_q_on_windows_and_deleted/",
           "sourceType": "first-person community report",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822121252/https://www.reddit.com/r/cursor/comments/1tga513/cursor_agent_ran_rmdir_s_q_on_windows_and_deleted/?solution=ec14d8fc5698e1dfec14d8fc5698e1df&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9eca48ec6dc246e6d9a6421dbf3ca55df7e&jsc_orig_r="
         },
         {
           "title": "Agent ran rmdir /s /q on Windows and deleted user profile data outside the project",
           "publisher": "Cursor Forum",
           "url": "https://forum.cursor.com/t/agent-ran-rmdir-s-q-on-windows-and-deleted-user-profile-data-outside-the-project/160888",
           "sourceType": "first-person forum report with staff response",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260812030455/https://forum.cursor.com/t/agent-ran-rmdir-s-q-on-windows-and-deleted-user-profile-data-outside-the-project/160888"
         }
       ],
       "featured": false,
@@ -1317,7 +1376,8 @@
           "publisher": "Reddit / r/cursor",
           "url": "https://www.reddit.com/r/cursor/comments/1szupca/agent_got_stuck_in_a_loop_and_spent_over_2000_in/",
           "sourceType": "first-person community report",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260811003418/https://www.reddit.com/r/cursor/comments/1szupca/agent_got_stuck_in_a_loop_and_spent_over_2000_in/"
         }
       ],
       "featured": false,
@@ -1343,7 +1403,8 @@
           "publisher": "Reddit / r/cursor",
           "url": "https://www.reddit.com/r/cursor/comments/1t6hbl6/cursors_agent_deleted_my_entire_project_after_one/",
           "sourceType": "first-person community report",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822121720/https://www.reddit.com/r/cursor/comments/1t6hbl6/cursors_agent_deleted_my_entire_project_after_one/?solution=111b629177f54032111b629177f54032&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ec0b4a4165a9b0b12758993ad2d61c6640&jsc_orig_r="
         }
       ],
       "featured": false,
@@ -1369,14 +1430,16 @@
           "publisher": "Reddit / r/cursor",
           "url": "https://www.reddit.com/r/cursor/comments/1ufp13c/cursor_just_deleted_the_contents_of_my_hard_drive/",
           "sourceType": "first-person community report",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822121818/https://www.reddit.com/r/cursor/comments/1ufp13c/cursor_just_deleted_the_contents_of_my_hard_drive/?solution=afbb026dbfc1df27afbb026dbfc1df27&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ec6010203be9c2300857ef7ae80bb6d05a&jsc_orig_r="
         },
         {
           "title": "Serious data loss after Cursor agent mis-executed rmdir /s /q on Windows",
           "publisher": "Cursor Forum",
           "url": "https://forum.cursor.com/t/serious-data-loss-after-cursor-agent-mis-executed-rmdir-s-q-on-windows-seeking-awareness-and-support/164051",
           "sourceType": "first-person forum report",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260812015341/https://forum.cursor.com/t/serious-data-loss-after-cursor-agent-mis-executed-rmdir-s-q-on-windows-seeking-awareness-and-support/164051"
         }
       ],
       "featured": false,
@@ -1402,14 +1465,16 @@
           "publisher": "Reddit / r/codex",
           "url": "https://www.reddit.com/r/codex/comments/1vewli9/codex_put_active_worktrees_in_macos_temp_when/",
           "sourceType": "first-person community report",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822121929/https://www.reddit.com/r/codex/comments/1vewli9/codex_put_active_worktrees_in_macos_temp_when/?solution=fe0438a12fcbbca6fe0438a12fcbbca6&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9eccf0841a757b8f00f72c28de17e274ae3&jsc_orig_r="
         },
         {
           "title": "Stale /private/tmp worktree left behind by Codex tasks",
           "publisher": "GitHub / openai/codex",
           "url": "https://github.com/openai/codex/issues/14575",
           "sourceType": "first-person issue report",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822122025/https://github.com/openai/codex/issues/14575"
         }
       ],
       "featured": false,
@@ -1431,17 +1496,18 @@
       "evidenceLevel": "reported",
       "sources": [
         {
-          "title": "GPT 5.6 SOL Deleted Hundreds of Files From my Disk",
-          "publisher": "Reddit / r/codex",
-          "url": "https://www.reddit.com/r/codex/comments/1vp7fdu/gpt_56_sol_deleted_hundreds_of_files_from_my_disk/",
-          "sourceType": "first-person community report with screenshot",
-          "accessedAt": "2026-08-21"
-        },
-        {
           "title": "OpenAI’s new flagship model deletes files on its own, people keep warning",
           "publisher": "TechCrunch",
           "url": "https://techcrunch.com/2026/07/14/openais-new-flagship-model-deletes-files-on-its-own-people-keep-warning/",
           "sourceType": "independent reporting",
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260820034444/https://techcrunch.com/2026/07/14/openais-new-flagship-model-deletes-files-on-its-own-people-keep-warning/"
+        },
+        {
+          "title": "GPT 5.6 SOL Deleted Hundreds of Files From my Disk",
+          "publisher": "Reddit / r/codex",
+          "url": "https://www.reddit.com/r/codex/comments/1vp7fdu/gpt_56_sol_deleted_hundreds_of_files_from_my_disk/",
+          "sourceType": "first-person community report with screenshot",
           "accessedAt": "2026-08-21"
         }
       ],
@@ -1468,7 +1534,8 @@
           "publisher": "Reddit / r/replit",
           "url": "https://www.reddit.com/r/replit/comments/1vaafjn/subject_emergency_replit_deleted_my_production/",
           "sourceType": "first-person community report",
-          "accessedAt": "2026-08-21"
+          "accessedAt": "2026-08-21",
+          "archiveUrl": "https://web.archive.org/web/20260822122517/https://www.reddit.com/r/replit/comments/1vaafjn/subject_emergency_replit_deleted_my_production/?solution=66b054116cb308d466b054116cb308d4&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ecf0f44f8b3e0f2735a12b7d0b90d7e317&jsc_orig_r="
         }
       ],
       "featured": false,
@@ -1496,28 +1563,32 @@
           "publisher": "The Register",
           "url": "https://www.theregister.com/2026/04/27/cursoropus_agent_snuffs_out_pocketos/",
           "sourceType": "industry reporting with company response",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260718042346/https://www.theregister.com/2026/04/27/cursoropus_agent_snuffs_out_pocketos/"
         },
         {
           "title": "A Security Post-Mortem of the 9-Second AI Database Deletion",
           "publisher": "NeuralTrust",
           "url": "https://neuraltrust.ai/blog/pocketos-railway-agent",
           "sourceType": "security vendor analysis",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260511202440/https://neuraltrust.ai/blog/pocketos-railway-agent"
         },
         {
           "title": "'Rogue' AI agent went haywire at tech company. The CEO is still 'bullish' on the technology",
           "publisher": "ABC News",
           "url": "https://abcnews.com/GMA/News/rogue-ai-agent-haywire-tech-company-ceo-bullish/story?id=132473181",
           "sourceType": "independent reporting with victim and vendor statements",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260703090816/https://abcnews.com/GMA/News/rogue-ai-agent-haywire-tech-company-ceo-bullish/story?id=132473181"
         },
         {
           "title": "Gone in 9 seconds: Claude AI deletes an entire company's database, then confesses",
           "publisher": "Live Science",
           "url": "https://www.livescience.com/technology/artificial-intelligence/i-violated-every-principle-i-was-given-ai-agent-deletes-companys-entire-database-in-9-seconds-then-confesses",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260724120724/https://www.livescience.com/technology/artificial-intelligence/i-violated-every-principle-i-was-given-ai-agent-deletes-companys-entire-database-in-9-seconds-then-confesses"
         }
       ],
       "featured": false,
@@ -1544,21 +1615,24 @@
           "publisher": "AI Incident Database",
           "url": "https://incidentdatabase.ai/cite/1442/",
           "sourceType": "curated incident record",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260609215451/https://incidentdatabase.ai/cite/1442"
         },
         {
           "title": "AWS outage blamed on AI agent and human permissions error",
           "publisher": "TechBuzz",
           "url": "https://www.techbuzz.ai/articles/aws-outage-blamed-on-ai-agent-and-human-permissions-error",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260221045112/https://www.techbuzz.ai/articles/aws-outage-blamed-on-ai-agent-and-human-permissions-error"
         },
         {
           "title": "Coding agent horror stories: the agent that deleted production",
           "publisher": "Docker",
           "url": "https://www.docker.com/blog/coding-agent-horror-stories-the-agent-that-deleted-production/",
           "sourceType": "industry analysis",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260722130620/https://www.docker.com/blog/coding-agent-horror-stories-the-agent-that-deleted-production/"
         }
       ],
       "featured": false,
@@ -1583,21 +1657,24 @@
           "publisher": "Fortune",
           "url": "https://fortune.com/2026/03/12/amazon-retail-site-outages-ai-agent-inaccurate-advice",
           "sourceType": "independent reporting with company response",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260814160230/https://fortune.com/2026/03/12/amazon-retail-site-outages-ai-agent-inaccurate-advice/"
         },
         {
           "title": "Amazon calls mandatory engineering meeting after AI-linked outages as Elon Musk weighs in",
           "publisher": "Fortune",
           "url": "https://fortune.com/2026/03/11/elon-musk-amazon-outage-ai-relate-incident-meeting-report-cybersecurity/",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260316015722/https://fortune.com/2026/03/11/elon-musk-amazon-outage-ai-relate-incident-meeting-report-cybersecurity/"
         },
         {
           "title": "What Amazon's agent incidents reveal about enterprise AI coding risks",
           "publisher": "Fortune",
           "url": "https://fortune.com/2026/03/18/ai-coding-risks-amazon-agents-enterprise/",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260527115530/https://fortune.com/2026/03/18/ai-coding-risks-amazon-agents-enterprise/"
         }
       ],
       "featured": false,
@@ -1623,21 +1700,24 @@
           "publisher": "NIST National Vulnerability Database",
           "url": "https://nvd.nist.gov/vuln/detail/cve-2025-32711",
           "sourceType": "vulnerability database entry",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260813045804/https://nvd.nist.gov/vuln/detail/CVE-2025-32711"
         },
         {
           "title": "Zero-Click AI Vulnerability Exposes Microsoft 365 Copilot Data Without User Interaction",
           "publisher": "The Hacker News",
           "url": "https://thehackernews.com/2025/06/zero-click-ai-vulnerability-exposes.html",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260821015046/https://thehackernews.com/2025/06/zero-click-ai-vulnerability-exposes.html"
         },
         {
           "title": "EchoLeak: The First Real-World Zero-Click Prompt Injection Exploit in a Production LLM System",
           "publisher": "arXiv (Reddy & Gujral, AAAI Fall Symposium 2025)",
           "url": "https://arxiv.org/abs/2509.10540",
           "sourceType": "academic paper",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260821035451/https://arxiv.org/abs/2509.10540"
         }
       ],
       "featured": false,
@@ -1663,21 +1743,24 @@
           "publisher": "Pillar Security",
           "url": "https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents",
           "sourceType": "researcher disclosure",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260723020957/https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents"
         },
         {
           "title": "New 'Rules File Backdoor' Attack Lets Hackers Inject Malicious Code via AI Code Editors",
           "publisher": "The Hacker News",
           "url": "https://thehackernews.com/2025/03/new-rules-file-backdoor-attack-lets.html",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260723021004/https://thehackernews.com/2025/03/new-rules-file-backdoor-attack-lets.html"
         },
         {
           "title": "Rules File Backdoor vulnerability in GitHub Copilot and Cursor",
           "publisher": "OECD.AI incidents monitor",
           "url": "https://oecd.ai/en/incidents/2025-03-18-06ed",
           "sourceType": "incident database entry",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260822123337/https://oecd.ai/en/incidents/2025-03-18-06ed"
         }
       ],
       "featured": false,
@@ -1703,21 +1786,24 @@
           "publisher": "Legit Security",
           "url": "https://www.legitsecurity.com/blog/remote-prompt-injection-in-gitlab-duo",
           "sourceType": "researcher disclosure",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260515000333/https://www.legitsecurity.com/blog/remote-prompt-injection-in-gitlab-duo"
         },
         {
           "title": "GitLab Duo Vulnerability Enabled Attackers to Hijack AI Responses with Hidden Prompts",
           "publisher": "The Hacker News",
           "url": "https://thehackernews.com/2025/05/gitlab-duo-vulnerability-enabled.html",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260818070941/https://thehackernews.com/2025/05/gitlab-duo-vulnerability-enabled.html"
         },
         {
           "title": "Remote Prompt Injection in GitLab Duo Leads to Source Code Theft",
           "publisher": "Simon Willison's Weblog",
           "url": "https://simonwillison.net/2025/May/23/remote-prompt-injection-in-gitlab-duo/",
           "sourceType": "expert commentary",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260621063346/https://simonwillison.net/2025/May/23/remote-prompt-injection-in-gitlab-duo/"
         }
       ],
       "featured": false,
@@ -1743,21 +1829,24 @@
           "publisher": "Amazon Web Services",
           "url": "https://aws.amazon.com/security/security-bulletins/AWS-2025-019",
           "sourceType": "vendor security bulletin",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260413221050/https://aws.amazon.com/security/security-bulletins/AWS-2025-019/"
         },
         {
           "title": "Amazon Q Developer: Remote Code Execution with Prompt Injection",
           "publisher": "Embrace The Red (Johann Rehberger)",
           "url": "https://embracethered.com/blog/posts/2025/amazon-q-developer-remote-code-execution/",
           "sourceType": "researcher disclosure",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260821082459/https://embracethered.com/blog/posts/2025/amazon-q-developer-remote-code-execution/"
         },
         {
           "title": "AWS Kiro: Arbitrary Code Execution via Indirect Prompt Injection",
           "publisher": "Embrace The Red (Johann Rehberger)",
           "url": "https://embracethered.com/blog/posts/2025/aws-kiro-aribtrary-command-execution-with-indirect-prompt-injection/",
           "sourceType": "researcher disclosure",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260810162933/https://embracethered.com/blog/posts/2025/aws-kiro-aribtrary-command-execution-with-indirect-prompt-injection/"
         }
       ],
       "featured": false,
@@ -1782,28 +1871,32 @@
           "publisher": "SC World",
           "url": "https://www.scworld.com/news/openclaw-agents-targeted-with-341-malicious-clawhub-skills",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260212053140/https://www.scworld.com/news/openclaw-agents-targeted-with-341-malicious-clawhub-skills"
         },
         {
           "title": "Malicious OpenClaw 'skill' targets crypto users on ClawHub",
           "publisher": "Tom's Hardware",
           "url": "https://www.tomshardware.com/tech-industry/cyber-security/malicious-moltbot-skill-targets-crypto-users-on-clawhub",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260621114718/https://www.tomshardware.com/tech-industry/cyber-security/malicious-moltbot-skill-targets-crypto-users-on-clawhub"
         },
         {
           "title": "Hackers Weaponize OpenClaw AI Agents to Push Malware and Steal Crypto Wallets",
           "publisher": "Cyber Security News",
           "url": "https://cybersecuritynews.com/openclaw-ai-agents/",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260820150250/https://cybersecuritynews.com/openclaw-ai-agents/"
         },
         {
           "title": "280+ Leaky Skills: How OpenClaw & ClawHub Are Exposing API Keys and PII",
           "publisher": "Snyk",
           "url": "https://snyk.io/blog/openclaw-skills-credential-leaks-research/",
           "sourceType": "security research",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260810113319/https://snyk.io/blog/openclaw-skills-credential-leaks-research/"
         }
       ],
       "featured": false,
@@ -1829,28 +1922,32 @@
           "publisher": "Anthropic",
           "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
           "sourceType": "vendor incident report",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260816084107/https://www.anthropic.com/news/disrupting-AI-espionage"
         },
         {
           "title": "C0062: Anthropic AI-orchestrated Campaign",
           "publisher": "MITRE ATT&CK",
           "url": "https://attack.mitre.org/campaigns/C0062/",
           "sourceType": "threat intelligence catalog",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260813014156/https://attack.mitre.org/campaigns/C0062/"
         },
         {
           "title": "Anthropic warns state actor weaponized its AI tool in espionage campaign",
           "publisher": "Cybersecurity Dive",
           "url": "https://www.cybersecuritydive.com/news/anthropic-state-actor-ai-tool-espionage/805550/",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260704043814/https://www.cybersecuritydive.com/news/anthropic-state-actor-ai-tool-espionage/805550/"
         },
         {
           "title": "An AI lab says Chinese-backed bots are running cyber espionage attacks. Experts have questions",
           "publisher": "The Conversation",
           "url": "https://theconversation.com/an-ai-lab-says-chinese-backed-bots-are-running-cyber-espionage-attacks-experts-have-questions-269815",
           "sourceType": "expert analysis",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260329181030/https://theconversation.com/an-ai-lab-says-chinese-backed-bots-are-running-cyber-espionage-attacks-experts-have-questions-269815"
         }
       ],
       "featured": false,
@@ -1876,28 +1973,32 @@
           "publisher": "Hugging Face",
           "url": "https://huggingface.co/blog/security-incident-july-2026",
           "sourceType": "vendor incident report",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260821101049/https://huggingface.co/blog/security-incident-july-2026"
         },
         {
           "title": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
           "publisher": "TIME",
           "url": "https://time.com/article/2026/07/24/openai-hugging-face-attack/",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260814163122/https://time.com/article/2026/07/24/openai-hugging-face-attack/"
         },
         {
           "title": "OpenAI Agent Used Exposed Credentials Across Four Services During Hugging Face Breach",
           "publisher": "The Hacker News",
           "url": "https://thehackernews.com/2026/07/openai-agent-used-exposed-credentials.html",
           "sourceType": "independent reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260820051100/https://thehackernews.com/2026/07/openai-agent-used-exposed-credentials.html"
         },
         {
           "title": "OpenAI's accidental cyberattack against Hugging Face is science fiction that happened",
           "publisher": "Simon Willison",
           "url": "https://simonwillison.net/2026/Jul/22/openai-cyberattack/",
           "sourceType": "expert analysis",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260808060251/https://simonwillison.net/2026/Jul/22/openai-cyberattack/"
         }
       ],
       "featured": false,
@@ -1922,28 +2023,32 @@
           "publisher": "TechCrunch",
           "url": "https://techcrunch.com/2025/08/30/taco-bell-is-having-second-thoughts-about-relying-on-ai-at-the-drive-through/",
           "sourceType": "reporting with executive comments",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20251203212427/https://techcrunch.com/2025/08/30/taco-bell-is-having-second-thoughts-about-relying-on-ai-at-the-drive-through/"
         },
         {
           "title": "Taco Bell rethinking AI drive-thru plan after trolls order 18,000 water cups",
           "publisher": "Dexerto",
           "url": "https://www.dexerto.com/food/taco-bell-rethinking-ai-drive-thru-plan-after-trolls-order-18000-water-cups-3243731/",
           "sourceType": "reporting on the viral videos",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20251202181621/https://www.dexerto.com/food/taco-bell-rethinking-ai-drive-thru-plan-after-trolls-order-18000-water-cups-3243731/"
         },
         {
           "title": "Taco Bell rethinks AI drive-through after man orders 18,000 waters",
           "publisher": "Hacker News",
           "url": "https://news.ycombinator.com/item?id=45065391",
           "sourceType": "community discussion of BBC coverage",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260426020749/https://news.ycombinator.com/item?id=45065391"
         },
         {
           "title": "Incident 1274: AI-Powered Taco Bell Drive-Thru Reportedly Disrupted by Viral Prank Ordering 18,000 Water Cups",
           "publisher": "AI Incident Database",
           "url": "https://incidentdatabase.ai/cite/1274/",
           "sourceType": "incident database entry with report index",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260323125231/https://incidentdatabase.ai/cite/1274"
         }
       ],
       "featured": false,
@@ -1968,21 +2073,24 @@
           "publisher": "Fortune",
           "url": "https://fortune.com/europe/2025/01/30/virgin-money-chatbot-scolds-customer-confuse-banks-name-insult",
           "sourceType": "reporting with company response",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260114054733/https://fortune.com/europe/2025/01/30/virgin-money-chatbot-scolds-customer-confuse-banks-name-insult/"
         },
         {
           "title": "Don't You Call Me a Virgin, Says Virgin Money's Chatbot",
           "publisher": "CX Today",
           "url": "https://www.cxtoday.com/conversational-ai/dont-you-call-me-a-virgin-says-virgin-moneys-chatbot/",
           "sourceType": "trade-press reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20250916204305/https://www.cxtoday.com/conversational-ai/dont-you-call-me-a-virgin-says-virgin-moneys-chatbot/"
         },
         {
           "title": "Virgin Money chatbot tells off customer who typed word 'virgin'",
           "publisher": "Yahoo Finance (Fortune syndication)",
           "url": "https://finance.yahoo.com/news/virgin-money-chatbot-tells-off-125436677.html",
           "sourceType": "syndicated reporting",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20250514134402/https://finance.yahoo.com/news/virgin-money-chatbot-tells-off-125436677.html"
         }
       ],
       "featured": false,
@@ -2008,14 +2116,16 @@
           "publisher": "To Data & Beyond (republishing Teja Kusireddy's Medium essay)",
           "url": "https://todatabeyond.substack.com/p/we-spent-47000-running-ai-agents",
           "sourceType": "first-person account (republication)",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260822124130/https://todatabeyond.substack.com/p/we-spent-47000-running-ai-agents"
         },
         {
           "title": "AI Agents Horror Stories: How a $47,000 AI Agent Failure Exposed the Hype and Hidden Risks of Multi-Agent Systems",
           "publisher": "Tech Startups",
           "url": "https://techstartups.com/2025/11/14/ai-agents-horror-stories-how-a-47000-failure-exposed-the-hype-and-hidden-risks-of-multi-agent-systems/",
           "sourceType": "analysis citing the firsthand account",
-          "accessedAt": "2026-08-22"
+          "accessedAt": "2026-08-22",
+          "archiveUrl": "https://web.archive.org/web/20260511061427/https://techstartups.com/2025/11/14/ai-agents-horror-stories-how-a-47000-failure-exposed-the-hype-and-hidden-risks-of-multi-agent-systems/"
         }
       ],
       "featured": false,
