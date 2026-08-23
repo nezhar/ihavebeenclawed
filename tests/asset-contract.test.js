@@ -23,13 +23,13 @@ test('all fourteen semantic image assets are referenced and exist', () => {
     'assets/images/cat-usb-drive.png',
     'assets/images/claw-closeup.png',
     'assets/images/clawed-access-card.png',
+    'assets/images/clawed-backup-cartridge.png',
     'assets/images/clawed-chatbot-phone.png',
     'assets/images/clawed-external-drive.png',
     'assets/images/clawed-headset.png',
     'assets/images/clawed-laptop-reflection.png',
     'assets/images/clawed-router.png',
-    'assets/images/og-card.png',
-    'assets/images/scratched-keyboard-hand.png'
+    'assets/images/og-card-claw.png'
   ]);
   for (const image of images) {
     assert.equal(fs.existsSync(path.resolve(image)), true, image);

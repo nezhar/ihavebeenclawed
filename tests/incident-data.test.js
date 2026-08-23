@@ -218,7 +218,7 @@ test('publishes 58 externally sourced incidents including both Reddit reports', 
     ]
   ]);
 
-  assert.equal(dataset.updatedAt, '2026-08-22');
+  assert.equal(dataset.updatedAt, '2026-08-23');
   assert.equal(dataset.incidents.length, 58);
   assert.equal(dataset.incidents.some((item) => item.evidenceLevel === 'anecdotal'), false);
 
