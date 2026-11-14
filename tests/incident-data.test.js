@@ -205,7 +205,7 @@ test('requires at least one external HTTP source per incident', () => {
   assert.match(result.errors.join('\n'), /at least one external HTTP\(S\) URL/);
 });
 
-test('publishes 58 externally sourced incidents including both Reddit reports', () => {
+test('publishes 92 externally sourced incidents including both Reddit reports', () => {
   const dataset = require('../incidents.json');
   const expected = new Map([
     [
@@ -218,8 +218,8 @@ test('publishes 58 externally sourced incidents including both Reddit reports', 
     ]
   ]);
 
-  assert.equal(dataset.updatedAt, '2026-08-23');
-  assert.equal(dataset.incidents.length, 58);
+  assert.equal(dataset.updatedAt, '2026-11-14');
+  assert.equal(dataset.incidents.length, 92);
   assert.equal(dataset.incidents.some((item) => item.evidenceLevel === 'anecdotal'), false);
 
   for (const item of dataset.incidents) {
