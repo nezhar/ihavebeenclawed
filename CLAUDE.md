@@ -21,7 +21,7 @@ Full check suite (run from the repo root — tests read `index.html` / `incident
 ```bash
 node scripts/validate-incidents.js
 node --test tests/*.test.js
-node --check incident-data.js && node --check image-slot.js && node --check support.js
+node --check incident-data.js && node --check archive-navigation.js && node --check image-slot.js && node --check support.js
 ```
 
 Single test file: `node --test tests/incident-data.test.js`. Single test case: `node --test --test-name-pattern 'duplicate IDs' tests/*.test.js`.
@@ -32,14 +32,18 @@ Single test file: `node --test tests/incident-data.test.js`. Single test case: `
 
 **One validator, two runtimes.** `incident-data.js` is a UMD-ish module exporting `validateDataset` and `deriveStats`. It runs in Node (via `scripts/validate-incidents.js` and tests) and in the browser (as `window.IncidentData`, called inside `loadIncidents()` after the fetch). Schema changes go here first; the CLI, the tests, and the page all inherit them. `validUrl` deliberately rejects non-http(s)/non-relative URLs (e.g. `javascript:`), so it is a security boundary, not just a lint.
 
-**The page is a DC component, not vanilla DOM.** `index.html` contains:
+**The pages are DC components, not vanilla DOM.** `index.html` is the canonical archive template; `incident.html` renders individual records at `incident.html?id=<slug>`. Both use `archive.css` for shared styles and `archive-navigation.js` for search, filter URLs, and theme persistence. Each template contains:
 - a `<x-dc>` template using `{{ expr }}` interpolation plus the control-flow elements `<sc-for list="{{ … }}" as="x">` and `<sc-if value="{{ … }}">`. The `hint-placeholder-count` / `hint-placeholder-val` attributes only drive the pre-hydration placeholder render.
-- a `<script type="text/x-dc" data-dc-script>` defining `class Component extends DCLogic`. State lives in `state`; **all derived view data is computed in one `renderVals()`** which returns the object the template binds against. Event handlers are passed down as closures inside that returned object (`onClick`, `onKeyDown`, …), so adding interaction means adding a field in `renderVals()`, not wiring listeners in the template.
+- a `<script type="text/x-dc" data-dc-script>` defining `class Component extends DCLogic`. State lives in `state`; **all derived view data is computed in the component’s `renderVals()`** which returns the object the template binds against. Event handlers are passed down as closures inside that returned object (`onClick`, `onChange`, …), so adding interaction means adding a field in `renderVals()`, not wiring listeners in the template.
 - `support.js` is the generated DC runtime (React-based). **Never edit it** — its header points at the `dc-runtime` source repo.
 
-Data flow: `componentDidMount` → `loadIncidents()` → fetch + `validateDataset` → `state.incidents` → `renderVals()` derives filters, featured carousel, hall-of-claws, stats, modal. Filter chips, agent/damage lists, and counters are all derived from the dataset, so a new incident automatically extends the filter options.
+Data flow: `componentDidMount` → `loadIncidents()` → fetch + `validateDataset` → `state.incidents` → `renderVals()` derives filters, featured carousel, hall-of-claws, and stats. The incident template reads the stable `id` query parameter, fetches and validates the same JSON, then renders the full account and sources. Filter options, agent/damage lists, and counters are all derived from the dataset, so a new incident automatically extends the filter options.
 
-Cross-cutting behaviors already wired in `renderVals()`/lifecycle that new code must not regress: theme vars (`DARK`/`LIGHT` → CSS custom properties on the root div), `prefers-reduced-motion` (`state.reduced` nulls out every `transition`), carousel pause on hover/focus, modal focus trap + Escape + focus restore + `body` scroll lock, and `linkAttrs()` which adds `target="_blank" rel="noopener noreferrer"` only for remote URLs.
+Cross-cutting behaviors that new code must not regress: persisted themes (`data-theme` on the document root and CSS custom properties), `prefers-reduced-motion`, carousel pause on hover/focus and its explicit pause control, native incident anchors with query-preserved filter context, browser Back scroll restoration, direct-load/not-found/retry states, and `target="_blank" rel="noopener noreferrer"` for external sources. Copy incident links omit search/filter context. Return URLs are built from recognized filters rather than an arbitrary redirect parameter.
+
+**Archive pagination.** The homepage grid shows `PAGE_SIZE` (12) cards per page, newest `date` first with undated incidents last; `sortNewestFirst` and `paginate` live in `archive-navigation.js`. The page number is the `page` URL parameter next to the filters and is omitted on page 1. Changing search or a filter resets to page 1 and replaces the history entry; paging pushes one, scrolls to `#index`, and focuses the archive heading. Incident links and the incident back link carry `page` through the shared helpers.
+
+**Page titles.** Never put `<title>` inside `<helmet>`: the runtime copies its text into `<head>` verbatim on every render, so `{{ … }}` shows up literally in the browser tab and overwrites anything set from code. Each page has a static `<title>` in its real `<head>`, and the component updates `document.title` in `syncTitle()` (called from `componentDidUpdate`).
 
 **Images.** `image-slot.js` implements the `<image-slot>` custom element (drag-drop fillable placeholder, persisted via an omelette sidecar; read-only outside that runtime). It is copied starter code — regenerating it overwrites local edits. Incident images live in `assets/images/`; `tests/asset-contract.test.js` pins the exact set of referenced assets and forbids `uploads/` paths or `ChatGPT Image` filenames in shipped content, so adding or renaming an image means updating that test.
 
@@ -57,7 +61,7 @@ Lowercase slug `id`, ISO `YYYY-MM-DD` dates (`date` may be `null`), severity 1�
 
 Summarize sources rather than copying long passages, prefer primary artifacts, include access dates. Never imply that illustrative artwork is incident evidence.
 
-Sources may carry an optional `archiveUrl` (an http(s) Wayback/archive snapshot of `url`, shown as "archived copy" in the incident modal). `scripts/archive-sources.js` fills them in from the Wayback Machine — idempotent and resumable, re-run until no source is unresolved (`--dry-run`, `--limit N` supported). Run it after adding incidents.
+Sources may carry an optional `archiveUrl` (an http(s) Wayback/archive snapshot of `url`, shown as "Archived copy" on the incident page). `scripts/archive-sources.js` fills them in from the Wayback Machine — idempotent and resumable, re-run until no source is unresolved (`--dry-run`, `--limit N` supported). Run it after adding incidents.
 
 Field semantics the validator cannot enforce — apply them by hand:
 
@@ -72,7 +76,7 @@ Field semantics the validator cannot enforce — apply them by hand:
 
 ## Verification beyond the test suite
 
-Manually check loading and failure states, filters, source links, theme switching, carousel rotation, the incident modal, responsive layout, and the browser console at narrow and desktop widths.
+Manually check loading and failure states, search and filters, direct incident links, browser Back navigation, copy-link feedback, source links, theme switching, carousel rotation, responsive layout, and the browser console at narrow and desktop widths.
 
 ## Commits & PRs
 

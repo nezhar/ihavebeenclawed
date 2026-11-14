@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Incident — ihavebeenclawed</title>
+  <meta name="description" content="A sourced incident from the AI-agent and chatbot archive: what happened, the impact, and lessons learned.">
+  <meta property="og:title" content="Incident details — ihavebeenclawed">
+  <meta property="og:description" content="Documented AI-agent and chatbot incidents, with original sources and lessons learned.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://ihavebeenclawed.com/assets/images/og-card-claw.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./archive.css">
+  <script src="./support.js"></script>
+  <script src="./incident-data.js"></script>
+  <script src="./archive-navigation.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+</helmet>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./index.html">
+      <svg width="25" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19 L14 4 M8 20 L19 5 M13 21 L23 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+      ihavebeenclawed
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="{{ backHref }}">The archive</a>
+      <a href="./index.html#hall">Hall of claws</a>
+      <button class="button" type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeAriaLabel }}">{{ themeLabel }}</button>
+      <a class="button" href="./index.html#submit">Submit a link ↗</a>
+    </nav>
+  </div>
+</header>
+<main class="container detail-main" id="main">
+  <a class="breadcrumb" href="{{ backHref }}">← Back to the archive</a>
+  <sc-if value="{{ loading }}" hint-placeholder-val="{{ true }}"><div class="status-panel" role="status"><p>Loading incident details…</p></div></sc-if>
+  <sc-if value="{{ hasLoadError }}" hint-placeholder-val="{{ false }}"><div class="status-panel" role="alert"><h1>Unable to load this incident</h1><p>Please try again in a moment.</p><button class="button" type="button" onClick="{{ retry }}">Try again</button></div></sc-if>
+  <sc-if value="{{ notFound }}" hint-placeholder-val="{{ false }}"><div class="status-panel"><h1>Incident not found</h1><p>This link doesn’t match an incident in the archive.</p><a class="button" href="{{ backHref }}">Browse the archive →</a></div></sc-if>
+  <sc-if value="{{ hasIncident }}" hint-placeholder-val="{{ false }}">
+    <article>
+      <header class="detail-heading">
+        <p class="eyebrow">Incident report / {{ incident.displayId }}</p>
+        <h1>{{ incident.title }}</h1>
+        <p class="detail-summary">{{ incident.summary }}</p>
+      </header>
+      <div class="detail-layout">
+        <div class="detail-body">
+          <section aria-labelledby="what-happened"><h2 id="what-happened">What happened</h2><p class="detail-prose">{{ incident.details }}</p></section>
+          <section class="lesson-box" aria-labelledby="lesson"><h2 id="lesson">The lesson</h2><p>{{ incident.lesson }}</p></section>
+          <section aria-labelledby="sources"><h2 id="sources">Sources &amp; evidence</h2>
+            <sc-if value="{{ incident.originalTitle }}" hint-placeholder-val="{{ false }}"><p class="muted">Original report: {{ incident.originalTitle }}</p></sc-if>
+            <ul class="source-list">
+              <sc-for list="{{ incident.sources }}" as="source" hint-placeholder-count="1">
+                <li><a class="source-title" href="{{ source.url }}" target="{{ source.target }}" rel="{{ source.rel }}">{{ source.title }} ↗</a>
+                  <div class="source-meta"><span>{{ source.publisher }}</span><span>Accessed {{ source.accessedAt }}</span>
+                    <sc-if value="{{ source.archiveUrl }}" hint-placeholder-val="{{ false }}"><a href="{{ source.archiveUrl }}" target="_blank" rel="noopener noreferrer">Archived copy ↗</a></sc-if>
+                  </div>
+                </li>
+              </sc-for>
+            </ul>
+          </section>
+          <section><a class="button" href="{{ backHref }}">← Explore more incidents</a></section>
+        </div>
+        <aside class="detail-aside" aria-label="Incident facts">
+          <div class="detail-facts">
+            <dl>
+              <dt>Product</dt><dd>{{ incident.agent }}</dd>
+              <sc-if value="{{ incident.agentVersion }}" hint-placeholder-val="{{ false }}"><dt>Version</dt><dd>{{ incident.agentVersion }}</dd></sc-if>
+              <dt>Event date</dt><dd><time datetime="{{ incident.date }}">{{ incident.dateLabel }}</time></dd>
+              <dt>Damage</dt><dd class="category">{{ incident.damageCategory }}</dd>
+              <dt>Impact</dt><dd>{{ incident.severity }} / 5</dd>
+              <dt>Evidence</dt><dd><span class="{{ incident.evidenceClass }}">{{ incident.evidenceLevel }}</span></dd>
+              <dt>Preventable?</dt><dd>{{ incident.preventability }}</dd>
+            </dl>
+            <p class="evidence-note">{{ incident.evidenceNote }}</p>
+            <button class="button" type="button" onClick="{{ copyLink }}">Copy incident link ↗</button>
+            <p class="copy-status" role="status" aria-live="polite">{{ copyStatus }}</p>
+          </div>
+          <sc-if value="{{ incident.image }}" hint-placeholder-val="{{ false }}"><figure class="detail-image"><img sc-camel-src="{{ incident.image }}" alt="Illustrative artwork, not incident evidence" loading="lazy"><figcaption>{{ incident.imageCaption }}</figcaption></figure></sc-if>
+        </aside>
+      </div>
+    </article>
+  </sc-if>
+</main>
+<footer class="container site-footer">
+  <div><p>A sourced record of AI agents and chatbots gone wrong.</p><p>Incident data: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Illustrations are not incident evidence.</p></div>
+  <nav aria-label="Footer"><a href="{{ backHref }}">Archive</a><a href="./index.html#data">About the data</a></nav>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { theme: "dark", loading: true, loadError: null, incident: null, copyStatus: "" };
+
+  async loadIncident() {
+    this.setState({ loading: true, loadError: null, incident: null, copyStatus: "" });
+    this.syncTitle();
+    try {
+      const response = await fetch("./incidents.json", { cache: "no-store" });
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      const result = window.IncidentData.validateDataset(await response.json());
+      if (!result.ok) throw new Error(result.errors.join("; "));
+      const id = new URLSearchParams(window.location.search).get("id");
+      const incident = result.data.incidents.find(item => item.id === id) || null;
+      this.setState({ incident, loading: false });
+    } catch (error) {
+      console.error("Unable to load incident details:", error);
+      this.setState({ incident: null, loading: false, loadError: error.message });
+    }
+    this.syncTitle();
+  }
+
+  pageTitle() {
+    const { incident, loading, loadError } = this.state;
+    const label = incident ? incident.title : loading ? "Loading incident" : loadError ? "Incident unavailable" : "Incident not found";
+    return label + " — ihavebeenclawed";
+  }
+  // The runtime's <helmet> copies <title> text verbatim on every render, so the title is set here instead.
+  syncTitle() { document.title = this.pageTitle(); }
+
+  componentDidMount() {
+    this.setState({ theme: window.ArchiveNavigation.readTheme() });
+    this.syncTheme();
+    this.loadIncident();
+  }
+  componentDidUpdate() { this.syncTheme(); this.syncTitle(); }
+  syncTheme() { document.documentElement.dataset.theme = this.state.theme; }
+  toggleTheme() {
+    const theme = this.state.theme === "dark" ? "light" : "dark";
+    window.ArchiveNavigation.saveTheme(theme);
+    this.setState({ theme });
+  }
+
+  async copyLink() {
+    if (!this.state.incident) return;
+    const url = new URL(window.ArchiveNavigation.incidentHref(this.state.incident.id), window.location.href);
+    try {
+      await navigator.clipboard.writeText(url.href);
+      this.setState({ copyStatus: "Link copied." });
+    } catch {
+      this.setState({ copyStatus: "Couldn’t copy automatically. Copy the link from your address bar." });
+    }
+  }
+
+  renderVals() {
+    const item = this.state.incident;
+    const evidenceNotes = {
+      verified: "Supported by an official decision, finding, or the responsible organization’s own postmortem.",
+      reported: "Based on traceable reporting or firsthand accounts; not an official finding.",
+      anecdotal: "An account without traceable evidence."
+    };
+    const incident = item ? {
+      ...item,
+      dateLabel: item.date || "Date unknown",
+      imageCaption: item.imageCaption || "Illustrative artwork, not incident evidence.",
+      evidenceClass: "evidence evidence-" + item.evidenceLevel,
+      evidenceNote: evidenceNotes[item.evidenceLevel],
+      preventability: item.preventable === null ? "Unclear" : item.preventable ? "Yes, with known precautions" : "Not realistically by the operator",
+      sources: item.sources.map(source => ({
+        ...source,
+        target: /^https?:\/\//i.test(source.url) ? "_blank" : "_self",
+        rel: /^https?:\/\//i.test(source.url) ? "noopener noreferrer" : ""
+      }))
+    } : {};
+    return {
+      incident,
+      hasIncident: Boolean(item),
+      loading: this.state.loading,
+      hasLoadError: Boolean(this.state.loadError),
+      notFound: !this.state.loading && !this.state.loadError && !item,
+      backHref: window.ArchiveNavigation.returnHref(window.location.search),
+      retry: () => this.loadIncident(),
+      themeLabel: this.state.theme === "dark" ? "Light mode" : "Dark mode",
+      themeAriaLabel: this.state.theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
+      toggleTheme: () => this.toggleTheme(),
+      copyLink: () => this.copyLink(),
+      copyStatus: this.state.copyStatus
+    };
+  }
+}
+</script>
+<noscript><p>This page needs JavaScript to load the incident. You can also <a href="./incidents.json">read the incident dataset</a>.</p></noscript>
+</body>
+</html>
