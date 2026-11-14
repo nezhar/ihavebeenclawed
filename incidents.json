@@ -3226,6 +3226,41 @@
       ],
       "featured": false,
       "hallOfClaws": false
+    },
+    {
+      "id": "pi-test-teardown-session-wipe",
+      "displayId": "PI-2026",
+      "title": "An agent-written test teardown deleted the agent's own session history",
+      "originalTitle": "The Day My Agent Lost Its Memory: A Pi Session-Loss Postmortem",
+      "summary": "While adding a feature to a wrapper around the Pi coding agent, an agent wrote a unit-test cleanup helper that recursively force-deleted three directory levels upward; run as a routine npm test, it removed every project's session history under ~/.pi/agent/sessions, including the live conversation of the agent running the test.",
+      "details": "ZheNing Hu's postmortem, published 2 September 2026, explains why the delete escaped: Pi stores sessions under ~/.pi/agent/sessions/<encoded cwd>/, and although the test used a throwaway temp directory as its working directory, the session folder was still created under the real sessions root. The teardown ran in a finally block with no guard: the first level removed the test's folder, the second the whole sessions directory, and the third most of ~/.pi/agent, taking the npm install, auth.json and models-store.json with it. The running agent's own session file vanished mid-conversation and it fell into a retry loop on missing-file errors; that conversation held nearly five million tokens of context. The author first blamed an npm install into the agent's prefix and corrected the diagnosis after the loss recurred. A database and a log were copied back out of file descriptors still held by running processes, but the session itself was not recovered; the author rebuilt context by hand, narrowed the teardown to the single test directory, and now backs up the sessions folder. The post does not state Pi's version or any approval setting. This incident was contributed to the archive by its author, ZheNing Hu (GitHub user adlternative), in issue #1; that submission names the model as DeepSeek V4 Flash and dates the first loss to 31 August 2026. This is a first-person account.",
+      "date": "2026-08-31",
+      "agent": "Pi",
+      "damageCategory": "data loss",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Generated test scaffolding carries the same destructive power as a shell command; cleanup should delete only the exact path the test created, and agent state worth keeping needs a backup the agent's own tests cannot reach.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "The Day My Agent Lost Its Memory: A Pi Session-Loss Postmortem",
+          "publisher": "ZheNing Hu",
+          "url": "https://adlternative.github.io/posts/ai/pi-session-loss-postmortem/",
+          "sourceType": "first-person postmortem",
+          "accessedAt": "2026-11-14",
+          "archiveUrl": "https://web.archive.org/web/20261114164458/https://adlternative.github.io/posts/ai/pi-session-loss-postmortem/"
+        },
+        {
+          "title": "Incident submission: pi + DeepSeek V4 Flash, agent-written test teardown deleted its own session directory",
+          "publisher": "GitHub / nezhar/ihavebeenclawed (submitted by adlternative)",
+          "url": "https://github.com/nezhar/ihavebeenclawed/issues/1",
+          "sourceType": "first-person submission",
+          "accessedAt": "2026-11-14",
+          "archiveUrl": "https://web.archive.org/web/20261114164534/https://github.com/nezhar/ihavebeenclawed/issues/1"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
     }
   ]
 }
