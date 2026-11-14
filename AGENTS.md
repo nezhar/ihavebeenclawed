@@ -2,7 +2,9 @@
 
 ## Project Structure & Module Organization
 
-This repository is a static AI-agent and chatbot incident archive. `index.html` is the canonical template and contains inline styles and `DCLogic` behavior; `ihavebeenclawed.dc.html` is a compatibility redirect only. `incidents.json` is the canonical content store, and `incident-data.js` validates it in Node and the browser. `scripts/` contains the validation CLI, `tests/` contains Node tests, and `assets/images/` holds illustrative artwork. `image-slot.js` implements `<image-slot>`. `support.js` is generated DC runtime code; do not edit it directly.
+This repository is a static AI-agent and chatbot incident archive. `index.html` is the canonical archive template with `DCLogic` behavior; `incident.html` renders individual incidents at `incident.html?id=<slug>`. `archive.css` holds shared styles, and `archive-navigation.js` handles search, filter URLs, and theme persistence; `ihavebeenclawed.dc.html` is a compatibility redirect only. `incidents.json` is the canonical content store, and `incident-data.js` validates it in Node and the browser. `scripts/` contains the validation CLI, `tests/` contains Node tests, and `assets/images/` holds illustrative artwork. `image-slot.js` implements `<image-slot>`. `support.js` is generated DC runtime code; do not edit it directly.
+
+The homepage archive is paginated: 12 cards per page, newest `date` first with undated incidents last, using `sortNewestFirst` and `paginate` from `archive-navigation.js`. The page number is the `page` URL parameter, omitted on page 1; search and filter changes reset to page 1, and paging pushes a history entry and moves focus to the archive heading. Never put `<title>` inside `<helmet>`: the runtime copies its text verbatim on every render, so template expressions appear literally in the browser tab. Keep a static `<title>` in each page's real `<head>` and update `document.title` from the component's `syncTitle()`.
 
 ## Build, Test, and Development Commands
 
@@ -17,7 +19,7 @@ Run all repository checks with:
 ```bash
 node scripts/validate-incidents.js
 node --test tests/*.test.js
-node --check incident-data.js && node --check image-slot.js && node --check support.js
+node --check incident-data.js && node --check archive-navigation.js && node --check image-slot.js && node --check support.js
 ```
 
 ## Coding Style & Naming Conventions
@@ -26,13 +28,13 @@ Use two-space indentation in HTML, CSS, JavaScript, and JSON. Follow existing Ja
 
 ## Testing Guidelines
 
-Tests use Node's built-in `node:test` runner and files end in `.test.js`. Run validation, tests, and syntax checks before submitting. Manually verify loading and failure states, filters, source links, theme switching, carousel rotation, responsive layouts, and browser-console output at narrow and desktop widths.
+Tests use Node's built-in `node:test` runner and files end in `.test.js`. Run validation, tests, and syntax checks before submitting. Manually verify loading and failure states, search and filters, direct incident links, browser Back navigation, copy-link feedback, source links, theme switching, carousel rotation, responsive layouts, and browser-console output at narrow and desktop widths.
 
 ## Incident Data & Sources
 
 Use stable lowercase slug IDs, ISO `YYYY-MM-DD` dates, and schema-supported categories. Summarize sources; do not copy long passages. Prefer primary artifacts and include access dates. Never imply that illustrative artwork is incident evidence.
 
-Sources may carry an optional `archiveUrl` (an http(s) Wayback/archive snapshot of `url`, shown as "archived copy" in the incident modal). `scripts/archive-sources.js` fills them in from the Wayback Machine — idempotent and resumable, re-run until no source is unresolved (`--dry-run`, `--limit N` supported). Run it after adding incidents.
+Sources may carry an optional `archiveUrl` (an http(s) Wayback/archive snapshot of `url`, shown as "Archived copy" on the incident page). `scripts/archive-sources.js` fills them in from the Wayback Machine — idempotent and resumable, re-run until no source is unresolved (`--dry-run`, `--limit N` supported). Run it after adding incidents.
 
 Apply these field rules by hand; the validator cannot check them:
 

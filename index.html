@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ihavebeenclawed — an index of agent incidents</title>
 <meta name="description" content="A source-aware archive of incidents involving AI agents and chatbots.">
 <meta property="og:title" content="ihavebeenclawed — an index of agent incidents">
 <meta property="og:description" content="Sourced AI-agent and chatbot incidents, with lessons learned.">
@@ -18,571 +19,347 @@
 <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
 <script src="./support.js"></script>
 <script src="./incident-data.js"></script>
+<script src="./archive-navigation.js"></script>
+<link rel="stylesheet" href="./archive.css">
 </head>
 <body>
 <x-dc>
 <helmet>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ihavebeenclawed — an index of agent incidents</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
-<style>
-  html, body { margin: 0; padding: 0; background: #0E1116; }
-  * { box-sizing: border-box; }
-  a { color: #C2402A; text-decoration: none; }
-  a:hover { color: #D9DEE5; text-decoration: underline; }
-  :focus-visible { outline: 2px solid #C2402A; outline-offset: 3px; }
-  @keyframes clawblink { 0%, 100% { opacity: 1 } 50% { opacity: 0.15 } }
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
 </helmet>
-<div style="{{ themeVars }}background: var(--bg, #0E1116); color: var(--text, #D9DEE5); font-family: 'Source Sans 3', system-ui, sans-serif; min-height: 100vh; -webkit-font-smoothing: antialiased;">
-
-  <header style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 28px; border-bottom: 1px solid var(--line, #232A33); position: sticky; top: 0; background: var(--bgTrans, rgba(14,17,22,0.92)); backdrop-filter: blur(8px); z-index: 20; flex-wrap: wrap;">
-    <a href="#top" style="display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none;">
-      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex: none;">
-        <path d="M4 19 L15 4" stroke="#C2402A" stroke-width="2.2" stroke-linecap="round"></path>
-        <path d="M9 20 L20 5" stroke="#C2402A" stroke-width="2.2" stroke-linecap="round"></path>
-        <path d="M14 21 L23 8" stroke="#C2402A" stroke-width="1.6" stroke-linecap="round" opacity="0.7"></path>
-      </svg>
-      <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 17px; letter-spacing: -0.02em;">ihavebeenclawed</span>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top">
+      <svg width="25" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19 L14 4 M8 20 L19 5 M13 21 L23 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+      ihavebeenclawed
     </a>
-    <nav style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">
-      <a href="#index" style="color: var(--muted, #7B8494); white-space: nowrap;">index</a>
-      <a href="#hall" style="color: var(--muted, #7B8494); white-space: nowrap;">hall of claws</a>
-      <a href="#prevent" style="color: var(--muted, #7B8494); white-space: nowrap;">avoid being clawed</a>
-      <button type="button" onClick="{{ toggleTheme }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); background: transparent; border: 1px solid var(--line, #232A33); border-radius: 3px; padding: 5px 9px; cursor: pointer;">{{ themeLabel }}</button>
-      <a href="#submit" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--bg, #0E1116); background: #C2402A; padding: 7px 13px; border-radius: 3px; font-weight: 600;">confess</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#index">The archive</a>
+      <a href="#hall">Hall of claws</a>
+      <button class="button" type="button" onClick="{{ toggleTheme }}" aria-label="{{ themeAriaLabel }}">{{ themeLabel }}</button>
+      <a class="button" href="#submit">Submit a link ↗</a>
     </nav>
-  </header>
-
-  <section id="top" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" onFocus="{{ pause }}" onBlur="{{ resume }}" style="max-width: 1080px; margin: 0 auto; padding: 72px 28px 40px;">
-    <p style="font-size: 16px; line-height: 1.6; color: var(--muted, #7B8494); max-width: 66ch; margin: 0 0 30px; text-wrap: pretty;">ihavebeenclawed is a public archive of documented incidents where AI coding agents and chatbots deleted data, leaked secrets, burned money, or made promises their operators had to keep — every entry source-linked, with the lesson it taught.</p>
-    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 26px;">{{ featured.label }}</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: start;">
-    <div style="flex: 3 1 380px; min-width: 0;">
-    <blockquote style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-weight: 600; letter-spacing: -0.035em; text-wrap: pretty;">
-      <span style="display: block; color: #C2402A; font-size: clamp(26px, 4.2vw, 44px); line-height: 1.2;">I have been clawed.</span>
-      <span role="button" aria-haspopup="dialog" aria-label="View details for this incident" tabindex="0" onClick="{{ featured.onOpen }}" onKeyDown="{{ featured.onOpenKey }}" style="display: block; color: var(--text, #D9DEE5); font-size: clamp(21px, 3.2vw, 32px); line-height: 1.3; margin-top: 14px; cursor: pointer;">{{ featured.lede }}</span>
-    </blockquote>
-    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted, #7B8494); margin: 28px 0 0;">{{ featured.meta }}</p>
-    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 22px;">
-      <a href="{{ featured.href }}" target="{{ featured.target }}" rel="{{ featured.rel }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px;">read the source →</a>
-      <a href="{{ featured.href }}" target="{{ featured.target }}" rel="{{ featured.rel }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted, #7B8494); border-bottom: 1px solid var(--line, #232A33);">source: {{ featured.source }}</a>
+  </div>
+</header>
+<main id="main">
+  <section class="container hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-intro">
+      <div>
+        <p class="eyebrow">The AI incident archive</p>
+        <h1 id="hero-title">I have been <span class="accent">clawed.</span></h1>
+      </div>
+      <p>AI agents. Real consequences.<br>A sourced record of what went wrong.</p>
     </div>
-    <div style="display: flex; align-items: center; gap: 10px; margin-top: 26px;">
-      <button type="button" onClick="{{ featPrev }}" aria-label="Previous featured incident" style="{{ featArrowStyle }}">‹</button>
-      <div role="tablist" aria-label="Featured incidents" style="display: flex; align-items: center;">
-        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
-          <button type="button" role="tab" onClick="{{ d.onClick }}" aria-label="{{ d.label }}" style="{{ d.style }}"></button>
+    <section class="featured" aria-label="Featured incidents" aria-roledescription="carousel" onMouseEnter="{{ pauseHover }}" onMouseLeave="{{ resumeHover }}" onFocus="{{ pauseFocus }}" onBlur="{{ resumeFocus }}">
+      <div class="featured-copy">
+        <p class="eyebrow accent">{{ featured.label }}</p>
+        <h2><a href="{{ featured.detailHref }}" onClick="{{ rememberPosition }}">{{ featured.title }}</a></h2>
+        <p class="featured-summary">{{ featured.summary }}</p>
+        <div class="featured-links">
+          <a class="button primary" href="{{ featured.detailHref }}" onClick="{{ rememberPosition }}">Read incident →</a>
+          <a class="source-link" href="{{ featured.href }}" target="{{ featured.target }}" rel="{{ featured.rel }}">Original source ↗</a>
+        </div>
+        <div class="carousel-controls">
+          <button class="button" type="button" onClick="{{ featPrev }}" aria-label="Previous featured incident">←</button>
+          <span class="carousel-count">{{ featuredPosition }}</span>
+          <button class="button" type="button" onClick="{{ featNext }}" aria-label="Next featured incident">→</button>
+          <button class="button pause-button" type="button" onClick="{{ toggleRotation }}" aria-pressed="{{ rotationPaused }}">{{ rotationLabel }}</button>
+        </div>
+      </div>
+      <figure class="featured-art">
+        <sc-for list="{{ featSlots }}" as="fs" hint-placeholder-count="1">
+          <div style="{{ fs.style }}" aria-hidden="{{ fs.hidden }}">
+            <!-- Defer src until DC binds it, avoiding a request for the literal template expression. -->
+            <image-slot id="{{ fs.slot }}" shape="rect" sc-camel-src="{{ fs.src }}" placeholder="Illustrative artwork"></image-slot>
+          </div>
         </sc-for>
-      </div>
-      <button type="button" onClick="{{ featNext }}" aria-label="Next featured incident" style="{{ featArrowStyle }}">›</button>
-    </div>
-    </div>
-      <figure style="margin: 0; flex: 1 1 220px; min-width: 200px; display: flex; flex-direction: column; gap: 10px;">
-        <div style="position: relative; width: 100%; aspect-ratio: 3 / 4; border: 1px solid var(--line, #232A33); background: var(--surface, #161B22);">
-          <sc-for list="{{ featSlots }}" as="fs" hint-placeholder-count="3">
-            <div style="{{ fs.style }}">
-              <image-slot id="{{ fs.slot }}" shape="rect" src="{{ fs.src }}" placeholder=" " style="width: 100%; height: 100%;"></image-slot>
-            </div>
-          </sc-for>
-        </div>
-        <figcaption style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); line-height: 1.5;">{{ featured.caption }}</figcaption>
+        <figcaption class="featured-caption">{{ featured.caption }}</figcaption>
       </figure>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: var(--line, #232A33); border: 1px solid var(--line, #232A33); margin-top: 56px;">
+    </section>
+    <div class="stats" aria-label="Archive statistics">
       <sc-for list="{{ counters }}" as="c" hint-placeholder-count="3">
-        <div style="background: var(--surface, #161B22); padding: 22px 24px;">
-          <div style="font-family: 'IBM Plex Mono', monospace; font-size: clamp(24px, 3.2vw, 34px); font-weight: 600; letter-spacing: -0.03em; color: {{ c.color }};">{{ c.value }}</div>
-          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 8px;">{{ c.label }}</div>
-        </div>
+        <div class="stat"><strong>{{ c.value }}</strong><span>{{ c.label }}</span></div>
       </sc-for>
     </div>
   </section>
 
-  <section id="index" style="max-width: 1080px; margin: 0 auto; padding: 40px 28px 0;">
-    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line, #232A33); padding-bottom: 14px;">
-      <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin: 0;">The index</h2>
-      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted, #7B8494);">{{ resultLabel }}</span>
+  <section class="container archive" id="index" aria-labelledby="archive-title">
+    <div class="section-heading">
+      <h2 id="archive-title" tabIndex="-1">Explore the archive</h2>
+      <span class="result-count" role="status">{{ resultLabel }}</span>
     </div>
-
-    <div style="display: flex; flex-direction: column; gap: 12px; padding: 22px 0 30px;">
-      <sc-for list="{{ filterGroups }}" as="g" hint-placeholder-count="4">
-        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); letter-spacing: 0.12em; text-transform: uppercase; width: 92px; flex: none;">{{ g.label }}</span>
-          <sc-for list="{{ g.options }}" as="o" hint-placeholder-count="4">
-            <button type="button" onClick="{{ o.onClick }}" aria-pressed="{{ o.active }}" style="{{ o.style }}">{{ o.label }}</button>
-          </sc-for>
-        </div>
+    <div class="filter-bar" role="search" aria-label="Search and filter incidents">
+      <label class="field search-field"><span>Search incidents</span><input type="search" name="q" placeholder="Search a story, product, or report ID…" value="{{ query }}" onChange="{{ onSearch }}"></label>
+      <sc-for list="{{ filterGroups }}" as="g" hint-placeholder-count="3">
+        <label class="field"><span>{{ g.label }}</span><select name="{{ g.key }}" value="{{ g.value }}" onChange="{{ g.onChange }}">
+          <sc-for list="{{ g.options }}" as="o" hint-placeholder-count="1"><option value="{{ o.value }}">{{ o.label }}</option></sc-for>
+        </select></label>
       </sc-for>
+      <button class="button" type="button" onClick="{{ clearFilters }}">Reset</button>
     </div>
-
-    <div style="display: flex; flex-direction: column; gap: 14px;">
-      <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
-        <p role="status" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--muted, #7B8494); border: 1px dashed var(--line, #232A33); padding: 40px; text-align: center; margin: 0;">Loading incident archive…</p>
-      </sc-if>
-      <sc-if value="{{ hasLoadError }}" hint-placeholder-val="{{ false }}">
-        <p role="alert" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #C2402A; border: 1px solid rgba(194,64,42,0.5); padding: 24px; margin: 0;">Unable to load incident archive. Serve this directory over HTTP and try again.</p>
-      </sc-if>
-      <sc-for list="{{ stories }}" as="s" hint-placeholder-count="6">
-        <article role="button" aria-haspopup="dialog" aria-label="View details for {{ s.title }}" onClick="{{ s.onClick }}" onKeyDown="{{ s.onKeyDown }}" onMouseEnter="{{ s.onEnter }}" onMouseLeave="{{ s.onLeave }}" tabindex="0" style="{{ s.cardStyle }}">
-          <div style="{{ s.scratchStyle }}">
-            <svg width="190" height="100%" viewBox="0 0 190 200" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M40 -20 L150 220" stroke="#C2402A" stroke-width="2" opacity="0.85"></path>
-              <path d="M75 -20 L185 220" stroke="#C2402A" stroke-width="3" opacity="0.55"></path>
-              <path d="M110 -20 L220 220" stroke="#C2402A" stroke-width="1.5" opacity="0.4"></path>
-            </svg>
-          </div>
-          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; position: relative;">
-            <span style="display: flex; gap: 3px;" title="{{ s.severityLabel }}" aria-label="{{ s.severityLabel }}">
-              <sc-for list="{{ s.claws }}" as="c" hint-placeholder-count="5">
-                <svg width="13" height="15" viewBox="0 0 13 15" aria-hidden="true">
-                  <path d="M1 13 L7 2" stroke="{{ c.stroke }}" stroke-width="1.6" stroke-linecap="round"></path>
-                  <path d="M5 14 L11 3" stroke="{{ c.stroke }}" stroke-width="1.6" stroke-linecap="round"></path>
-                  <path d="M9 14 L13 6" stroke="{{ c.stroke }}" stroke-width="1.2" stroke-linecap="round"></path>
-                </svg>
-              </sc-for>
-            </span>
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); border: 1px solid var(--line, #232A33); border-radius: 3px; padding: 3px 8px;">{{ s.agent }}</span>
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #C2402A; border: 1px solid rgba(194,64,42,0.35); border-radius: 3px; padding: 3px 8px;">{{ s.damage }}</span>
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); margin-left: auto;">{{ s.date }}</span>
-          </div>
-          <p style="margin: 16px 0 0; font-size: 17px; line-height: 1.55; color: var(--text, #D9DEE5); max-width: 74ch; text-wrap: pretty; position: relative;">{{ s.excerpt }}</p>
-          <p style="margin: 14px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ok, #3E9C8B); position: relative;">lesson: {{ s.lesson }}</p>
-          <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; position: relative; font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
-            <a href="{{ s.href }}" target="{{ s.target }}" rel="{{ s.rel }}" onClick="{{ s.onLinkClick }}">read {{ s.displayId }} →</a>
-            <a href="{{ s.href }}" target="{{ s.target }}" rel="{{ s.rel }}" onClick="{{ s.onLinkClick }}" style="color: var(--muted, #7B8494);">source: {{ s.source }}</a>
-          </div>
+    <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}"><div class="status-panel" role="status"><p>Loading incident archive…</p></div></sc-if>
+    <sc-if value="{{ hasLoadError }}" hint-placeholder-val="{{ false }}"><div class="status-panel" role="alert"><h3>Unable to load incident archive</h3><p>Please try again in a moment.</p><button class="button" type="button" onClick="{{ retry }}">Try again</button></div></sc-if>
+    <div class="incident-grid">
+      <sc-for list="{{ stories }}" as="s" hint-placeholder-count="4">
+        <article class="incident-card">
+          <div class="card-meta"><span class="product-label">{{ s.agent }}</span><span class="category">{{ s.damageCategory }}</span><time datetime="{{ s.date }}">{{ s.dateLabel }}</time></div>
+          <h3><a href="{{ s.detailHref }}" onClick="{{ rememberPosition }}">{{ s.title }}</a></h3>
+          <p class="card-summary">{{ s.summary }}</p>
+          <div class="card-footer"><span class="{{ s.evidenceClass }}">{{ s.evidenceLevel }}</span><span>Impact {{ s.severity }}/5</span><span class="card-arrow" aria-hidden="true">↗</span></div>
         </article>
       </sc-for>
-      <sc-if value="{{ showEmpty }}" hint-placeholder-val="{{ false }}">
-        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--muted, #7B8494); border: 1px dashed var(--line, #232A33); padding: 40px; text-align: center; margin: 0;">No incidents indexed yet. Give it a week.</p>
-      </sc-if>
     </div>
+    <sc-if value="{{ showPager }}" hint-placeholder-val="{{ false }}">
+      <nav class="pager" aria-label="Archive pages">
+        <sc-if value="{{ prevPage.enabled }}" hint-placeholder-val="{{ false }}"><a class="button" href="{{ prevPage.href }}" onClick="{{ prevPage.onClick }}">← Previous</a></sc-if>
+        <sc-if value="{{ prevPage.disabled }}" hint-placeholder-val="{{ false }}"><span class="button" aria-disabled="true">← Previous</span></sc-if>
+        <span class="pager-status">{{ pageLabel }}</span>
+        <sc-if value="{{ nextPage.enabled }}" hint-placeholder-val="{{ false }}"><a class="button" href="{{ nextPage.href }}" onClick="{{ nextPage.onClick }}">Next →</a></sc-if>
+        <sc-if value="{{ nextPage.disabled }}" hint-placeholder-val="{{ false }}"><span class="button" aria-disabled="true">Next →</span></sc-if>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ showEmpty }}" hint-placeholder-val="{{ false }}"><div class="status-panel"><h3>No matching incidents</h3><p>Try a different search or reset the filters.</p><button class="button" type="button" onClick="{{ clearFilters }}">Reset filters</button></div></sc-if>
   </section>
 
-  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ modal.onBackdropClick }}" style="position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; background: rgba(5,7,10,0.78); backdrop-filter: blur(4px);">
-      <section data-incident-modal role="dialog" aria-modal="true" aria-labelledby="{{ modal.labelId }}" onClick="{{ modal.stopPropagation }}" style="width: min(760px, 100%); max-height: calc(100vh - 40px); overflow-y: auto; background: var(--surface, #161B22); color: var(--text, #D9DEE5); border: 1px solid var(--line, #232A33); border-top: 3px solid #C2402A; box-shadow: 0 24px 80px rgba(0,0,0,0.45); padding: clamp(24px, 5vw, 42px);">
-        <div style="display: flex; align-items: start; justify-content: space-between; gap: 24px;">
-          <div>
-            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px;">{{ modal.meta }}</p>
-            <h2 id="{{ modal.labelId }}" style="font-family: 'IBM Plex Mono', monospace; font-size: clamp(22px, 4vw, 32px); line-height: 1.2; letter-spacing: -0.03em; margin: 0; text-wrap: pretty;">{{ modal.headline }}</h2>
-            <sc-if value="{{ modal.subtitle }}" hint-placeholder-val="{{ false }}">
-              <p style="font-size: 15px; line-height: 1.5; color: var(--muted, #7B8494); margin: 10px 0 0; text-wrap: pretty;">{{ modal.subtitle }}</p>
-            </sc-if>
-          </div>
-          <button data-modal-close type="button" onClick="{{ modal.close }}" aria-label="Close incident details" style="flex: none; font-family: 'IBM Plex Mono', monospace; font-size: 20px; line-height: 1; color: var(--muted, #7B8494); background: transparent; border: 1px solid var(--line, #232A33); border-radius: 3px; padding: 7px 10px; cursor: pointer;">×</button>
-        </div>
-        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C2402A; margin: 18px 0 0;">{{ modal.damageCategory }} · {{ modal.severityLabel }}</p>
-        <p style="font-size: 18px; line-height: 1.6; margin: 28px 0 0; text-wrap: pretty;">{{ modal.summary }}</p>
-        <div style="border-top: 1px solid var(--line, #232A33); margin-top: 26px; padding-top: 24px;">
-          <h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px;">What happened</h3>
-          <p style="font-size: 16px; line-height: 1.65; margin: 0; white-space: pre-line; text-wrap: pretty;">{{ modal.details }}</p>
-        </div>
-        <div style="border-left: 2px solid var(--ok, #3E9C8B); margin-top: 24px; padding: 3px 0 3px 16px;">
-          <h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ok, #3E9C8B); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px;">Lesson</h3>
-          <p style="font-size: 15px; line-height: 1.6; margin: 0;">{{ modal.lesson }}</p>
-        </div>
-        <div style="border-top: 1px solid var(--line, #232A33); margin-top: 28px; padding-top: 24px;">
-          <h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted, #7B8494); letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px;">Sources</h3>
-          <div style="display: flex; flex-direction: column; align-items: start; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">
-            <sc-for list="{{ modal.sources }}" as="modalSource" hint-placeholder-count="3">
-              <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;">
-                <a href="{{ modalSource.url }}" target="{{ modalSource.target }}" rel="{{ modalSource.rel }}">{{ modalSource.title }} · {{ modalSource.publisher }} ↗</a>
-                <sc-if value="{{ modalSource.archiveHref }}" hint-placeholder-val="{{ false }}">
-                  <a href="{{ modalSource.archiveHref }}" target="_blank" rel="noopener noreferrer" style="color: var(--muted, #7B8494); font-size: 12px;">archived copy</a>
-                </sc-if>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-      </section>
-    </div>
-  </sc-if>
-
-  <section id="hall" style="max-width: 1080px; margin: 0 auto; padding: 80px 28px 0;">
-    <div style="display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--line, #232A33); padding-bottom: 14px;">
-      <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin: 0;">Hall of claws</h2>
-      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--muted, #7B8494);">featured reports · source linked</span>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; padding-top: 22px;">
+  <section class="container secondary-section" id="hall" aria-labelledby="hall-title">
+    <div class="section-heading"><h2 id="hall-title">Hall of claws</h2><span class="eyebrow">Worth a closer look</span></div>
+    <div class="hall-grid">
       <sc-for list="{{ hall }}" as="h" hint-placeholder-count="3">
-        <article role="button" aria-haspopup="dialog" aria-label="View details for {{ h.title }}" tabindex="0" onClick="{{ h.onClick }}" onKeyDown="{{ h.onKeyDown }}" style="background: var(--surface, #161B22); border: 1px solid var(--line, #232A33); border-top: 2px solid #C2402A; padding: 22px; cursor: pointer;">
-          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted, #7B8494); letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 12px;">{{ h.tag }}</p>
-          <h3 style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 10px; line-height: 1.25;">{{ h.title }}</h3>
-          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted, #7B8494); text-wrap: pretty;">{{ h.body }}</p>
-          <p style="margin: 16px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C2402A;">{{ h.damage }}</p>
-          <p style="margin: 12px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px;"><a href="{{ h.href }}" target="{{ h.target }}" rel="{{ h.rel }}" onClick="{{ h.onLinkClick }}">read the source →</a></p>
+        <article class="incident-card">
+          <p class="eyebrow">{{ h.tag }}</p>
+          <h3><a href="{{ h.detailHref }}" onClick="{{ rememberPosition }}">{{ h.title }}</a></h3>
+          <p class="card-summary">{{ h.body }}</p>
+          <div class="card-footer"><span class="category">{{ h.damage }}</span><span class="card-arrow" aria-hidden="true">↗</span></div>
         </article>
       </sc-for>
     </div>
   </section>
 
-  <section id="submit" style="max-width: 1080px; margin: 96px auto 0; padding: 0 28px;">
-    <div style="border: 1px solid var(--line, #232A33); background: var(--surface, #161B22); padding: 44px; display: flex; gap: 32px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-      <div style="max-width: 52ch;">
-        <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: clamp(22px, 3vw, 30px); font-weight: 600; letter-spacing: -0.03em; margin: 0 0 12px;">Been clawed?</h2>
-        <p style="margin: 0 0 14px; font-size: 16px; line-height: 1.6; color: var(--muted, #7B8494); text-wrap: pretty;">Write it up where people can discuss and verify it — tool and version, what happened, damage, lessons learned. Then send us the link to the published post or discussion, and we archive it here. Nobody is going to laugh at you. Much.</p>
-        <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted, #7B8494);">Good places to post:
-          <a href="https://news.ycombinator.com/submit" target="_blank" rel="noopener noreferrer">Hacker News</a> ·
-          <a href="https://www.reddit.com/r/ClaudeAI/" target="_blank" rel="noopener noreferrer">r/ClaudeAI</a> ·
-          <a href="https://www.reddit.com/r/LocalLLaMA/" target="_blank" rel="noopener noreferrer">r/LocalLLaMA</a> ·
-          <a href="https://lobste.rs/" target="_blank" rel="noopener noreferrer">lobste.rs</a> ·
-          your tool's issue tracker · your own blog
-        </p>
-        <p style="margin: 14px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--muted, #7B8494); max-width: 60ch; text-wrap: pretty;">Scope: we archive incidents about systems, data, and money. Incidents involving human tragedy are out of scope here — those belong in the <a href="https://incidentdatabase.ai/" target="_blank" rel="noopener noreferrer">AI Incident Database</a>.</p>
-      </div>
-      <a href="https://github.com/nezhar/ihavebeenclawed/issues/new?template=incident-link.yml" target="_blank" rel="noopener noreferrer" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; color: #0E1116; background: #C2402A; padding: 14px 24px; border-radius: 3px; white-space: nowrap;">Submit a link →</a>
+  <section class="container secondary-section" id="submit" aria-labelledby="submit-title">
+    <div class="submit-box">
+      <div><h2 id="submit-title">Been clawed?</h2><p>Share a published report. Help someone else avoid the same mistake.</p></div>
+      <a class="button primary" href="https://github.com/nezhar/ihavebeenclawed/issues/new?template=incident-link.yml" target="_blank" rel="noopener noreferrer">Submit a link ↗</a>
+    </div>
+    <div class="supporting">
+      <details><summary>What makes a useful report?</summary><p>Include the tool and version, what happened, the damage, and what you learned. Publish it on your tool’s issue tracker, a community forum, or your own blog, then send us the link.</p><p>We cover systems, data, and money. Incidents involving human tragedy belong in the <a href="https://incidentdatabase.ai/" target="_blank" rel="noopener noreferrer">AI Incident Database</a>.</p></details>
+      <details id="prevent"><summary>How to avoid being clawed</summary><p>{{ preventSummary }}</p><ul><li>Run agents in a container or VM with a working copy.</li><li>Allowlist commands and keep production credentials out of reach.</li><li>Review sourced answers before acting on them.</li><li>Preview destructive actions and test your recovery path.</li></ul><p><a href="https://vibepod.dev" target="_blank" rel="noopener noreferrer">Sandbox your coding agents with VibePod ↗</a></p><figure><div class="prevention-art"><image-slot id="prevent-claw" shape="rect" src="assets/images/claw-closeup.png" placeholder="Illustrative close-up of a cat claw" style="width: 100%; height: 100%;"></image-slot></div><figcaption class="prevention-caption">Illustrative artwork.</figcaption></figure></details>
+      <details id="data"><summary>About the data &amp; evidence</summary><p>This is a curated sample, not a census or a safety ranking. Counts reflect reporting and visibility, not how often a product fails.</p><p><strong>Verified</strong> means an official decision, finding, or the responsible organization’s own postmortem. <strong>Reported</strong> covers traceable journalism, testing, and firsthand reports. <strong>Anecdotal</strong> means no traceable evidence.</p><p>Download <a href="./incidents.json">incidents.json</a>. Licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>; reuse with attribution.</p></details>
     </div>
   </section>
-
-  <section id="prevent" style="max-width: 1080px; margin: 0 auto; padding: 56px 28px 0;">
-    <div style="display: flex; flex-wrap: wrap; border: 1px solid rgba(62,156,139,0.3); border-left: 2px solid var(--ok, #3E9C8B);">
-      <div style="position: relative; flex: 1 1 200px; min-width: 180px; min-height: 240px; border-right: 1px solid rgba(62,156,139,0.3); overflow: hidden;">
-        <image-slot id="prevent-claw" shape="rect" src="assets/images/claw-closeup.png" placeholder="illustrative close-up of an extended cat claw" style="width: 100%; height: 100%;"></image-slot>
-      </div>
-    <div style="flex: 3 1 340px; min-width: 0; padding: 30px 34px;">
-      <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 16px; color: var(--ok, #3E9C8B);">How to avoid being clawed</h2>
-      <p style="margin: 0 0 18px; font-size: 16px; line-height: 1.6; color: var(--text, #D9DEE5); max-width: 72ch; text-wrap: pretty;">{{ preventSummary }} The recurring risk is an AI system trusted beyond its verified capabilities.</p>
-      <ul style="margin: 0; padding-left: 20px; font-size: 15.5px; line-height: 1.85; color: var(--muted, #7B8494); max-width: 72ch;">
-        <li>Run agents in a container or VM with a mounted working copy, not your home directory.</li>
-        <li>Deny by default. Allowlist commands rather than blocklisting the scary ones.</li>
-        <li>No production credentials in the environment the agent can read.</li>
-        <li>Require sourced answers and human review for legal, policy, and customer-facing advice.</li>
-        <li>Preview destructive actions and preserve a tested recovery path before approval.</li>
-      </ul>
-      <div style="margin: 24px 0 0; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
-        <a href="https://vibepod.dev" target="_blank" rel="noopener noreferrer" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; color: #0E1116; background: var(--ok, #3E9C8B); padding: 14px 24px; border-radius: 3px; text-align: center; text-wrap: balance;">Run your agents in a cage → VibePod</a>
-        <span style="font-size: 13.5px; color: var(--muted, #7B8494);">Sandboxed containers for coding agents.</span>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <section id="data" style="max-width: 1080px; margin: 0 auto; padding: 56px 28px 0;">
-    <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 14px; color: var(--muted, #7B8494);">About this data</h2>
-    <div style="font-size: 14.5px; line-height: 1.7; color: var(--muted, #7B8494); max-width: 78ch;">
-      <p style="margin: 0 0 10px; text-wrap: pretty;">This is a curated sample, not a census. Entries are self-selected and virality-weighted: quiet failures and NDA-bound corporate incidents never reach us. There are no usage denominators, so counts per tool measure popularity and reporting culture, not safety — never read the filters as a ranking. Where researchers disagree on a figure, each count is attributed to its source inside the incident record.</p>
-      <p style="margin: 0; text-wrap: pretty;">The whole dataset is one JSON file — <a href="./incidents.json">incidents.json</a> — licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Reuse it with attribution.</p>
-    </div>
-  </section>
-
-  <footer style="max-width: 1080px; margin: 0 auto; padding: 72px 28px 64px;">
-    <div style="border-top: 1px solid var(--line, #232A33); padding-top: 26px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--muted, #7B8494);">
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <span>ihavebeenclawed is built by <a href="https://github.com/nezhar" target="_blank" rel="noopener noreferrer">nezhar</a>, maker of VibePod.</span>
-        <span>Not to be confused with <a href="https://haveibeenclawned.com" target="_blank" rel="noopener noreferrer">haveibeenclawned.com</a> — different claws.</span>
-        <span>Incident data licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.</span>
-      </div>
-      <div style="display: flex; gap: 22px; flex-wrap: wrap;">
-        <a href="#index" style="color: var(--muted, #7B8494);">index</a>
-        <a href="#data" style="color: var(--muted, #7B8494);">data</a>
-        <a href="#submit" style="color: var(--muted, #7B8494);">submit</a>
-      </div>
-    </div>
-  </footer>
-</div>
+</main>
+<footer class="container site-footer">
+  <div><p>Built by <a href="https://github.com/nezhar" target="_blank" rel="noopener noreferrer">nezhar</a>, maker of VibePod.</p><p>Incident data: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Illustrations are not incident evidence.</p><p>Not to be confused with <a href="https://haveibeenclawned.com" target="_blank" rel="noopener noreferrer">haveibeenclawned.com</a> — different claws.</p></div>
+  <nav aria-label="Footer"><a href="#index">Archive</a><a href="#data">About the data</a><a href="#submit">Submit</a></nav>
+</footer>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
-const DARK = { bg: "#0E1116", surface: "#161B22", text: "#D9DEE5", muted: "#7B8494", line: "#232A33", ok: "#3E9C8B", bgTrans: "rgba(14,17,22,0.92)" };
-const LIGHT = { bg: "#F4F2EF", surface: "#FFFFFF", text: "#1A1E24", muted: "#6B7280", line: "#DDD8D1", ok: "#2F7A6C", bgTrans: "rgba(244,242,239,0.92)" };
-
 class Component extends DCLogic {
   state = {
-    theme: "dark", agent: "all", damage: "all", sev: 0,
-    hover: null, reduced: false, feat: 0, paused: false,
-    incidents: [], loading: true, loadError: null, selectedIncidentId: null
+    theme: "dark", q: "", agent: "all", damage: "all", sev: 0, page: 1,
+    reduced: false, feat: 0, hovered: false, focused: false, rotationPaused: false,
+    incidents: [], loading: true, loadError: null
   };
 
-  set(key, val) { this.setState({ [key]: val }); }
+  set(key, value) { this.setState({ [key]: value }); }
 
-  openIncident(id, returnFocus) {
-    this.modalReturnFocus = returnFocus || document.activeElement;
-    this.set("selectedIncidentId", id);
+  changeFilter(key, value) {
+    // A new search or filter always starts again from the first page.
+    const next = { ...this.state, [key]: value, page: 1 };
+    this.setState({ [key]: value, page: 1 });
+    this.writeFilters(next);
+  }
+
+  writeFilters(filters) {
+    const target = new URL(window.ArchiveNavigation.archiveHref(filters), window.location.href);
+    // Replacing the query keeps typing from filling the browser's Back stack.
+    window.history.replaceState(null, "", window.location.pathname + target.search + window.location.hash);
+  }
+
+  clearFilters() {
+    const filters = { q: "", agent: "all", damage: "all", sev: 0, page: 1 };
+    this.setState(filters);
+    this.writeFilters(filters);
+  }
+
+  goToPage(page) {
+    const target = new URL(window.ArchiveNavigation.archiveHref({ ...this.state, page }), window.location.href);
+    this.setState({ page });
+    // Paging is navigation, so unlike typing in the search field it gets its own Back entry.
+    window.history.pushState(null, "", window.location.pathname + target.search + "#index");
     requestAnimationFrame(() => {
-      const closeButton = document.querySelector("[data-modal-close]");
-      if (closeButton) closeButton.focus();
+      const section = document.getElementById("index");
+      if (section) section.scrollIntoView();
+      const heading = document.getElementById("archive-title");
+      if (heading) heading.focus({ preventScroll: true });
     });
   }
 
-  closeIncident() {
-    this.set("selectedIncidentId", null);
-    requestAnimationFrame(() => {
-      if (this.modalReturnFocus && document.contains(this.modalReturnFocus)) {
-        this.modalReturnFocus.focus();
-      }
-    });
-  }
-
-  trapModalFocus(event) {
-    const modal = document.querySelector("[data-incident-modal]");
-    if (!modal) return;
-    const focusable = Array.from(modal.querySelectorAll("button, [href], [tabindex]:not([tabindex='-1'])"));
-    if (!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
+  async loadIncidents() {
+    this.setState({ loading: true, loadError: null });
+    try {
+      const response = await fetch("./incidents.json", { cache: "no-store" });
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      const result = window.IncidentData.validateDataset(await response.json());
+      if (!result.ok) throw new Error(result.errors.join("; "));
+      this.setState({ incidents: result.data.incidents, loading: false, feat: 0 });
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        const position = window.history.state && window.history.state.archiveScroll;
+        if (typeof position === "number") {
+          window.scrollTo(0, position);
+        } else {
+          const target = document.getElementById(window.location.hash.slice(1));
+          if (target) target.scrollIntoView();
+        }
+      }));
+    } catch (error) {
+      console.error("Unable to load incident archive:", error);
+      this.setState({ incidents: [], loading: false, loadError: error.message });
     }
   }
 
-  loadIncidents() {
-    fetch("./incidents.json", { cache: "no-store" })
-      .then((response) => {
-        if (!response.ok) throw new Error("HTTP " + response.status);
-        return response.json();
-      })
-      .then((raw) => {
-        const result = window.IncidentData.validateDataset(raw);
-        if (!result.ok) throw new Error(result.errors.join("; "));
-        this.setState({ incidents: result.data.incidents, loading: false, loadError: null, feat: 0 });
-      })
-      .catch((error) => {
-        console.error("Unable to load incident archive:", error);
-        this.setState({ incidents: [], loading: false, loadError: error.message });
-      });
-  }
-
   componentDidMount() {
+    this.setState({ ...window.ArchiveNavigation.readFilters(window.location.search), theme: window.ArchiveNavigation.readTheme() });
     this.mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     this.onMq = () => this.set("reduced", this.mq.matches);
     this.onMq();
     this.mq.addEventListener("change", this.onMq);
-    this.onDocumentKeyDown = (event) => {
-      if (!this.state.selectedIncidentId) return;
-      if (event.key === "Escape") this.closeIncident();
-      if (event.key === "Tab") this.trapModalFocus(event);
-    };
-    document.addEventListener("keydown", this.onDocumentKeyDown);
-    this.syncBody();
+    this.onPopState = () => this.setState(window.ArchiveNavigation.readFilters(window.location.search));
+    window.addEventListener("popstate", this.onPopState);
+    this.syncTheme();
     this.loadIncidents();
     this.timer = setInterval(() => {
-      if (this.state.paused || this.state.reduced) return;
-      const featured = this.state.incidents.filter((item) => item.featured);
+      if (this.state.hovered || this.state.focused || this.state.rotationPaused || this.state.reduced || document.hidden) return;
+      const featured = this.state.incidents.filter(item => item.featured);
       if (featured.length > 1) this.set("feat", (this.state.feat + 1) % featured.length);
     }, 9000);
   }
-  componentDidUpdate() { this.syncBody(); }
+
+  componentDidUpdate() { this.syncTheme(); this.syncTitle(); }
   componentWillUnmount() {
     if (this.mq) this.mq.removeEventListener("change", this.onMq);
-    document.removeEventListener("keydown", this.onDocumentKeyDown);
-    document.body.style.overflow = "";
+    window.removeEventListener("popstate", this.onPopState);
     clearInterval(this.timer);
   }
-  syncBody() {
-    const t = this.state.theme === "dark" ? DARK : LIGHT;
-    document.body.style.background = t.bg;
-    document.body.style.overflow = this.state.selectedIncidentId ? "hidden" : "";
+  syncTheme() { document.documentElement.dataset.theme = this.state.theme; }
+  // The runtime's <helmet> copies <title> text verbatim on every render, so the title is set here instead.
+  syncTitle() {
+    const nav = window.ArchiveNavigation;
+    const { page, pages } = nav.paginate(nav.filterIncidents(this.state.incidents, this.state), this.state.page);
+    document.title = page > 1 ? "Archive, page " + page + " of " + pages + " — ihavebeenclawed" : "ihavebeenclawed — an index of agent incidents";
+  }
+  toggleTheme() {
+    const theme = this.state.theme === "dark" ? "light" : "dark";
+    window.ArchiveNavigation.saveTheme(theme);
+    this.set("theme", theme);
   }
 
   renderVals() {
-    const t = this.state.theme === "dark" ? DARK : LIGHT;
-    const motion = this.state.reduced ? "none" : null;
-    const themeVars = Object.keys(t).map(k => "--" + k + ": " + t[k] + ";").join(" ");
-    const clawColor = "#C2402A";
-
+    const nav = window.ArchiveNavigation;
     const incidents = this.state.incidents;
-    const linkAttrs = (url) => /^https?:\/\//i.test(url)
-      ? { target: "_blank", rel: "noopener noreferrer" }
-      : { target: "_self", rel: "" };
-    const stopPropagation = (event) => event.stopPropagation();
-    const selectedIncident = incidents.find((item) => item.id === this.state.selectedIncidentId) || null;
-    const modal = selectedIncident ? {
-      ...selectedIncident,
-      labelId: "incident-modal-title-" + selectedIncident.id,
-      meta: selectedIncident.displayId + " · " + selectedIncident.agent
-        + (selectedIncident.agentVersion ? " " + selectedIncident.agentVersion : "")
-        + " · " + (selectedIncident.date || "date unknown"),
-      severityLabel: "severity " + selectedIncident.severity + " of 5",
-      headline: selectedIncident.originalTitle || selectedIncident.title,
-      subtitle: selectedIncident.originalTitle ? selectedIncident.title : "",
-      sources: selectedIncident.sources.map((source) => ({
-        ...source,
-        ...linkAttrs(source.url),
-        archiveHref: source.archiveUrl || ""
-      })),
-      close: () => this.closeIncident(),
-      stopPropagation,
-      onBackdropClick: () => this.closeIncident()
-    } : {};
-    const featuredItems = incidents.filter((item) => item.featured);
-    const hallItems = incidents.filter((item) => item.hallOfClaws);
     const stats = window.IncidentData.deriveStats(incidents);
-    const agents = ["all", ...Array.from(new Set(incidents.map((item) => item.agent))).sort()];
-    const damages = ["all", ...Array.from(new Set(incidents.map((item) => item.damageCategory))).sort()];
-    const sevs = [{ v: 0, l: "any" }, { v: 3, l: "3+" }, { v: 4, l: "4+" }, { v: 5, l: "5 only" }];
-
-    const chip = (active) => "font-family: 'IBM Plex Mono', monospace; font-size: 12px; cursor: pointer; padding: 5px 11px; border-radius: 3px; transition: color 120ms, border-color 120ms;"
-      + (active
-        ? " background: rgba(194,64,42,0.14); border: 1px solid " + clawColor + "; color: " + clawColor + ";"
-        : " background: transparent; border: 1px solid " + t.line + "; color: " + t.muted + ";");
-
-    const group = (label, key, opts) => ({
-      label,
-      options: opts.map(o => ({
-        label: o.l, active: this.state[key] === o.v,
-        style: chip(this.state[key] === o.v),
-        onClick: () => this.set(key, o.v)
-      }))
-    });
-
-    const filterGroups = [
-      group("agent", "agent", agents.map(a => ({ v: a, l: a }))),
-      group("damage", "damage", damages.map(d => ({ v: d, l: d }))),
-      group("severity", "sev", sevs.map(s => ({ v: s.v, l: s.l })))
+    const linkAttrs = url => /^https?:\/\//i.test(url) ? { target: "_blank", rel: "noopener noreferrer" } : { target: "_self", rel: "" };
+    const options = (values, allLabel, current) => [
+      { value: "all", label: allLabel },
+      ...Array.from(new Set([...values, ...(current !== "all" ? [current] : [])])).sort().map(value => ({ value, label: value }))
     ];
-
-    const list = incidents.filter((item) =>
-      (this.state.agent === "all" || item.agent === this.state.agent) &&
-      (this.state.damage === "all" || item.damageCategory === this.state.damage) &&
-      (this.state.sev === 5 ? item.severity === 5 : item.severity >= this.state.sev));
-
-    const stories = list.map(d => {
-      const hot = this.state.hover === d.id;
-      const source = d.sources[0];
-      const sourceLinkAttrs = linkAttrs(source.url);
+    const matches = nav.sortNewestFirst(nav.filterIncidents(incidents, this.state));
+    const paging = nav.paginate(matches, this.state.page);
+    // Links carry the page actually shown, not an out-of-range page from the URL.
+    const context = { ...this.state, page: paging.page };
+    const stories = paging.items.map(item => ({
+      ...item,
+      dateLabel: item.date || "Date unknown",
+      detailHref: nav.incidentHref(item.id, context),
+      evidenceClass: "evidence evidence-" + item.evidenceLevel
+    }));
+    const pageLink = page => {
+      const disabled = page < 1 || page > paging.pages;
       return {
-        ...d,
-        sev: d.severity,
-        damage: d.damageCategory,
-        prevent: d.preventable,
-        excerpt: d.summary,
-        date: d.date || "date unknown",
-        source: source.title,
-        href: source.url,
-        ...sourceLinkAttrs,
-        claws: [1, 2, 3, 4, 5].map(i => ({ stroke: i <= d.severity ? clawColor : t.line })),
-        severityLabel: "severity " + d.severity + " of 5",
-        scratchStyle: "position: absolute; top: 0; right: 0; bottom: 0; width: 190px; pointer-events: none; overflow: hidden; opacity: "
-          + (hot ? 0.9 : 0) + "; transition: " + (motion || "opacity 150ms linear") + ";",
-        onEnter: () => this.set("hover", d.id),
-        onLeave: () => this.set("hover", null),
-        onClick: (event) => this.openIncident(d.id, event.currentTarget),
-        onKeyDown: (event) => {
-          if (event.target.closest("a") || (event.key !== "Enter" && event.key !== " ")) return;
+        disabled, enabled: !disabled,
+        href: disabled ? "" : nav.archiveHref({ ...this.state, page }),
+        onClick: event => {
+          // Modified and middle clicks stay with the browser so the link can open in a new tab.
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
           event.preventDefault();
-          this.openIncident(d.id, event.currentTarget);
-        },
-        onLinkClick: stopPropagation,
-        cardStyle: "position: relative; overflow: hidden; background: " + t.surface
-          + "; border: 1px solid " + (hot ? "rgba(194,64,42,0.5)" : t.line)
-          + "; padding: 22px 24px; cursor: pointer; transition: " + (motion || "border-color 150ms linear") + ";"
-      };
-    });
-
-    const featuredRecords = featuredItems.map((item) => {
-      const source = item.sources[0];
-      return {
-        ...linkAttrs(source.url),
-        id: item.id,
-        slot: "featured-" + item.id,
-        src: item.image || "",
-        label: item.displayId + " · featured",
-        lede: item.summary,
-        meta: "— " + item.agent + (item.agentVersion ? " " + item.agentVersion : "") + " · " + (item.date || "date unknown"),
-        caption: item.imageCaption || "No incident image is available.",
-        source: source.publisher,
-        href: source.url,
-        onOpen: (event) => this.openIncident(item.id, event.currentTarget),
-        onOpenKey: (event) => {
-          if (event.key !== "Enter" && event.key !== " ") return;
-          event.preventDefault();
-          this.openIncident(item.id, event.currentTarget);
+          this.goToPage(page);
         }
       };
-    });
-    const activeFeat = featuredRecords.length ? this.state.feat % featuredRecords.length : 0;
-    const featured = featuredRecords[activeFeat] || {
-      id: "archive-status",
-      slot: "archive-status",
-      src: "",
-      label: this.state.loading ? "Loading incident archive…" : "Incident archive unavailable",
-      lede: this.state.loading ? "The sourced reports are loading." : "The local JSON dataset could not be loaded.",
-      meta: "",
-      caption: "",
-      source: "incident archive",
-      href: "#index",
-      target: "_self",
-      rel: "",
-      onOpen: () => {},
-      onOpenKey: () => {}
     };
-    const dots = featuredRecords.map((x, i) => ({
-      label: x.label,
-      onClick: () => this.set("feat", i),
-      style: "width: 36px; height: 24px; border: 0; padding: 10px 5px; box-sizing: border-box;"
-        + " background: " + (i === activeFeat ? clawColor : t.line) + "; background-clip: content-box;"
-        + " cursor: pointer; transition: " + (motion || "background 200ms linear") + ";"
-    }));
-    const featCount = featuredRecords.length;
-    const featPrev = () => featCount && this.set("feat", (activeFeat - 1 + featCount) % featCount);
-    const featNext = () => featCount && this.set("feat", (activeFeat + 1) % featCount);
-    const featArrowStyle = "width: 34px; height: 34px; display: grid; place-items: center;"
-      + " font-family: 'IBM Plex Mono', monospace; font-size: 20px; line-height: 1; color: " + t.muted + ";"
-      + " background: transparent; border: 1px solid " + t.line + "; border-radius: 3px; cursor: pointer;";
-
-    const hall = hallItems.map((item) => ({
+    const featuredItems = incidents.filter(item => item.featured);
+    const activeFeat = featuredItems.length ? this.state.feat % featuredItems.length : 0;
+    const featuredRecords = featuredItems.map(item => ({
+      ...item,
       ...linkAttrs(item.sources[0].url),
-      tag: item.displayId + " · " + (item.date || "date unknown"),
-      title: item.originalTitle || item.title,
-      body: item.summary,
-      damage: item.damageCategory + " · severity " + item.severity + "/5",
+      slot: "featured-" + item.id,
+      src: item.image || "",
+      label: "In focus / " + item.agent,
+      detailHref: nav.incidentHref(item.id, context),
       href: item.sources[0].url,
-      onClick: (event) => this.openIncident(item.id, event.currentTarget),
-      onKeyDown: (event) => {
-        if (event.target.closest("a") || (event.key !== "Enter" && event.key !== " ")) return;
-        event.preventDefault();
-        this.openIncident(item.id, event.currentTarget);
-      },
-      onLinkClick: stopPropagation
+      caption: item.imageCaption || "Illustrative artwork."
     }));
-    const knownPreventability = incidents.filter((item) => item.preventable !== null).length;
-
+    const featured = featuredRecords[activeFeat] || {
+      label: "The archive", title: this.state.loading ? "Loading incident archive…" : "Explore the incident archive",
+      summary: "Documented incidents involving AI agents and chatbots.", detailHref: "#index", href: "#index", target: "_self", rel: "", caption: ""
+    };
     return {
       featured,
-      featSlots: featuredRecords.map((x, i) => ({
-        ...x,
-        style: "position: absolute; inset: 0; opacity: " + (i === activeFeat ? 1 : 0)
-          + "; pointer-events: " + (i === activeFeat ? "auto" : "none")
-          + "; transition: " + (motion || "opacity 300ms linear") + ";"
+      featuredPosition: featuredItems.length ? (activeFeat + 1) + " / " + featuredItems.length : "—",
+      featSlots: featuredRecords.map((item, i) => ({
+        ...item, hidden: i !== activeFeat,
+        style: "position: absolute; inset: 0; opacity: " + (i === activeFeat ? 1 : 0) + "; pointer-events: none; transition: " + (this.state.reduced ? "none" : "opacity 300ms") + ";"
       })),
-      dots,
-      featPrev,
-      featNext,
-      featArrowStyle,
-      pause: () => this.set("paused", true),
-      resume: () => this.set("paused", false),
-      themeVars,
-      themeLabel: this.state.theme === "dark" ? "light" : "dark",
-      toggleTheme: () => this.set("theme", this.state.theme === "dark" ? "light" : "dark"),
+      featPrev: () => featuredItems.length && this.set("feat", (activeFeat - 1 + featuredItems.length) % featuredItems.length),
+      featNext: () => featuredItems.length && this.set("feat", (activeFeat + 1) % featuredItems.length),
+      pauseHover: () => this.set("hovered", true), resumeHover: () => this.set("hovered", false),
+      pauseFocus: () => this.set("focused", true),
+      resumeFocus: event => { if (!event.currentTarget.contains(event.relatedTarget)) this.set("focused", false); },
+      rotationPaused: this.state.rotationPaused || this.state.reduced,
+      rotationLabel: this.state.reduced ? "Motion reduced" : this.state.rotationPaused ? "Resume" : "Pause",
+      toggleRotation: () => this.set("rotationPaused", !this.state.rotationPaused),
+      themeLabel: this.state.theme === "dark" ? "Light mode" : "Dark mode",
+      themeAriaLabel: this.state.theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
+      toggleTheme: () => this.toggleTheme(),
       counters: [
-        { value: String(stats.incidentCount), label: "incidents indexed", color: t.text },
-        { value: String(stats.agentCount), label: "agents implicated", color: t.text },
-        { value: "~" + stats.preventablePercent + "%", label: "marked preventable", color: clawColor }
+        { value: this.state.loading ? "—" : String(stats.incidentCount), label: "incidents indexed" },
+        { value: this.state.loading ? "—" : String(stats.agentCount), label: "agents implicated" },
+        { value: this.state.loading ? "—" : "~" + stats.preventablePercent + "%", label: "marked preventable" }
       ],
-      filterGroups,
+      query: this.state.q,
+      onSearch: event => this.changeFilter("q", event.target.value),
+      filterGroups: [
+        { label: "Product", key: "agent", value: this.state.agent, options: options(incidents.map(item => item.agent), "All products", this.state.agent), onChange: event => this.changeFilter("agent", event.target.value) },
+        { label: "Damage", key: "damage", value: this.state.damage, options: options(incidents.map(item => item.damageCategory), "All damage", this.state.damage), onChange: event => this.changeFilter("damage", event.target.value) },
+        { label: "Impact", key: "sev", value: String(this.state.sev), options: [{ value: "0", label: "Any impact" }, { value: "3", label: "3+ / 5" }, { value: "4", label: "4+ / 5" }, { value: "5", label: "5 / 5" }], onChange: event => this.changeFilter("sev", Number(event.target.value)) }
+      ],
+      clearFilters: () => this.clearFilters(),
+      rememberPosition: () => window.history.replaceState({ ...window.history.state, archiveScroll: window.scrollY }, ""),
       stories,
+      showPager: !this.state.loading && !this.state.loadError && paging.pages > 1,
+      pageLabel: "Page " + paging.page + " of " + paging.pages,
+      prevPage: pageLink(paging.page - 1),
+      nextPage: pageLink(paging.page + 1),
       loading: this.state.loading,
       hasLoadError: Boolean(this.state.loadError),
-      showEmpty: !this.state.loading && !this.state.loadError && stories.length === 0,
-      resultLabel: this.state.loading ? "loading…" : stories.length + " of " + incidents.length + " shown",
-      hall,
-      modal,
-      modalOpen: Boolean(selectedIncident),
-      preventSummary: knownPreventability
-        ? "About " + stats.preventablePercent + "% of incidents with a known assessment are marked preventable."
-        : "Preventability is not yet available."
+      retry: () => this.loadIncidents(),
+      showEmpty: !this.state.loading && !this.state.loadError && matches.length === 0,
+      resultLabel: this.state.loading ? "Loading…"
+        : paging.total === 0 ? "0 of " + incidents.length + " incidents"
+        : paging.from + "–" + paging.to + " of " + paging.total + (paging.total === incidents.length ? " incidents" : " matching incidents"),
+      hall: incidents.filter(item => item.hallOfClaws).map(item => ({
+        tag: item.agent, title: item.title, body: item.summary,
+        damage: item.damageCategory, detailHref: nav.incidentHref(item.id, context)
+      })),
+      preventSummary: incidents.some(item => item.preventable !== null)
+        ? "About " + stats.preventablePercent + "% of incidents with a known assessment are marked preventable. These precautions can reduce the risk."
+        : "Use these precautions to reduce the risk."
     };
   }
 }
 </script>
+<noscript><p>This archive needs JavaScript to load its records. You can also <a href="./incidents.json">read the incident dataset</a>.</p></noscript>
 </body>
 </html>
