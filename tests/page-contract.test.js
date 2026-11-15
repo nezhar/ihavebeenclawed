@@ -66,6 +66,24 @@ test('page titles live in the document head, not in the runtime helmet', () => {
   }
 });
 
+test('prevention, reporting and data notes are always visible rather than collapsed', () => {
+  assert.doesNotMatch(html, /<details|<summary/);
+  // Prevention is its own section between the Hall of Claws and the submit box.
+  assert.match(html, /<section class="container secondary-section" id="prevent" aria-labelledby="prevent-title">/);
+  assert.match(html, /<h2 id="prevent-title">How to avoid being clawed<\/h2>/);
+  assert.ok(html.indexOf('id="hall"') < html.indexOf('id="prevent"') && html.indexOf('id="prevent"') < html.indexOf('id="submit"'));
+  assert.equal(html.match(/<ul class="precautions">([\s\S]*?)<\/ul>/)[1].split('<li>').length - 1, 4);
+  assert.match(html, /<figcaption class="prevention-caption">Illustrative artwork\.<\/figcaption>/);
+  assert.match(html, /<h3 id="report-title">What makes a useful report\?<\/h3>/);
+  // The footer links to #data.
+  assert.match(html, /<section class="info-card" id="data" aria-labelledby="data-title">/);
+  assert.match(html, /<h3 id="data-title">About the data &amp; evidence<\/h3>/);
+  // Each evidence tier is explained next to the same badge style the cards use.
+  for (const tier of ['verified', 'reported', 'anecdotal']) {
+    assert.ok(html.includes('<span class="evidence evidence-' + tier + '">'), tier);
+  }
+});
+
 test('archive pager is a labeled navigation landmark below a focusable heading', () => {
   assert.match(html, /<h2 id="archive-title" tabIndex="-1">/);
   assert.match(html, /<nav class="pager" aria-label="Archive pages">/);
