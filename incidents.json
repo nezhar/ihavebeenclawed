@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-25",
   "incidents": [
     {
       "id": "fable-ultracode-symlink-data-loss",
@@ -2966,6 +2966,39 @@
           "sourceType": "official company postmortem",
           "accessedAt": "2026-11-14",
           "archiveUrl": "https://web.archive.org/web/20261108132819/https://openai.com/index/march-20-chatgpt-outage/"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "codex-browser-tests-windows-lockouts-62301",
+      "displayId": "COD-62301",
+      "title": "Codex browser tests on Windows kept locking users out of their own accounts",
+      "originalTitle": "Codex Windows sandbox: Playwright launching system Chrome via require_escalated causes one failed Windows logon per launch, which locks the user's account",
+      "summary": "Three Codex users on Windows reported that browser automation started by the app produced failed interactive logons against their own Windows account, one per Chrome launch in the first report, until the account lockout policy tripped.",
+      "details": "The first report, filed 18 November 2026 against Codex App 26.1111.71025, says Playwright tests launched with escalated sandbox permissions against the installed Chrome each generated one failed logon event, and a few runs in quick succession hit the local threshold of ten failures in ten minutes. On 24 November a second user, on Windows 10 with package 26.1117.4957.0, added a comment with event-log analysis: 93 failed logons and seven lockouts over 6 hours 35 minutes while two chats ran browser tests in full-access mode, every failure following the creation of a headless Chrome process by about a second, with process ancestry leading back to codex.exe. That user says the lockouts prevented signing in and that no explicit escalation request was needed. A third user filed a separate issue on 23 November, on Windows 11 with app 26.1117.41037, listing seven lockouts between 22 and 23 November, with most failed logons attributed to chrome.exe and one to the Codex-installed ChatGPT.exe; the failures stopped after Codex and its sandbox service were shut down. The date on this record is the first lockout with a published timestamp. None of the reports shows credential theft or an account takeover, the mechanism behind the failed logons is not established, and no OpenAI staff reply appears in either thread.",
+      "date": "2026-11-22",
+      "agent": "Codex",
+      "damageCategory": "service disruption",
+      "severity": 3,
+      "preventable": false,
+      "lesson": "Automation that fails authentication in a loop is a denial of service against its own user: watch for repeated logon failures from agent-launched processes and stop the run before the lockout policy does.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Codex Windows sandbox: Playwright launching system Chrome via require_escalated causes one failed Windows logon per launch, which locks the user's account",
+          "publisher": "GitHub / openai/codex",
+          "url": "https://github.com/openai/codex/issues/62301",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-11-25"
+        },
+        {
+          "title": "[Windows] Codex App triggers failed interactive logons and locks primary Windows user account",
+          "publisher": "GitHub / openai/codex",
+          "url": "https://github.com/openai/codex/issues/63370",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-11-25"
         }
       ],
       "featured": false,
