@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-25",
   "incidents": [
     {
       "id": "fable-ultracode-symlink-data-loss",
@@ -2939,6 +2939,33 @@
           "sourceType": "curated incident record",
           "accessedAt": "2026-11-14",
           "archiveUrl": "https://web.archive.org/web/20261007102546/https://incidentdatabase.ai/cite/1628"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "antigravity-folder-organize-300gb-392037",
+      "displayId": "GOOGLEDEV-392037",
+      "title": "A folder-organizing script reportedly deleted more than 300 GB of projects and Desktop files",
+      "originalTitle": "[CRITICAL] Severe 300GB+ Data Loss Caused by Gemini CLI / Google Antigravity Script Bug (Aug 9, 2026)",
+      "summary": "A user on Google's developer forum reported that an AI-assisted directory organization session ran a Python reorganization script that recursively deleted their main workspace and Desktop folders on Windows 11.",
+      "details": "The post is dated 24 August 2026 and places the incident on 9 August. It names both Gemini CLI and Google Antigravity; the transcript path it cites runs through a .gemini\\antigravity directory and the reporter's own inventory file carries Antigravity's name, which is why this record is filed under that product. No version, model or permission setting is given, and the request that started the session is not quoted. The reporter blames a path or recursion error in a script called organize_tc.py and counts more than 19,001 files across 52 project repositories and Desktop subfolders, including git repositories, disk backup images, CAD and GIS datasets, and video. The figures do not reconcile: the two folder counts given add up to 17,611, and the inventory file is described as having 206,816 entries. A session ID, a full transcript and the inventory are mentioned but not attached. No recovery is reported; the post asks Google for engineering escalation, recovery help and guidance on compensation. The thread shows no reply from Google staff or anyone else, so every detail here is the reporter's own.",
+      "date": "2026-08-09",
+      "agent": "Google Antigravity",
+      "damageCategory": "data loss",
+      "severity": 5,
+      "preventable": true,
+      "lesson": "A generated script that moves files can also delete them: run it on a copy or in dry-run mode first, and keep the only backups somewhere the session cannot write.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "[CRITICAL] Severe 300GB+ Data Loss Caused by Gemini CLI / Google Antigravity Script Bug (Aug 9, 2026)",
+          "publisher": "Google Developer forums",
+          "url": "https://discuss.google.dev/t/critical-severe-300gb-data-loss-caused-by-gemini-cli-google-antigravity-script-bug-aug-9-2026/392037",
+          "sourceType": "first-person forum report",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261125203842/https://discuss.google.dev/t/critical-severe-300gb-data-loss-caused-by-gemini-cli-google-antigravity-script-bug-aug-9-2026/392037"
         }
       ],
       "featured": false,
