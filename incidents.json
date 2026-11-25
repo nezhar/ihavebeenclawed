@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-25",
   "incidents": [
     {
       "id": "fable-ultracode-symlink-data-loss",
@@ -2868,6 +2868,40 @@
           "sourceType": "first-person issue report",
           "accessedAt": "2026-11-14",
           "archiveUrl": "https://web.archive.org/web/20261114160508/https://github.com/anthropics/claude-code/issues/36183"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "claude-code-memory-path-collision-46071",
+      "displayId": "CC-46071",
+      "title": "Three client projects with Chinese names shared one memory directory, and credentials crossed between them",
+      "originalTitle": "[BUG] Non-ASCII project path encoding causes memory directory collisions for CJK users",
+      "summary": "A Claude Code user reported that project folders named in Chinese characters all mapped to the same memory directory because every non-ASCII character is replaced with a hyphen, so credentials and network configuration saved for one client surfaced in another client's project.",
+      "details": "The issue was filed 10 April 2026 against Claude Code 2.1.98 on Windows with PowerShell; the incident date is not stated, so this record is undated. Three folders under D:\\Projects, each a four-character company name, all resolved to the same directory under ~/.claude/projects, and the agent mixed memories between unrelated projects. The reporter describes confidential data from one project appearing in another's memory and says every memory file had to be audited and cleaned by hand. Nothing in the report suggests that anyone outside the reporter's machine saw the data, and the memory files themselves are not public. The reporter notes that an earlier report of the same behavior had been closed by a bot for inactivity; this one was closed the same way, as not planned, on 22 May 2026 and later locked, with no human reply. A separate issue filed 24 November 2026 against version 2.1.331 reproduces the collision with a two-directory test, shows that ASCII paths differing only in punctuation collide too, and cites this report; it does not document a second exposure.",
+      "date": null,
+      "agent": "Claude Code",
+      "agentVersion": "2.1.98",
+      "damageCategory": "leaked secrets",
+      "severity": 3,
+      "preventable": false,
+      "lesson": "Agent memory is keyed by a path you did not choose: on client work, check where each project's memory actually lands, and keep credentials out of anything the agent may save.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Non-ASCII project path encoding causes memory directory collisions for CJK users",
+          "publisher": "GitHub / anthropics/claude-code",
+          "url": "https://github.com/anthropics/claude-code/issues/46071",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-11-25"
+        },
+        {
+          "title": "Project storage path encoding erases every non-ASCII character",
+          "publisher": "GitHub / anthropics/claude-code",
+          "url": "https://github.com/anthropics/claude-code/issues/112009",
+          "sourceType": "first-person issue report with reproduction",
+          "accessedAt": "2026-11-25"
         }
       ],
       "featured": false,
