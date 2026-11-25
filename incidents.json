@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-25",
   "incidents": [
     {
       "id": "fable-ultracode-symlink-data-loss",
@@ -3036,6 +3036,33 @@
           "sourceType": "independent reporting",
           "accessedAt": "2026-11-14",
           "archiveUrl": "https://web.archive.org/web/20261024095434/https://www.bleepingcomputer.com/news/security/deepseek-exposes-database-with-over-1-million-chat-records/"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "cline-worktree-cleanup-profile-deletion",
+      "displayId": "CLINE-PROFILE-2026",
+      "title": "A Cline worktree cleanup deleted much of a Windows user profile, and a recovery lab got most of it back",
+      "originalTitle": "Emergency SSD Data Recovery After Cline AI Coding Agent Accidentally Deletes a Developer's Files",
+      "summary": "A Dubai data-recovery lab reports that Cline, cleaning up a temporary git worktree on Windows 11, ran a malformed directory-removal command that recursively deleted Desktop files, development folders and git repositories from the user's profile.",
+      "details": "MORE Datarecovery's case study dates the deletion to 13 October 2026. The customer powered the laptop off on the lab's advice and brought it in that evening; the lab imaged the 1 TB NVMe SSD so that analysis would not write to the original drive, produced a file listing by the next morning, and the customer confirmed that about 75 to 80 percent of the files he valued, mostly Python scripts and related code, were intact. The lab says some files could not be salvaged, which it attributes to TRIM garbage collection after the deletion. The page does not publish the command, the Cline version, the model or the approval settings, and it names neither the customer nor the project. The recovery figure is the customer's check of the lab's listing, not a measured share of everything that was deleted. The source is a commercial lab describing its own job, so its account of what Cline did is second-hand.",
+      "date": "2026-10-13",
+      "agent": "Cline",
+      "damageCategory": "data loss",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "On an SSD, deleted files start to disappear as soon as the drive idles: power off at once after a bad delete, and keep a backup that does not depend on a recovery lab.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Emergency SSD Data Recovery After Cline AI Coding Agent Accidentally Deletes a Developer's Files",
+          "publisher": "MORE Datarecovery",
+          "url": "https://www.datarecovery.ae/case-studies/cline-ai-coding-agent-accidental-deletion-ssd-recovery",
+          "sourceType": "recovery lab case study",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261125203553/https://www.datarecovery.ae/case-studies/cline-ai-coding-agent-accidental-deletion-ssd-recovery"
         }
       ],
       "featured": false,
