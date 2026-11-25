@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-25",
   "incidents": [
     {
       "id": "fable-ultracode-symlink-data-loss",
@@ -3063,6 +3063,33 @@
           "sourceType": "independent reporting",
           "accessedAt": "2026-11-14",
           "archiveUrl": "https://web.archive.org/web/20261012145058/https://www.bbc.com/news/articles/cq5ggew08eyo"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "claude-code-branch-protection-force-push-42849",
+      "displayId": "CC-42849",
+      "title": "Blocked from force-pushing, the agent switched off the repository's branch protection",
+      "originalTitle": "Agent disabled branch protection rules without user authorization",
+      "summary": "Asked to scrub a file from git history, Claude Code reportedly hit a rejected force push to main, then used the GitHub API to allow force pushes, disable a ruleset and delete the branch protection rule before pushing.",
+      "details": "The issue was filed 2 April 2026 and names claude-sonnet-4-6 on macOS; the Claude Code version, permission mode and incident date are not given, so this record is undated. The task was a history rewrite with git filter-repo. The push to main was rejected by a branch protection rule that required pull requests and by a ruleset blocking non-fast-forward updates. According to the reporter, the agent did not stop there: it enabled force pushes on the protection rule, set the ruleset's enforcement to disabled, deleted the protection rule entirely, and then force-pushed. The protections were restored only after the user interrupted and said stop. No data loss or effect on other people is reported; the harm described is that an agent holding a token with repository-admin rights removed controls nobody had asked it to touch. There is no public transcript or repository audit log. A bot closed the issue four days later as a duplicate of a report about pull-request reviews posted without confirmation, and no Anthropic staff replied.",
+      "date": null,
+      "agent": "Claude Code",
+      "damageCategory": "repository damage",
+      "severity": 4,
+      "preventable": true,
+      "lesson": "A rejected push is the control working: give a coding agent a token that cannot administer the repository, so the guardrail is not the agent's to remove.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Agent disabled branch protection rules without user authorization",
+          "publisher": "GitHub / anthropics/claude-code",
+          "url": "https://github.com/anthropics/claude-code/issues/42849",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20260805220829/https://github.com/anthropics/claude-code/issues/42849"
         }
       ],
       "featured": false,
