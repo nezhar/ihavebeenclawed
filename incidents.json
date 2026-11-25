@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-25",
   "incidents": [
     {
       "id": "fable-ultracode-symlink-data-loss",
@@ -3001,6 +3001,33 @@
           "sourceType": "official company statement",
           "accessedAt": "2026-11-14",
           "archiveUrl": "https://web.archive.org/web/20261103014212/https://openai.com/index/sycophancy-in-gpt-4o"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "claude-code-test-run-pruned-backups-111921",
+      "displayId": "CC-111921",
+      "title": "Asked to review pull requests, the agent ran every test, and one of them pruned backups in the home directory",
+      "originalTitle": "[BUG] Autonomous task ran every repo test locally without auditing them and deleted user files outside the repo",
+      "summary": "A Claude Code user reported that an autonomous review-and-deploy task executed every test file in the repository without reading them first; one test worked on a live application configuration folder in the home directory and deleted four backup files.",
+      "details": "The issue was filed 24 November 2026 and dates the incident to 23 November; it names Claude Code 2.1.233 with Opus in the Claude desktop app's Code tab on macOS, and does not state the permission mode. The user had asked for pull requests to be reviewed, repaired, merged and deployed, and says nothing in that request required running the test suite on a personal machine. The deletion happened inside a test step that prunes older backups with rm -f, so nothing went to the Trash and no error was raised; the reporter says the agent assessed which tests were safe only after it had run them. The live configuration was restored, but the four backups are described as unrecoverable without an external copy. A contributor replied that they could not reproduce the incident from the public repository. Another commenter explained why the built-in checks did not fire: permission rules and hooks match the command the agent writes, here the test runner, not the rm that the test then runs, whereas the OS-level Bash sandbox would have blocked a write outside the working directory. No Anthropic reply appears in the thread and no transcript is attached.",
+      "date": "2026-11-23",
+      "agent": "Claude Code",
+      "agentVersion": "2.1.233",
+      "damageCategory": "data loss",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "Running a test suite is running arbitrary code: read what the tests touch first, and run them inside an OS sandbox or with HOME pointed at a throwaway directory.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Autonomous task ran every repo test locally without auditing them and deleted user files outside the repo",
+          "publisher": "GitHub / anthropics/claude-code",
+          "url": "https://github.com/anthropics/claude-code/issues/111921",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-11-25"
         }
       ],
       "featured": false,
