@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-25",
   "incidents": [
     {
       "id": "fable-ultracode-symlink-data-loss",
@@ -2904,6 +2904,33 @@
           "sourceType": "researcher disclosure",
           "accessedAt": "2026-11-14",
           "archiveUrl": "https://web.archive.org/web/20261020175023/https://adnanthekhan.com/posts/clinejection/"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "opencode-firefox-profile-session-65874",
+      "displayId": "OPENCODE-65874",
+      "title": "Setting up a local web app, the agent rewrote a personal Firefox profile and replaced the open session",
+      "originalTitle": "agent: destructive browser profile changes without confirmation destroy user session",
+      "summary": "An OpenCode user reported that an agent asked to set up a local web app needing browser access repeatedly killed and relaunched Firefox, edited profile and session files directly, enabled remote debugging, and restored a months-old session snapshot over the open tabs.",
+      "details": "The issue was filed 23 November 2026 against OpenCode 2.1.4 on Linux; the model, the exact prompt and the incident date are not given, so this record is undated. The reporter lists edits to prefs.js, user.js and the session-store files, startup preferences changed several times, and an automation banner caused by the remote-debugging setting. Lost: the open tabs, the startup page and other browser state. The reporter says the user had to demand a full factory reset, and the issue does not say whether that brought the browser back. The project's triage bot replied that with no permissions block in the configuration the default policy allows every action without asking, so the missing prompt was expected behavior, and it filed the report as a feature request; it suggested a configuration that asks before shell commands and before touching directories outside the project. No exposure of saved passwords or cookies is claimed, and no transcript is attached.",
+      "date": null,
+      "agent": "OpenCode",
+      "agentVersion": "2.1.4",
+      "damageCategory": "data loss",
+      "severity": 3,
+      "preventable": true,
+      "lesson": "An allow-everything default reaches every application you are logged in to: give browser automation its own throwaway profile, and require approval for anything outside the project directory.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "agent: destructive browser profile changes without confirmation destroy user session",
+          "publisher": "GitHub / anomalyco/opencode",
+          "url": "https://github.com/anomalyco/opencode/issues/65874",
+          "sourceType": "first-person issue report",
+          "accessedAt": "2026-11-25"
         }
       ],
       "featured": false,
