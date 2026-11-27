@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-25",
   "incidents": [
     {
       "id": "fable-ultracode-symlink-data-loss",
@@ -3195,6 +3195,57 @@
           "sourceType": "official company statement",
           "accessedAt": "2026-11-14",
           "archiveUrl": "https://web.archive.org/web/20261106020550/https://blogs.bing.com/search/2023/2/The-new-Bing-Edge-Updates-to-Chat/"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
+      "id": "agent-framework-pypi-credential-stealer",
+      "displayId": "GHSA-764M-3PPC-5M73",
+      "title": "Hijacked releases of Microsoft's agent-framework on PyPI stole cloud and CI credentials",
+      "originalTitle": "Microsoft agent-framework Compromised: Credential Stealer Targets Azure and CI Pipelines",
+      "summary": "Two malicious versions of Microsoft's agent-framework Python package were published to PyPI on 17 November 2026; a startup hook harvested environment variables, credential files, and cloud and CI tokens every time Python started, and Wiz confirmed three successful thefts of victim data.",
+      "details": "Wiz's timeline puts the legitimate 1.26.0 on 12 November, the malicious 1.26.1 at 20:35 UTC on 17 November and 1.26.2 at about 21:08 UTC; both were gone from PyPI by about 21:30 UTC. Each wheel dropped a .pth file into site-packages, so the stealer ran whenever a Python interpreter started, even if the framework was never imported. It collected environment variables with secret-looking names, credential files for Azure CLI, npm, pip, git, Docker and Hugging Face, Azure DevOps and managed-identity tokens, and in 1.26.2 GitHub Actions OIDC tokens, then sent everything in one POST to a hard-coded webhook.site address. Wiz examined the 50 requests that endpoint had retained and attributes most of them to the attacker's own tests, sandboxes and vendor scanners; what remains is three distinct victims, which is a floor, not a total. Wiz says the attacker appears to have compromised a client certificate and private key for Microsoft ESRP, the service that accepted the upload, and that how those credentials were obtained is not known. Microsoft told The Register it had made some repositories private while it investigated. GitHub's advisory lists no patched version: 1.26.0 and earlier are unaffected, and anyone who installed either release should treat every credential reachable from that environment as exposed. This is a supply-chain compromise of an agent-building dependency, not misbehavior by an agent.",
+      "date": "2026-11-17",
+      "agent": "Microsoft Agent Framework",
+      "agentVersion": "1.26.1, 1.26.2",
+      "damageCategory": "leaked secrets",
+      "severity": 4,
+      "preventable": false,
+      "lesson": "A dependency you install is code that runs at every interpreter start: pin exact versions with hashes, and count your agent framework's release pipeline as part of your own attack surface.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Microsoft agent-framework Compromised: Credential Stealer Targets Azure and CI Pipelines",
+          "publisher": "Wiz",
+          "url": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi",
+          "sourceType": "security research analysis",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261124211902/https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi"
+        },
+        {
+          "title": "Malicious code in agent-framework (PyPI)",
+          "publisher": "GitHub Advisory Database",
+          "url": "https://github.com/advisories/GHSA-764m-3ppc-5m73",
+          "sourceType": "vulnerability database entry",
+          "accessedAt": "2026-11-25"
+        },
+        {
+          "title": "BREAKING: Hijacked Releases of Microsoft's Official agent-framework Steals Azure and CI Credentials",
+          "publisher": "OX Security",
+          "url": "https://www.ox.security/blog/breaking-hijacked-releases-of-microsofts-official-agent-framework-steals-azure-and-ci-credentials/",
+          "sourceType": "security research analysis",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261121101058/https://www.ox.security/blog/breaking-hijacked-releases-of-microsofts-official-agent-framework-steals-azure-and-ci-credentials/"
+        },
+        {
+          "title": "Microsoft's official Python agent framework hijacked to distribute malware",
+          "publisher": "The Register",
+          "url": "https://www.theregister.com/security/2026/11/18/microsofts-official-python-agent-framework-hijacked-to-distribute-malware/5310858",
+          "sourceType": "reporting with company statement",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261124174914/https://www.theregister.com/security/2026/11/18/microsofts-official-python-agent-framework-hijacked-to-distribute-malware/5310858"
         }
       ],
       "featured": false,
