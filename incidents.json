@@ -3238,7 +3238,7 @@
       "agent": "Unidentified LLM agent",
       "damageCategory": "leaked secrets",
       "severity": 4,
-      "preventable": true,
+      "preventable": null,
       "lesson": "An agent commits whatever is in its working tree: block secrets at push time, and give development credentials the narrowest scope and shortest life that still works.",
       "evidenceLevel": "verified",
       "sources": [
