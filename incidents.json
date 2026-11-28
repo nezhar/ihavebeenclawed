@@ -3306,6 +3306,48 @@
       "hallOfClaws": false
     },
     {
+      "id": "european-commission-ai-assisted-intrusion",
+      "displayId": "EC-I-298222",
+      "title": "The European Commission's HR and medical-claims systems were down for about ten days after an AI-assisted intrusion",
+      "originalTitle": "The EU Commission has been the victim of a cyberattack carried out using AI",
+      "summary": "The European Commission said attackers used a publicly available AI tool to find weaknesses in its IT systems; the staff platforms for payslips and medical reimbursements were unavailable for about ten days, and a month after detection the intrusion was reported as still not fully contained.",
+      "details": "Commission spokesperson Thomas Regnier confirmed the campaign at the daily press briefing on 19 November 2026, describing a series of incidents rather than a single event, detected on 22 October and confirmed on 26 October. The Commission's Audiovisual Service publishes that part of the briefing, with a transcript, under reference I-298222. Eunews, citing press accounts, reports that Sysper, which staff use for payslips, leave and hours, and MyPMO, which handles medical reimbursements, were down for about ten days, and that several other applications were switched off as a precaution. Regnier said the perpetrators \"used a publicly available AI tool to identify potential vulnerabilities in IT systems\" and that the Commission had found no evidence of a data breach affecting its staff as a whole. The name ARTEX comes from press reports citing CERT-EU, not from the Commission. Euronews reported on 23 November that the attack was ongoing, that the EU Academy website had been taken offline, and that names and email addresses of EU Academy users had leaked; it also cited two unnamed sources who suspect a China-backed group. The Commission has declined to attribute the attack while its investigation continues. It has not said how the attackers got in, or how much of the intrusion the tool carried out without a person directing it.",
+      "date": "2026-10-22",
+      "agent": "ARTEX",
+      "damageCategory": "service disruption",
+      "severity": 4,
+      "preventable": null,
+      "lesson": "Offensive agent frameworks are public downloads: assume internet-facing systems are being probed at machine speed, and rehearse running payroll and benefits with the main platforms switched off.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "The EU Commission has been the victim of a cyberattack carried out using AI",
+          "publisher": "Eunews",
+          "url": "https://www.eunews.it/en/2026/11/19/the-eu-commission-has-been-the-victim-of-a-cyberattack-carried-out-using-ai/",
+          "sourceType": "reporting with official statement",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261125203347/https://www.eunews.it/en/2026/11/19/the-eu-commission-has-been-the-victim-of-a-cyberattack-carried-out-using-ai/"
+        },
+        {
+          "title": "Exclusive: China-backed hackers suspected behind ongoing EU Commission cyberattack",
+          "publisher": "Euronews",
+          "url": "https://www.euronews.com/2026/11/23/exclusive-china-backed-hackers-suspected-behind-ongoing-eu-commission-cyberattack",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261123180529/https://www.euronews.com/2026/11/23/exclusive-china-backed-hackers-suspected-behind-ongoing-eu-commission-cyberattack"
+        },
+        {
+          "title": "EC Midday press briefing of 19/11/2026: Cyber campaign against the European Commission, Q&A",
+          "publisher": "European Commission Audiovisual Service",
+          "url": "https://audiovisual.ec.europa.eu/en/media/video/I-298222",
+          "sourceType": "official press briefing video with transcript",
+          "accessedAt": "2026-11-28"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
       "id": "samsung-chatgpt-source-upload",
       "displayId": "SAMSUNG-2023",
       "title": "Samsung engineers uploaded source code and meeting notes to ChatGPT",
