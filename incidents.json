@@ -3158,6 +3158,49 @@
       "hallOfClaws": false
     },
     {
+      "id": "meta-ai-support-bot-instagram-takeovers",
+      "displayId": "AIID-1510",
+      "title": "Attackers took over Instagram accounts by asking Meta's AI support assistant to link a new email address",
+      "originalTitle": "Hackers Used Meta's AI Support Bot to Seize Instagram Accounts",
+      "summary": "Over the last weekend of May 2026, high-profile Instagram accounts including the Obama White House account were defaced while a video circulated showing how to seize an account by telling Meta's AI support assistant to link it to an email address the attacker controls.",
+      "details": "Krebs on Security reported on 1 June 2026 that the Obama White House account and the account of the Chief Master Sergeant of the U.S. Space Force briefly showed pro-Iranian images and messages over the weekend, and that word of the technique began spreading on Telegram on 31 May. 404 Media, which reviewed the videos and screenshots, also names Sephora's account. In the demonstration, the attacker connects through a VPN exit near the target's usual location, starts a password reset, chooses to chat with the AI support assistant, and tells it to link the account to a new email address; the bot sends a one-time code there, which completes the reset. The hackers also claimed several short usernames with a high resale value and said the method failed against accounts with multi-factor authentication; neither claim is verified. Meta did not answer Krebs's questions about the video. Krebs reports that spokesperson Andy Stone said on X that the issue had been resolved and that affected accounts were being secured. Meta has published no technical account, so the link between this exact flow and each named account rests on the attackers' own material, and the number of accounts taken is unknown. The AI Incident Database lists the case as incident 1510, adds app researcher Jane Manchun Wong to the reported targets, and cites a BBC report in which Instagram says it has resolved the issue. Only the opening of the 404 Media article is readable without a subscription.",
+      "date": "2026-05-31",
+      "agent": "Meta AI support assistant",
+      "damageCategory": "leaked secrets",
+      "severity": 4,
+      "preventable": null,
+      "lesson": "A support assistant that can change recovery details is an authentication system: make it prove the requester already controls the account before it touches an email address, phone number or password.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Hackers Used Meta's AI Support Bot to Seize Instagram Accounts",
+          "publisher": "Krebs on Security",
+          "url": "https://krebsonsecurity.com/2026/06/hackers-used-metas-ai-support-bot-to-seize-instagram-accounts/",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261117130039/https://krebsonsecurity.com/2026/06/hackers-used-metas-ai-support-bot-to-seize-instagram-accounts/"
+        },
+        {
+          "title": "Hackers Simply Asked Meta AI to Give Them Access to High-Profile Instagram Accounts. It Worked",
+          "publisher": "404 Media",
+          "url": "https://www.404media.co/hackers-simply-asked-meta-ai-to-give-them-access-to-high-profile-instagram-accounts-it-worked/",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261116224155/https://www.404media.co/hackers-simply-asked-meta-ai-to-give-them-access-to-high-profile-instagram-accounts-it-worked/"
+        },
+        {
+          "title": "Incident 1510: Meta AI Support Bot Reportedly Enabled Takeovers of High-Profile Instagram Accounts",
+          "publisher": "AI Incident Database",
+          "url": "https://incidentdatabase.ai/cite/1510/",
+          "sourceType": "curated incident record",
+          "accessedAt": "2026-11-27",
+          "archiveUrl": "https://web.archive.org/web/20261112133859/https://incidentdatabase.ai/cite/1510"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
       "id": "king-features-heat-index-fabricated-books",
       "displayId": "HEATINDEX-2025",
       "title": "A syndicated summer section recommended books an AI program had invented",
