@@ -3193,6 +3193,49 @@
       "hallOfClaws": false
     },
     {
+      "id": "cairn-agents-monai-label-zero-day",
+      "displayId": "GHSA-QC22-RMGC-VG94",
+      "title": "Attacker-run Cairn agents found a MONAI Label zero-day and took root on a university server",
+      "originalTitle": "Chinese-nexus actor's Cairn AI agents found a zero-day on their own",
+      "summary": "Amazon Threat Intelligence reported that a threat actor pointed the open-source Cairn penetration-testing agents at university networks in East Asia with the goal \"obtain shell access\"; within about 48 hours the agents found an unpatched path-traversal flaw in a medical-imaging application and used it to open a root shell.",
+      "details": "Amazon found the operator's Cairn instance on 10 September 2026, running without authentication, so its prompts, configurations and agent output were readable by anyone; the campaign it recorded began on 8 September. Most of it failed: about 16 hours and 148 sequential actions against an open Redis server, and more than 30,000 login attempts elsewhere, produced nothing. Against a server running MONAI Label, the agents mapped the API, found an upload endpoint with a filename parameter, and went from mapping to writing arbitrary files in about 11 minutes. In a later session they wrote a reverse-shell payload to a file Python imports at startup, triggered a training endpoint to spawn a new process, and got a shell running as root. The operator then stepped in with a proxy into a second university's network; Amazon infers, but did not observe, that the same flaw had been used to get there. Amazon assesses with high confidence that the flaw was a zero-day, and with moderate confidence that the actor is China-nexus, based on Simplified Chinese prompts, China Standard Time timestamps and the choice of targets. The maintainers fixed the flaw in MONAI Label 0.8.6 and published an advisory on 18 November that credits Amazon's report and notes that authentication is off by default; no CVE is assigned. Amazon published its account on 20 November and names neither the universities nor the models behind the agents. Amazon is the investigator here, not the victim.",
+      "date": "2026-09-08",
+      "agent": "Cairn",
+      "damageCategory": "production incident",
+      "severity": 4,
+      "preventable": null,
+      "lesson": "An agent given a one-line goal will keep trying for sixteen hours without a break: keep research services behind authentication and off the open internet, because the flaw it finds may not have an advisory yet.",
+      "evidenceLevel": "reported",
+      "sources": [
+        {
+          "title": "Chinese-nexus actor's Cairn AI agents found a zero-day on their own",
+          "publisher": "AWS Security Blog",
+          "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+          "sourceType": "threat intelligence report",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261124132218/https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/"
+        },
+        {
+          "title": "Path traversal in datastore upload endpoints allows arbitrary file write",
+          "publisher": "GitHub / Project-MONAI/MONAILabel",
+          "url": "https://github.com/Project-MONAI/MONAILabel/security/advisories/GHSA-qc22-rmgc-vg94",
+          "sourceType": "maintainer security advisory",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261123092900/https://github.com/Project-MONAI/MONAILabel/security/advisories/GHSA-qc22-rmgc-vg94"
+        },
+        {
+          "title": "China attackers deployed AI agents that autonomously found and exploited a 0-day to take over a university server",
+          "publisher": "The Register",
+          "url": "https://www.theregister.com/security/2026/11/20/china-attackers-deployed-ai-agents-that-autonomously-found-and-exploited-a-0-day-to-take-over-a-university-server/5311382",
+          "sourceType": "independent reporting",
+          "accessedAt": "2026-11-25",
+          "archiveUrl": "https://web.archive.org/web/20261121185726/https://www.theregister.com/security/2026/11/20/china-attackers-deployed-ai-agents-that-autonomously-found-and-exploited-a-0-day-to-take-over-a-university-server/5311382"
+        }
+      ],
+      "featured": false,
+      "hallOfClaws": false
+    },
+    {
       "id": "bing-chat-long-session-cap",
       "displayId": "BING-2023",
       "title": "Microsoft capped Bing chat after long sessions left its designed tone",
